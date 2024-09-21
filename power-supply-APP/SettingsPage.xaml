@@ -49,14 +49,15 @@
                                             <TextBlock>Режим "Испытание"</TextBlock>
                                         </GroupBox.Header>
                                         <StackPanel Orientation="Horizontal">
-                                            <WrapPanel Width="1080" Height="220">
-                                                <GroupBox>
+                                            <WrapPanel Width="1080" Height="400">
+                                                <GroupBox Height="390">
                                                     <GroupBox.Header>
                                                         <CheckBox Content="Режим 'Энергоциклирования'" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="150" />
+                                                            <ColumnDefinition Width="120" />
+                                                            <ColumnDefinition Width="40" />
                                                             <ColumnDefinition Width="20" />
                                                             <ColumnDefinition Width="20" />
                                                         </Grid.ColumnDefinitions>
@@ -67,22 +68,66 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <!--Поле ввода информации-->
-                                                        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap">Продолжительность цикла при min напряжении:</TextBlock>
+                                                        <!--Поле ввода информации для min напряжении элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность цикла при min напряжении:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,28,0" />
-
+                                                        <TextBox x:Name="TextBoxMin" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
-                                                        <Button Grid.Column="1" Grid.Row="1" Click="OnDecreaseButtonClick" Height="20" Width="20" Margin="0,0,0,0">
-                                                            <Image Source="C:\Users\ro517\Downloads\minus.png" Height="10" Width="10" />
-                                                        </Button>
-
-
+                                                        <Button Tag="TextBoxMin" Content="-" Grid.Column="2" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                                                         <!-- Кнопка увеличения значения -->
-                                                        <Button Grid.Column="2" Grid.Row="1" Click="OnIncreaseButtonClick" Height="20" Width="20" >
-                                                            <Image Source="C:\Users\ro517\Downloads\plus.png" Height="10" Width="10" />
+                                                        <Button Tag="TextBoxMin" Content="+" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+                                                        <!--Поле ввода информации для max напряжении элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность цикла при max напряжении:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxMax" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxMax" Content="-" Grid.Column="2" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">
+                                                            
                                                         </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxMax" Content="+" Grid.Column="3" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">
+                                                           
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для одинарного включения элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность для одинарного включения:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxSingle" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxSingle" Content="-"  VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Grid.Column="2" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxSingle" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для паузы между включениями элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxPause" Grid.Column="0" Grid.Row="7"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="7" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxPause" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="7" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                           
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxPause" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="7" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox> 
                                                     </Grid>
                                                 </GroupBox>
 
@@ -90,45 +135,259 @@
                                                     <GroupBox.Header>
                                                         <CheckBox Content="Режим 'Измерение Iхх'" />
                                                     </GroupBox.Header>
-                                                    <StackPanel>
-                                                        <WrapPanel Width="200" Height="200">
-                                                            <TextBlock>Продолжительность цикла при</TextBlock>
-                                                            <TextBlock>min напряжении:</TextBlock>
-                                                        </WrapPanel>
-                                                    </StackPanel>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="120" />
+                                                            <ColumnDefinition Width="40" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="20" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <!--Поле ввода информации для одинарного включения элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxSingleHH" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxSingleHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxSingleHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для паузы между включениями элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxPauseHH" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxPauseHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxPauseHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для воздействия режима ХХ элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима ХХ:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxImpactsHH" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxImpactsHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxImpactsHH" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <CheckBox Grid.Row="6" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                    </Grid>
                                                 </GroupBox>
 
                                                 <GroupBox>
                                                     <GroupBox.Header>
                                                         <CheckBox Content="Режим 'Измерение Iзащ'" />
                                                     </GroupBox.Header>
-                                                    <StackPanel>
-                                                        <WrapPanel Width="200" Height="200">
-                                                            <TextBlock>Продолжительность цикла при min напряжении:</TextBlock>
-                                                        </WrapPanel>
-                                                    </StackPanel>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="120" />
+                                                            <ColumnDefinition Width="40" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="20" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <!--Поле ввода информации для одинарного включения элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxSingleProtect" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxSingleProtect" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxSingleProtect" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                           
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для паузы между включениями элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxPauseProtect" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxPauseProtect" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxPauseProtect" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для воздействия режима ПОРОГ элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима ПОРОГ:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxImpactsStep" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxImpactsStep" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxImpactsStep" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <CheckBox Grid.Row="6" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                    </Grid>
                                                 </GroupBox>
 
                                                 <GroupBox>
                                                     <GroupBox.Header>
                                                         <CheckBox Content="Режим 'Измерение Iкз'" />
                                                     </GroupBox.Header>
-                                                    <StackPanel>
-                                                        <WrapPanel Width="200" Height="200">
-                                                            <TextBlock>Продолжительность цикла при min напряжении:</TextBlock>
-                                                        </WrapPanel>
-                                                    </StackPanel>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="120" />
+                                                            <ColumnDefinition Width="40" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="20" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <!--Поле ввода информации для одинарного включения элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxSingleKZ" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxSingleKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                           
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxSingleKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для паузы между включениями элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxPauseKZ" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxPauseKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                           
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxPauseKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для воздействия режима КЗ элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима КЗ:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxImpactsKZ" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxImpactsKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                            
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxImpactsKZ" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="5" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <CheckBox Grid.Row="6" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                    </Grid>
                                                 </GroupBox>
 
                                                 <GroupBox>
                                                     <GroupBox.Header>
                                                         <CheckBox Content="Режим 'Измерение Uпульс'" />
                                                     </GroupBox.Header>
-                                                    <StackPanel>
-                                                        <WrapPanel Width="200" Height="200">
-                                                            <TextBlock>Продолжительность цикла при min напряжении:</TextBlock>
-                                                        </WrapPanel>
-                                                    </StackPanel>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="120" />
+                                                            <ColumnDefinition Width="40" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="20" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                            <RowDefinition></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <!--Поле ввода информации для одинарного включения элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxSingleVolt" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxSingleVolt" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                           
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxSingleVolt" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                           
+                                                        </Button>
+
+                                                        <!--Поле ввода информации для паузы между включениями элемента-->
+                                                        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
+                                                        <!-- Поле ввода для значения -->
+                                                        <TextBox x:Name="TextBoxPauseVolt" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
+                                                        <!-- Поле СИ-->
+                                                        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
+                                                        <!-- Кнопка уменьшения значения -->
+                                                        <Button Tag="TextBoxPauseVolt" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="-" Grid.Column="2" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0">
+                                                           
+                                                        </Button>
+                                                        <!-- Кнопка увеличения значения -->
+                                                        <Button Tag="TextBoxPauseVolt" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="3" Click="OnChangeButtonClick" Height="20" Width="20" >
+                                                            
+                                                        </Button>
+
+                                                        <CheckBox Grid.Row="4" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                    </Grid>
                                                 </GroupBox>
                                             </WrapPanel>
                                         </StackPanel>

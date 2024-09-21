@@ -52,5 +52,27 @@ namespace power_supply_APP
 
             RelayDataGrid.ItemsSource = relayDataList;
         }
+        private void OnChangeButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string textBoxName = button.Tag.ToString();
+                TextBox textBox = (TextBox)this.FindName(textBoxName);
+
+                if (double.TryParse(textBox.Text, out double value))
+                {
+                    if (button.Content.ToString() == "Decrease")
+                    {
+                        value -= 0.5;
+                    }
+                    else if (button.Content.ToString() == "Increase")
+                    {
+                        value += 0.5;
+                    }
+                    textBox.Text = value.ToString();
+                }
+            }
+        }
     }
 }
