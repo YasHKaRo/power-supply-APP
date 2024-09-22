@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,20 +58,39 @@ namespace power_supply_APP
             Button button = sender as Button;
             if (button != null)
             {
-                string textBoxName = button.Tag.ToString();
+                string textBoxName = button.Tag?.ToString();
                 TextBox textBox = (TextBox)this.FindName(textBoxName);
 
-                if (double.TryParse(textBox.Text, out double value))
+                if (textBox != null)
                 {
-                    if (button.Content.ToString() == "Decrease")
+                    // Заменяем запятую на точку для корректного парсинга
+                    string input = textBox.Text.Replace(',', '.');
+
+                    if (double.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
                     {
-                        value -= 0.5;
+                        if (button.Content.ToString() == "-")
+                        {
+                            value -= 0.5;
+                        }
+                        else if (button.Content.ToString() == "+")
+                        {
+                            value += 0.5;
+                        }
+                        if (button.Content.ToString() == "-0.001")
+                        {
+                            value -= 0.001;
+                        }
+                        else if (button.Content.ToString() == "+0.001")
+                        {
+                            value += 0.001;
+                        }
+                        textBox.Text = value.ToString(CultureInfo.InvariantCulture);
                     }
-                    else if (button.Content.ToString() == "Increase")
+                    else
                     {
-                        value += 0.5;
+                        MessageBox.Show("Пожалуйста, введите корректное значение.");
+                        textBox.Text = "0";
                     }
-                    textBox.Text = value.ToString();
                 }
             }
         }
