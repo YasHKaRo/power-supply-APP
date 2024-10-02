@@ -114,14 +114,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="1">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock1"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock1"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowFirstCell">
@@ -347,14 +353,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="2">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock2"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock2"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowSecondCell">
@@ -580,14 +592,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="3">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock3"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock3"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowThirdCell">
@@ -814,14 +832,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="4">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock4"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock4"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowFourthCell">
@@ -1048,14 +1072,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="5">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock5"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock5"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowFifthCell">
@@ -1281,14 +1311,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="6">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock6"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock6"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowSixthCell">
@@ -1514,14 +1550,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="7">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock7"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock7"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowSeventhCell">
@@ -1748,14 +1790,20 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="8">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock FontSize="10" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="10" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock8"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock8"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <Grid Grid.Row="1" x:Name="MainWindowEighthCell">
@@ -2008,13 +2056,13 @@
                                                 </Grid>
                                                 <Grid Grid.Row="1" x:Name="MainWindowMainCell">
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="40*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
-                                                        <RowDefinition Height="60*"></RowDefinition>
+                                                        <RowDefinition Height="20*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
+                                                        <RowDefinition Height="62*"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="100*"></ColumnDefinition>
@@ -2027,6 +2075,13 @@
                                                     <TextBlock Grid.Row="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18" Width="28" Margin="0,10,0,0">Iзащ</TextBlock>
                                                     <TextBlock Grid.Row="4" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18" Width="16" Margin="0,10,0,0">Iкз</TextBlock>
                                                     <TextBlock Grid.Row="5" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Height="19" Width="46" Margin="0,10,0,0">Uпульс</TextBlock>
+
+                                                    <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                    <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                    <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                    <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                    <Border BorderBrush="Black" Grid.Row="5" Grid.ColumnSpan="4" Grid.RowSpan="1" BorderThickness="1"></Border>
+
                                                     <GroupBox Grid.Row="6">
                                                         <GroupBox.Header>
                                                             <TextBlock>Таймер</TextBlock>
@@ -2352,7 +2407,13 @@
                                                 <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
-                                                
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
+
                                                 <Ellipse Grid.Row="1" Name="GreenIndicatorCell_1" Fill="DarkGreen" Width="20" Height="20" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="10" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
@@ -2434,6 +2495,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
 
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
+
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2505,7 +2572,11 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
-
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2576,6 +2647,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2646,6 +2723,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2716,6 +2799,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2786,6 +2875,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>
@@ -2857,6 +2952,12 @@
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="5" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                 <Ellipse Grid.Row="1" Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+
+                                                <Border BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="1"></Border>
+                                                <Border BorderBrush="Black" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Энергоцикл.</TextBlock>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iхх</TextBlock>
                                                 <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iзащ</TextBlock>

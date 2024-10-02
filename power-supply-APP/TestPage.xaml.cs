@@ -67,5 +67,52 @@ namespace power_supply_APP
                 DynamicTextBlock.Text = clickedButton.Tag.ToString();
             }
         }
+        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            int index = Convert.ToInt32(button.Tag); // Получаем индекс кнопки
+
+            TestingSettingsWindow settingsWindow = new TestingSettingsWindow();
+            if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
+            {
+                string inputText = settingsWindow.InputText; // Получаем текст из окна добавления
+                string serialText = settingsWindow.SerialText;
+                switch (index)
+                {
+                    case 1:
+                        DeviceBlock1.Text = inputText;
+                        SerialBlock1.Text = serialText;
+                        break;
+                    case 2:
+                        DeviceBlock2.Text = inputText;
+                        SerialBlock2.Text = serialText;
+                        break;
+                    case 3:
+                        DeviceBlock3.Text = inputText;
+                        SerialBlock3.Text = serialText;
+                        break;
+                    case 4:
+                        DeviceBlock4.Text = inputText;
+                        SerialBlock4.Text = serialText;
+                        break;
+                    case 5:
+                        DeviceBlock5.Text = inputText;
+                        SerialBlock5.Text = serialText;
+                        break;
+                    case 6:
+                        DeviceBlock6.Text = inputText;
+                        SerialBlock6.Text = serialText;
+                        break;
+                    case 7:
+                        DeviceBlock7.Text = inputText;
+                        SerialBlock7.Text = serialText;
+                        break;
+                    case 8:
+                        DeviceBlock8.Text = inputText;
+                        SerialBlock8.Text = serialText;
+                        break;
+                }
+            }
+        }
     }
 }
