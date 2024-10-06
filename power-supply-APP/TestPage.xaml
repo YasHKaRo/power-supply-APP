@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:power_supply_APP"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1200"
+      d:DesignHeight="750" d:DesignWidth="1300"
       Title="TestPage">
 
     <Grid>
-        <TabControl x:Name="TestWindow" Width="1200" Height="700">
+        <TabControl x:Name="TestWindow" Width="1300" Height="750">
             <TabItem x:Name="MainTestWindow">
                 <TabItem.Header>
                     <TextBlock>Главное окно</TextBlock>
@@ -468,7 +468,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                               
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -503,7 +503,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                               
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -646,8 +646,8 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
-                                            
+
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="SecondCellMenu">
                                                     <TabItem x:Name="SecondTemp">
@@ -795,7 +795,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -830,7 +830,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -973,7 +973,7 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="ThirdCellMenu">
                                                     <TabItem x:Name="ThirdTemp">
@@ -1123,7 +1123,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1158,7 +1158,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1301,7 +1301,7 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="FourthCellMenu">
                                                     <TabItem x:Name="FourthTemp">
@@ -1451,7 +1451,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1486,7 +1486,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1630,7 +1630,7 @@
                                                 </TabItem>
                                             </TabControl>
 
-                                           
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="FifthCellMenu">
                                                     <TabItem x:Name="FifthTemp">
@@ -1779,7 +1779,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1814,7 +1814,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -1957,7 +1957,7 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="SixthCellMenu">
                                                     <TabItem x:Name="SixthTemp">
@@ -2106,7 +2106,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -2141,7 +2141,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -2284,7 +2284,7 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="SeventhCellMenu">
                                                     <TabItem x:Name="SeventhTemp">
@@ -2434,7 +2434,7 @@
                                                                 <RowDefinition></RowDefinition>
                                                             </Grid.RowDefinitions>
                                                             <GroupBox Grid.Row="0">
-                                                                
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -2469,7 +2469,7 @@
                                                                 </Grid>
                                                             </GroupBox>
                                                             <GroupBox Grid.Row="1">
-                                                               
+
                                                                 <Grid>
                                                                     <Grid.RowDefinitions>
                                                                         <RowDefinition></RowDefinition>
@@ -2612,7 +2612,7 @@
                                                     </TabItem.Content>
                                                 </TabItem>
                                             </TabControl>
-                                            
+
                                             <Grid Grid.Row="2">
                                                 <TabControl x:Name="EighthCellMenu">
                                                     <TabItem x:Name="EighthTemp">
@@ -3710,6 +3710,466 @@
                     </TabControl>
                 </TabItem.Content>
             </TabItem>
+            <TabItem x:Name="DebuggingWindow">
+                <TabItem.Header>
+                    <TextBlock>Отладка</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"></RowDefinition>
+                            <RowDefinition Height="331*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Выберите ячейку</TextBlock>
+                                <ComboBox Grid.Row="1" Margin="10, 5">
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №1</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №2</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №3</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №4</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №5</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №6</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №7</TextBlock>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Ячейка №8</TextBlock>
+                                </ComboBox>
+                            </Grid>
+                            <Button Grid.Column="1" Margin="5, 35, 5, 5">Добавить</Button>
+                            <Button Grid.Column="2" Margin="5, 35, 5, 5">Отключить</Button>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Grid.Column="0" Margin="5">
+                                <GroupBox.Header>
+                                    <TextBlock>Электронаня нагрузка</TextBlock>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                        <RowDefinition Height="20*"></RowDefinition>
+                                        <RowDefinition Height="20*"></RowDefinition>
+                                        <RowDefinition Height="20*"></RowDefinition>
+                                        <RowDefinition Height="30*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                        <RowDefinition Height="20*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                        <RowDefinition Height="20*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                        <RowDefinition Height="30*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                        <RowDefinition Height="30*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0">Ток стабилизации</TextBlock>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40*"></ColumnDefinition>
+                                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Margin="5"></TextBox>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Button Grid.Row="0" Margin="5, 2" VerticalAlignment="Top">
+                                                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                                                    <TextBlock Text="🠝" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Grid.Row="1" Margin="5, 2">🠟</Button>
+                                        </Grid>
+                                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16">А</TextBlock>
+                                    </Grid>
+                                    <RadioButton IsChecked="True" Grid.Row="2" VerticalAlignment="Center">Включить режим стабилизации тока</RadioButton>
+                                    <RadioButton Grid.Row="3" VerticalAlignment="Center">Режим короткого замыкания</RadioButton>
+                                    <Grid Grid.Row="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="0" Margin="10, 25">Включить</Button>
+                                        <Button Grid.Column="1" Margin="10, 25">Отключить</Button>
+                                    </Grid>
+                                    <TextBlock Grid.Row="5">Максимальное напряжение</TextBlock>
+                                    <Grid Grid.Row="6">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40*"></ColumnDefinition>
+                                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Margin="5"></TextBox>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Button Grid.Row="0" Margin="5, 2" VerticalAlignment="Top">
+                                                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                                                    <TextBlock Text="🠝" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Grid.Row="1" Margin="5, 2">🠟</Button>
+                                        </Grid>
+                                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16">В</TextBlock>
+                                        <Button Grid.Column="3" Margin="5, 10">Принять</Button>
+                                    </Grid>
+                                    <TextBlock Grid.Row="7">Максимальный ток</TextBlock>
+                                    <Grid Grid.Row="8">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40*"></ColumnDefinition>
+                                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Margin="5"></TextBox>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Button Grid.Row="0" Margin="5, 2" VerticalAlignment="Top">
+                                                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                                                    <TextBlock Text="🠝" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Grid.Row="1" Margin="5, 2">🠟</Button>
+                                        </Grid>
+                                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16">В</TextBlock>
+
+                                    </Grid>
+                                    <TextBlock Grid.Row="9">Измерение выходное напряжение</TextBlock>
+                                    <Grid Grid.Row="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Margin="5" x:Name="DisplayText" FontSize="48" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="Consolas" TextAlignment="Center">0.000</TextBlock>
+                                        <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center">В</TextBlock>
+                                    </Grid>
+                                    <TextBlock Grid.Row="11">Измерение выходное напряжение</TextBlock>
+                                    <Grid Grid.Column="0" Grid.Row="13" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                        <Ellipse Grid.Row="0" Name="ElectronicLoadStatus" Fill="Gray" Width="20" Height="20" Margin="0"/>
+                                        <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                        <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                        <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                        <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="450*"></RowDefinition>
+                                    <RowDefinition Height="150*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <GroupBox Grid.Row="0" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>Измеритель пульсации</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="30*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0">Диапозон измерений</TextBlock>
+                                        <ComboBox Grid.Row="1" Margin="20, 10">
+                                            <TextBlock>АВТО</TextBlock>
+                                            <TextBlock>300мВ</TextBlock>
+                                            <TextBlock>3000мВ</TextBlock>
+                                        </ComboBox>
+                                        <TextBlock Grid.Row="2">Полоса частот</TextBlock>
+                                        <ComboBox Grid.Row="3" Margin="20, 10">
+                                            <TextBlock>100МГц</TextBlock>
+                                            <TextBlock>20МГц</TextBlock>
+                                        </ComboBox>
+                                        <TextBlock Grid.Row="4">Фильтр</TextBlock>
+                                        <ComboBox Grid.Row="5" Margin="20, 10">
+                                            <TextBlock>Без фильтра</TextBlock>
+                                            <TextBlock>HF</TextBlock>
+                                            <TextBlock>LF</TextBlock>
+                                            <TextBlock>LF+HF</TextBlock>
+                                        </ComboBox>
+                                        <Grid Grid.Row="8">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40*"></ColumnDefinition>
+                                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Grid.Column="3" Margin="5, 10">Принять</Button>
+                                        </Grid>
+                                        <TextBlock Grid.Row="10">Измеренное выходное значение пульсации</TextBlock>
+                                        <Grid Grid.Column="0" Grid.Row="12" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                            <Ellipse Grid.Row="0" Name="PulsationsStatus" Fill="Gray" Width="20" Height="20" Margin="0"/>
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Grid.Row="1" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>Дискретные выходы</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40*"></RowDefinition>
+                                            <RowDefinition Height="40*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <RadioButton IsChecked="True" Margin="10,0,10,0" VerticalAlignment="Center" Height="15">Нормально замкнутое реле</RadioButton>
+                                        <RadioButton Grid.Row="1" Margin="10,0,10,0" VerticalAlignment="Center" Height="15">Нормально открытое реле</RadioButton>
+                                        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                            <Ellipse Grid.Row="0" Name="DiscretOutputStatus" Fill="Gray" Width="20" Height="20" Margin="0"/>
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+
+                                </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <GroupBox Grid.Row="0" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>МК110-4ДН.4Р</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                                            <ColumnDefinition Width="120*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Column="0" Grid.Row="0">
+                                            <Ellipse Grid.Row="0" Name="ButtonStateStart" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="1">
+                                            <Ellipse Grid.Row="0" Name="ButtonStateStop" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="2">
+                                            <Ellipse Grid.Row="0" Name="ReplacementAdapterStatus" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Состояние кнопки "ПУСК"</TextBlock>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Состояние кнопки "СТОП"</TextBlock>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Статус сменного адаптера</TextBlock>
+                                        <CheckBox Grid.Row="4" Grid.ColumnSpan="2">Включить вентилятор охлаждения</CheckBox>
+                                        <Grid Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                            <Ellipse Grid.Row="0" Name="MK110Status" Fill="Gray" Width="20" Height="20" Margin="0"/>
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Grid.Row="1" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>ПИД-регулятор TPM210</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40*"></ColumnDefinition>
+                                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Grid.Column="0" Margin="5"></TextBox>
+                                            <Grid Grid.Column="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Button Grid.Row="0" Margin="5, 2" VerticalAlignment="Top">
+                                                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                                                        <TextBlock Text="🠝" />
+                                                    </StackPanel>
+                                                </Button>
+                                                <Button Grid.Row="1" Margin="5, 2">🠟</Button>
+                                            </Grid>
+                                            <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16">°C</TextBlock>
+
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Grid.Column="0" Margin="10, 12">Включить</Button>
+                                            <Button Grid.Column="1" Margin="10, 12">Отключить</Button>
+                                        </Grid>
+                                        <TextBlock Grid.Row="2">Измеренная температура</TextBlock>
+                                        <Grid Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                            <Ellipse Grid.Row="0" Name="PIDStatus" Fill="Gray" Width="20" Height="20" Margin="0"/>
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*"></RowDefinition>
+                                    <RowDefinition Height="6*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <GroupBox Grid.Row="0" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>МУ110-8К</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            
+                                        </Grid.RowDefinitions>
+                                        <CheckBox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" >
+                                            <TextBlock>Включить индикатор <LineBreak/>"Прогрев/Испытания"</TextBlock>
+                                        </CheckBox>
+                                        <Grid Grid.Column="1" Grid.Row="0">
+                                            <Ellipse Grid.Row="0" Name="WarmUpAndTestingState" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                        <CheckBox Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" >
+                                            <TextBlock>Включить индикатор <LineBreak/>"АВАРИЯ"</TextBlock>
+                                        </CheckBox>
+                                        <Grid Grid.Column="1" Grid.Row="1">
+                                            <Ellipse Grid.Row="0" Name="AccidentState" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <RadioButton Grid.Row="0" VerticalAlignment="Center">Включить Uвх min</RadioButton>
+                                            <RadioButton Grid.Row="1" VerticalAlignment="Center">Включить Uвх max</RadioButton>
+                                        </Grid>
+                                        <Grid Grid.Column="1" Grid.Row="6">
+                                            <Ellipse Grid.Row="0" Name="MY110State" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Grid.Row="1" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>Мультметр N27P</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="20*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="30*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                            <RowDefinition Height="30*"></RowDefinition>
+                                            <RowDefinition Height="10*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0">Диапазон измерения входного тока</TextBlock>
+                                        <ComboBox Grid.Row="1" Margin="10, 10, 150, 10">
+                                            <TextBlock>0.005-1.2</TextBlock>
+                                            <TextBlock>0.025-6.0</TextBlock>
+                                        </ComboBox>
+                                        <Button Grid.Row="2" Margin="160, 10, 10, 10">Принять</Button>
+                                        <TextBlock Grid.Row="3">Измеренное входное напряжения</TextBlock>
+                                        <TextBlock Grid.Row="5">Измеренный входной ток</TextBlock>
+                                        <Grid Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">
+                                            <Ellipse Grid.Row="0" Name="MultimeterState" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
+                                            <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Page>
