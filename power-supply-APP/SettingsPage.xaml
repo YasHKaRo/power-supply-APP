@@ -8,7 +8,17 @@
       d:DesignHeight="800" d:DesignWidth="1300"
       Title="SettingsPage">
 
-    <StackPanel>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LightTheme.xaml"/>
+                <ResourceDictionary Source="DarkTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel Margin="0,30, 0, 0" Background="{DynamicResource PageBackgroundColor}">
         <Button Content="Х" Click="BackButton_Click" Width="20" Margin="10" Background="Red" HorizontalAlignment="Right"/>
         <TabControl x:Name="settings" Height="700">
             <TabItem x:Name="generalSettingsOfCells">
@@ -429,14 +439,14 @@
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
                                                         <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" Margin="172,0,0,0" Height="18" Width="155"> Питающее напряжение:</TextBlock>
-                                                        <Grid Grid.Column="1" Grid.Row="0" Margin="0,0,0,45" Grid.RowSpan="2">
+                                                        <Grid Grid.Column="1" Grid.Row="0" Margin="0,0,0,28" Grid.RowSpan="2">
                                                             <Grid.RowDefinitions></Grid.RowDefinitions>
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition></ColumnDefinition>
                                                                 <ColumnDefinition></ColumnDefinition>
                                                             </Grid.ColumnDefinitions>
-                                                            <RadioButton Grid.Column ="0" IsChecked="True" Content="Min" HorizontalAlignment="Right" FontSize="16"/>
-                                                            <RadioButton Grid.Column ="1" Content="Max" HorizontalAlignment="Right" FontSize="16"/>
+                                                            <RadioButton Grid.Column ="0" IsChecked="True" Content="Min" HorizontalAlignment="Right" FontSize="14" Margin="0,0,60,0"/>
+                                                            <RadioButton Grid.Column ="1" Content="Max" HorizontalAlignment="Right" FontSize="14" Margin="0,0,60,0"/>
                                                         </Grid>
                                                         <Grid Grid.Column="0" Grid.Row="1">
                                                             <Grid.ColumnDefinitions>
@@ -472,8 +482,8 @@
                                                             <RowDefinition/>
                                                             <RowDefinition/>
                                                         </Grid.RowDefinitions>
-                                                        <TextBlock Grid.Row="1" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                                            Height="18" Width="186">Продолжительность (мин)</TextBlock>
+                                                        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                                            Height="18" Width="160">Продолжительность (мин)</TextBlock>
                                                         <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"/>
                                                     </Grid>
                                                 </GroupBox>
@@ -505,127 +515,127 @@
                                     <GroupBox.Header>
                                         <TextBlock >Сеть</TextBlock>
                                     </GroupBox.Header>
+
+                                    <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0, 15, 0 0" FontSize="14">Минимальное напряжение</TextBlock>
+                                        <Grid Grid.Row="0" Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="70*"/>
+                                                <ColumnDefinition Width="29*"/>
+                                                <ColumnDefinition Width="70*"/>
+                                                <ColumnDefinition Width="29*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox x:Name="TextBoxMinVolt" Grid.Column="0"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,20,5" />
+                                            <Grid Grid.Row="0" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Button Tag="TextBoxMinVolt" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <Button Tag="TextBoxMinVolt" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <!-- Конец настроек кнопок напряжения-->
+                                            </Grid>
+                                            <TextBox x:Name="TextBoxMinVoltApprox" Grid.Column="2"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,20,5" />
+                                            <Grid Grid.Row="0" Grid.Column="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Button Tag="TextBoxMinVoltApprox" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <Button Tag="TextBoxMinVoltApprox" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <!-- Конец настроек кнопок напряжения-->
+                                            </Grid>
+                                            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">В +/-</TextBlock>
+                                            <TextBlock Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,10,0">%</TextBlock>
+
+                                        </Grid>
+                                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0, 15, 0 0" FontSize="14">Максимальное напряжение</TextBlock>
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="70*"/>
+                                                <ColumnDefinition Width="29*"/>
+                                                <ColumnDefinition Width="70*"/>
+                                                <ColumnDefinition Width="29*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox x:Name="TextBoxMaxVolt" Grid.Column="0"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,20,5" />
+                                            <Grid Grid.Row="0" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Button Tag="TextBoxMaxVolt" Content="+" Grid.Column="3" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <Button Tag="TextBoxMaxVolt" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" VerticalAlignment="Center" />
+                                                <!-- Конец настроек кнопок напряжения-->
+                                            </Grid>
+                                            <TextBox x:Name="TextBoxMaxVoltApprox" Grid.Column="2"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,20,5" />
+                                            <Grid Grid.Row="0" Grid.Column="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Button Tag="TextBoxMaxVoltApprox" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" VerticalAlignment="Center" />
+                                                <Button Tag="TextBoxMaxVoltApprox" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" VerticalAlignment="Center"/>
+                                                <!-- Конец настроек кнопок напряжения-->
+                                            </Grid>
+                                            <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">В +/-</TextBlock>
+                                            <TextBlock Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">%</TextBlock>
+
+                                        </Grid>
+                                        <!-- Поле ввода для значения -->
+                                        <!-- Поле СИ-->
+
+                                    </Grid>
                                 </GroupBox>
-                                <Grid Grid.Row="0" Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="15, 15, 0 0" FontSize="14">Минимальное напряжение</TextBlock>
-                                    <Grid Grid.Row="0" Grid.Column="1">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="70*"/>
-                                            <ColumnDefinition Width="29*"/>
-                                            <ColumnDefinition Width="70*"/>
-                                            <ColumnDefinition Width="29*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox x:Name="TextBoxMinVolt" Grid.Column="0"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,15,20,0" />
-                                        <Grid Grid.Row="0" Grid.Column="0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-
-                                            </Grid.ColumnDefinitions>
-                                            <Button Tag="TextBoxMinVolt" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <Button Tag="TextBoxMinVolt" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <!-- Конец настроек кнопок напряжения-->
-                                        </Grid>
-                                        <TextBox x:Name="TextBoxMinVoltApprox" Grid.Column="2"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,15,20,0" />
-                                        <Grid Grid.Row="0" Grid.Column="2">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-
-                                            </Grid.ColumnDefinitions>
-                                            <Button Tag="TextBoxMinVoltApprox" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <Button Tag="TextBoxMinVoltApprox" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <!-- Конец настроек кнопок напряжения-->
-                                        </Grid>
-                                        <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">В +/-</TextBlock>
-                                        <TextBlock Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,10,0">%</TextBlock>
-
-                                    </Grid>
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="15, 15, 0 0" FontSize="14">Максимальное напряжение</TextBlock>
-                                    <Grid Grid.Row="1" Grid.Column="1">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="70*"/>
-                                            <ColumnDefinition Width="29*"/>
-                                            <ColumnDefinition Width="70*"/>
-                                            <ColumnDefinition Width="29*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox x:Name="TextBoxMaxVolt" Grid.Column="0"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,15,20,0" />
-                                        <Grid Grid.Row="0" Grid.Column="0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-
-                                            </Grid.ColumnDefinitions>
-                                            <Button Tag="TextBoxMaxVolt" Content="+" Grid.Column="2" Click="OnChangeButtonClick" Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,15,0,0"/>
-                                            <Button Tag="TextBoxMaxVolt" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <!-- Конец настроек кнопок напряжения-->
-                                        </Grid>
-                                        <TextBox x:Name="TextBoxMaxVoltApprox" Grid.Column="2"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,15,20,0" />
-                                        <Grid Grid.Row="0" Grid.Column="2">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-
-                                            </Grid.ColumnDefinitions>
-                                            <Button Tag="TextBoxMaxVoltApprox" Content="+" Grid.Column="3" Grid.Row="0" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <Button Tag="TextBoxMaxVoltApprox" Content="-" Grid.Column="3" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
-                                            <!-- Конец настроек кнопок напряжения-->
-                                        </Grid>
-                                        <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">В +/-</TextBlock>
-                                        <TextBlock Grid.Column="3" Grid.Row="0" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">%</TextBlock>
-
-                                    </Grid>
-                                    <!-- Поле ввода для значения -->
-                                    <!-- Поле СИ-->
-
-                                </Grid>
-
                                 <Grid Grid.Row="1" Grid.Column="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition></ColumnDefinition>
@@ -660,20 +670,20 @@
                                         <RowDefinition Height="40*"></RowDefinition>
                                         <RowDefinition Height="80*"></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Margin="10, 20, 0 0" FontSize="14">Диапозон измерений</TextBlock>
-                                    <ComboBox Grid.Column="0" Margin="0,38,0,38" Grid.RowSpan="3">
+                                    <TextBlock Margin="40, 20, 0 0" FontSize="14">Диапозон измерений</TextBlock>
+                                    <ComboBox Grid.Column="0" Grid.Row="1" Margin="40, 10">
                                         <TextBlock>АВТО</TextBlock>
                                         <TextBlock>300мВ</TextBlock>
                                         <TextBlock>3000мВ</TextBlock>
                                     </ComboBox>
-                                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,20,0,38" FontSize="14" Grid.RowSpan="2">Полоса частот</TextBlock>
-                                    <ComboBox Grid.Row="3" Grid.Column="0">
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="40,20,0,0" FontSize="14">Полоса частот</TextBlock>
+                                    <ComboBox Grid.Row="3" Grid.Column="0" Margin="40, 10">
                                         <TextBlock>100МГц</TextBlock>
                                         <TextBlock>20МГц</TextBlock>
 
                                     </ComboBox>
-                                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="10,20,0,38" FontSize="14" Grid.RowSpan="2">Фильтр</TextBlock>
-                                    <ComboBox Grid.Row="5" Grid.Column="0" Margin="0,0,0,38" Grid.RowSpan="2">
+                                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="40,20,0,0" FontSize="14">Фильтр</TextBlock>
+                                    <ComboBox Grid.Row="5" Grid.Column="0" Margin="40, 10">
                                         <TextBlock>Без фильтра</TextBlock>
                                         <TextBlock>HF</TextBlock>
                                         <TextBlock>LF</TextBlock>
@@ -704,7 +714,7 @@
                                             </GroupBox.Header>
 
                                         </GroupBox>
-                                        <RadioButton Margin="10, 15, 0, 0">Отключать питание БП в одной секции</RadioButton>
+                                        <RadioButton Margin="10, 20, 0, 0">Отключать питание БП в одной секции</RadioButton>
                                         <RadioButton Grid.Row="1" Margin="10, 0, 0, 0">Отключать питание БП во всех секциях</RadioButton>
                                     </Grid>
 
@@ -1065,7 +1075,7 @@
                     </TabControl>
                 </TabItem.Content>
             </TabItem>
-            <TabItem x:Name="personalSettings">
+            <TabItem x:Name="personalSettings" >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Height="10" Width="15" Fill="Black" />
@@ -1073,11 +1083,11 @@
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <TabControl x:Name="personalModes" Margin="10,0,10,150">
+                    <TabControl x:Name="personalModes"  Width="1300" Margin="10,0,10,25">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="539*"></ColumnDefinition>
-                                <ColumnDefinition Width="95*"></ColumnDefinition>
+                                <ColumnDefinition Width="500*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
                             <GroupBox Grid.Column="0">
@@ -1121,7 +1131,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="WarmUpDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="WarmUpDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1"></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1131,8 +1141,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Margin="0,-5,0,0" >+</Button>
+                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-5">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1151,7 +1161,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="EnergyDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="EnergyDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1181,7 +1191,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IhhDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="IhhDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1211,7 +1221,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IkzDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="IkzDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1241,7 +1251,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IprotectDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="IprotectDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1271,7 +1281,7 @@
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="UPulsDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Margin="5"></TextBox>
+                                                    <TextBox x:Name="UPulsDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1308,7 +1318,7 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
-                                                
+
                                             </Grid.RowDefinitions>
                                             <TextBlock Grid.Row="0" Margin="3" TextWrapping="Wrap" FontSize="11">Максимальное значение выходного тока БП</TextBlock>
                                             <Grid Grid.Row="1">
@@ -1628,7 +1638,7 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <CheckBox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"> Контролировать НЗ контакт </CheckBox>
+                                            <CheckBox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Контролировать НЗ контакт</CheckBox>
                                             <CheckBox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Контролировать НО контакт</CheckBox>
                                         </Grid>
                                     </GroupBox>
@@ -1649,6 +1659,50 @@
                             </StackPanel>
                         </Grid>
                     </TabControl>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="applicationSettings">
+                <TabItem.Header>
+                    <TextBlock>Настройки приложения</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TabControl>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <GroupBox Grid.Row="0" Margin="5">
+                                    <GroupBox.Header>
+                                        <TextBlock>Внешний вид</TextBlock>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">Светлая/Тёмная тема</TextBlock>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </Grid>
+                    </TabControl>
+
                 </TabItem.Content>
             </TabItem>
         </TabControl>

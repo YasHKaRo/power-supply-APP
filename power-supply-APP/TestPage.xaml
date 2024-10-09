@@ -8,8 +8,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="1300"
       Title="TestPage">
-
-    <Grid>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LightTheme.xaml"/>
+                <ResourceDictionary Source="DarkTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Margin="0,20" Background="{DynamicResource PageBackgroundColor}">
         <TabControl x:Name="TestWindow" Width="1300" Height="750">
             <TabItem x:Name="MainTestWindow">
                 <TabItem.Header>
@@ -114,7 +121,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="1">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="1" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -157,7 +164,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextFirst" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -440,7 +447,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="2">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="2" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -483,7 +490,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextSecond" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -767,7 +774,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="3">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="3" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -810,7 +817,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextThirdCell" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -1094,7 +1101,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="4">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="4" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -1138,7 +1145,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextFourthCell" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -1422,7 +1429,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="5">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="5" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -1466,7 +1473,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextFifth" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -1750,7 +1757,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="6">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="6" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -1794,7 +1801,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextSixth" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -2077,7 +2084,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="7">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="7" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -2121,7 +2128,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextSeventh" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>
@@ -2405,7 +2412,7 @@
                                                     <ColumnDefinition Width="40*"></ColumnDefinition>
                                                     <ColumnDefinition Width="60*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="12" Click="Add_Button_Click" Tag="8">Добавить</Button>
+                                                <Button Margin="12" Click="Add_Button_Click" Tag="8" FontSize="12">Добавить</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -2449,7 +2456,7 @@
                                                                     <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
                                                                     <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
                                                                     <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextEighthCell" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
-                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2">Выполнено циклов:</TextBlock>
+                                                                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                                                                     <Grid Grid.Column="0" Grid.Row="3">
                                                                         <Grid.ColumnDefinitions>
                                                                             <ColumnDefinition></ColumnDefinition>

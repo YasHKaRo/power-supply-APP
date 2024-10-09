@@ -24,7 +24,7 @@ namespace power_supply_APP
         {
             InitializeComponent();
         }
-         private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;

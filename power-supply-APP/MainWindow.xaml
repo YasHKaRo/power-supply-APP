@@ -5,26 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:power_supply_APP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1000">
+        Title="MainWindow" Height="500" Width="1000" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
-        <Style x:Key="BlackAndWhite">
-            <Setter Property="Control.FontFamily" Value="Verdana" />
-            <Setter Property="Control.Background" Value="Black" />
-            <Setter Property="Control.Foreground" Value="White" />
-            <Setter Property="Control.Margin" Value="10" />
-        </Style>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DarkTheme.xaml"/>
+                <ResourceDictionary Source="LightTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
+
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <StackPanel x:Name="buttonsStack" Background="Black">
-            <Button x:Name="button_settings" Width="40" Height="40" 
-                Click="SettingButton_Click" HorizontalAlignment="Right">
+        <Grid x:Name="MainGrid">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="80*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ToggleButton Grid.Row="0" x:Name="toggleButton" Content="Включить" Margin="5,5,0,0" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="60"/>
+
+            <Button x:Name="button_settings" Width="40" Height="40" Click="SettingButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\ro517\Downloads\settings.png" Width="35" Height="35" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                     <TextBlock VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-        </StackPanel>
+        </Grid>
+
     </ScrollViewer>
 </Window>
