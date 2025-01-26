@@ -31,7 +31,7 @@ namespace power_supply_APP
         public MainViewModel()
         {
             // Установите начальную тему
-            CurrentTheme = "DarkTheme.xaml"; // или "LightTheme.xaml"
+            CurrentTheme = "LightTheme.xaml"; // или "LightTheme.xaml"
             ToggleThemeCommand = new RelayCommand(ToggleTheme);
         }
 

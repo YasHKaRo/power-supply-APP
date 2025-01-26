@@ -9,16 +9,8 @@
       Title="SettingsPage">
 
 
-    <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="LightTheme.xaml"/>
-                <ResourceDictionary Source="DarkTheme.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Page.Resources>
 
-    <StackPanel Margin="0,30, 0, 0" Background="{DynamicResource PageBackgroundColor}">
+    <StackPanel Margin="0,30, 0, 0">
         <Button Content="Х" Click="BackButton_Click" Width="20" Margin="10" Background="Red" HorizontalAlignment="Right"/>
         <TabControl x:Name="settings" Height="700">
             <TabItem x:Name="generalSettingsOfCells">
@@ -453,7 +445,7 @@
                                                                 <ColumnDefinition Width="221*"></ColumnDefinition>
                                                                 <ColumnDefinition Width="173*"></ColumnDefinition>
                                                             </Grid.ColumnDefinitions>
-                                                            <TextBlock FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Height="18" Width="186">Одинарное включение (мин)</TextBlock>
+                                                            <TextBlock FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Height="18" Width="200">Одинарное включение (мин.)</TextBlock>
                                                             <TextBox Grid.Column="1" Margin="5,5,5,5"></TextBox>
                                                         </Grid>
                                                         <Grid Grid.Column="1" Grid.Row="1">
@@ -461,7 +453,7 @@
                                                                 <ColumnDefinition Width="221*"></ColumnDefinition>
                                                                 <ColumnDefinition Width="173*"></ColumnDefinition>
                                                             </Grid.ColumnDefinitions>
-                                                            <TextBlock Grid.Column="0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center">Паузы между включением (сек)</TextBlock>
+                                                            <TextBlock Grid.Column="0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Height="18" Width="200">Паузы между включением (с.)</TextBlock>
                                                             <TextBox Grid.Column="1" Margin="5,5,5,5"></TextBox>
                                                         </Grid>
                                                     </Grid>
@@ -483,7 +475,7 @@
                                                             <RowDefinition/>
                                                         </Grid.RowDefinitions>
                                                         <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                                            Height="18" Width="160">Продолжительность (мин)</TextBlock>
+                                                            Height="18" Width="160">Продолжительность (мин.)</TextBlock>
                                                         <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"/>
                                                     </Grid>
                                                 </GroupBox>
@@ -703,20 +695,21 @@
                                         <Button Tag="CorrectionFactor" Content="-0.001" Grid.Column="0" Grid.Row="1" Click="OnChangeButtonClick" Height="20" Width="44" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                                         <!-- Конец настроек кнопок напряжения-->
                                     </Grid>
-                                    <Grid Grid.Row="9" Grid.Column="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <GroupBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
-                                            <GroupBox.Header>
-                                                <CheckBox>Питание БП</CheckBox>
-                                            </GroupBox.Header>
+                                    <GroupBox Grid.Row="9" Grid.Column="0">
+                                        <GroupBox.Header>
+                                            <TextBlock>Питание БП</TextBlock>
+                                        </GroupBox.Header>
+                                        <Grid Grid.Row="9" Grid.Column="0">
 
-                                        </GroupBox>
-                                        <RadioButton Margin="10, 20, 0, 0">Отключать питание БП в одной секции</RadioButton>
-                                        <RadioButton Grid.Row="1" Margin="10, 0, 0, 0">Отключать питание БП во всех секциях</RadioButton>
-                                    </Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <RadioButton Margin="10, 5, 0, 0">Отключать питание БП в одной секции</RadioButton>
+                                            <RadioButton Grid.Row="1" Margin="10, 5, 0, 0">Отключать питание БП во всех секциях</RadioButton>
+                                        </Grid>
+
+                                    </GroupBox>
 
                                 </Grid>
                             </Grid>
@@ -993,7 +986,7 @@
                                                             <RowDefinition/>
                                                             <RowDefinition/>
                                                         </Grid.RowDefinitions>
-                                                        <TextBlock TextWrapping="Wrap" FontSize="14">Допустимое рвемя отказа оборудования при выполнении режима, в % от длительности режима</TextBlock>
+                                                        <TextBlock TextWrapping="Wrap" Margin="10,5,10,0" FontSize="14">Допустимое время отказа оборудования при выполнении режима, в % от длительности режима</TextBlock>
                                                         <Grid Grid.Row="1">
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition></RowDefinition>
@@ -1695,16 +1688,110 @@
                                             <ColumnDefinition Width="1*"></ColumnDefinition>
                                             <ColumnDefinition Width="2*"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        
+
                                         <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">Светлая/Тёмная тема</TextBlock>
                                     </Grid>
                                 </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <GroupBox>
+                                    <GroupBox.Header>
+                                        <TextBlock>Функции администратора</TextBlock>
+                                    </GroupBox.Header>
+                                </GroupBox>
+                                <Grid x:Name="AuthorizationAdmin" Visibility="Hidden">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                        <RowDefinition Height="3*"></RowDefinition>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="1">
+                                        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0,30,0,0">Доступ ограничен! Введите пароль администратора</TextBlock>
+                                        <PasswordBox x:Name="PasswordBox" Margin="250,20" FontSize="24"></PasswordBox>
+                                        <Button Click="Click_Admin" Width="200" Height="50" Content="Войти"></Button>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid x:Name="AdminSettings" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <GroupBox Margin="15">
+                                        <GroupBox.Header>
+                                            <TextBlock>Смена пароля</TextBlock>
+                                        </GroupBox.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Логин</TextBlock>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Новый пароль</TextBlock>
+                                            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Повторите пароль</TextBlock>
+                                            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></TextBox>
+                                            <PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></PasswordBox>
+                                            <PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></PasswordBox>
+                                            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="40, 10">Принять</Button>
+                                            <TextBlock Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Результат:</TextBlock>
+                                        </Grid>
+
+                                    </GroupBox>
+                                    <GroupBox Grid.ColumnSpan="2" Grid.Column="1" Margin="15">
+                                        <GroupBox.Header>
+                                            <TextBlock>Сетевые настройки</TextBlock>
+                                        </GroupBox.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="2*"></RowDefinition>
+                                                <RowDefinition Height="5*"></RowDefinition>
+                                                <RowDefinition Height="5*"></RowDefinition>
+                                                <RowDefinition Height="5*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" >Последовательные порты для подключения оборудования секции (модули ввода/вывода, мультиметр, ПИД-регулятор)</TextBlock>
+                                            <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230">Последовательный порт для подключения электронных нагрузок</TextBlock>
+                                            <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230">Порты для подключения измерителей пульсаций</TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">Секция 1</TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">Секция 2</TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.Column="3" TextWrapping="Wrap" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">Секция 3</TextBlock>
+
+                                            <ComboBox Margin="15, 25" Grid.Column="1" Grid.Row="1"></ComboBox>
+                                            <ComboBox Margin="15, 25" Grid.Column="2" Grid.Row="1"></ComboBox>
+                                            <ComboBox Margin="15, 25" Grid.Column="3" Grid.Row="1"></ComboBox>
+
+                                            <ComboBox Grid.Column="1" Grid.Row="2" Margin="15, 25" Grid.ColumnSpan="3"></ComboBox>
+
+                                            <ComboBox Margin="15, 25" Grid.Column="1" Grid.Row="3"></ComboBox>
+                                            <ComboBox Margin="15, 25" Grid.Column="2" Grid.Row="3"></ComboBox>
+                                            <ComboBox Margin="15, 25" Grid.Column="3" Grid.Row="3"></ComboBox>
+                                        </Grid>
+                                    </GroupBox>
+
+                                </Grid>
                             </Grid>
                         </Grid>
                     </TabControl>
 
                 </TabItem.Content>
             </TabItem>
+
         </TabControl>
 
     </StackPanel>

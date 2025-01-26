@@ -1,4 +1,5 @@
-﻿using System;
+﻿using power_supply_APP.View;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -92,6 +93,19 @@ namespace power_supply_APP
                         textBox.Text = "0";
                     }
                 }
+            }
+        }
+        private void Click_Admin(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            string password = PasswordBox.Password;
+            if (button != null && password == "55555")
+            {
+                // Скрываем окно авторизации
+                AuthorizationAdmin.Visibility = Visibility.Collapsed;
+
+                // Показываем настройки администратора
+                AdminSettings.Visibility = Visibility.Visible;
             }
         }
     }
