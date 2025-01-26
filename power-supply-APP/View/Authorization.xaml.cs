@@ -24,14 +24,17 @@ namespace power_supply_APP
         {
             InitializeComponent();
         }
-         private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
             if (username == "admin" && password == "55555")
             {
-                MessageBox.Show("Авторизация успешна!");
+                // Получаем доступ к главному окну
+                MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+                // Переходим на TestPage
+                mainWindow.MainFrame.Navigate(new TestPage());
 
             }
             else
