@@ -28,8 +28,8 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
-                        <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
+                        <TextBlock Grid.Column="0" FontSize="11">Измерение:</TextBlock>
+                        <TextBlock Grid.Column="1" FontSize="11">Время:</TextBlock>
                         <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextFirst" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
                         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                         <Grid Grid.Column="0" Grid.Row="3">
@@ -91,11 +91,11 @@
                                 <ColumnDefinition Width="60*"></ColumnDefinition>
                                 <ColumnDefinition Width="20*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="10">Выход</TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="10">___</TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" FontSize="10">___</TextBlock>
-                            <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="10">В</TextBlock>
-                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="10">А</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="11">Выход</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" x:Name="U_out" FontSize="11">___</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" x:Name="I_out" FontSize="11">___</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="11">В</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"  FontSize="11">А</TextBlock>
                         </Grid>
                         <Grid Grid.Column="0" Grid.Row="1">
                             <Grid.ColumnDefinitions>

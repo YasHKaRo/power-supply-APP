@@ -42,7 +42,7 @@
                     <!-- Окружность -->
                     <Ellipse Width="40" Height="40" Fill="Transparent" Stroke="Black" Canvas.Left="5" Canvas.Top="15"/>
                     <!-- Кнопка внутри окружности -->
-                    <Button Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="Red" >
+                    <Button Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="Red" Click="Stop_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="50"/>
@@ -62,7 +62,7 @@
                     <!-- Окружность -->
                     <Ellipse Width="40" Height="40" Fill="Transparent" Stroke="Black" Canvas.Left="5" Canvas.Top="15"/>
                     <!-- Кнопка внутри окружности -->
-                    <Button Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" >
+                    <Button Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" Click="Start_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="50"/>
@@ -147,31 +147,11 @@
                                         <ColumnDefinition Width="120*"></ColumnDefinition>
                                         <ColumnDefinition Width="40*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <lvc:CartesianChart Grid.Row="0" Name="Current_Chart_En">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="1" Name="Current_Chart_Ihh">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="2" Name="Current_Chart_Iprot">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="3" Name="Current_Chart_Ikz">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="4" Name="Current_Chart_Upuls">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="0" Name="Current_Chart_En"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="1" Name="Current_Chart_Ihh"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="2" Name="Current_Chart_Iprot"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="3" Name="Current_Chart_Ikz"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="4" Name="Current_Chart_Upuls"></lvc:CartesianChart>
                                     <Grid Grid.Column="1" Grid.Row="0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition></ColumnDefinition>
@@ -263,31 +243,11 @@
                                         <ColumnDefinition Width="120*"></ColumnDefinition>
                                         <ColumnDefinition Width="40*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <lvc:CartesianChart Grid.Row="0" Name="Voltage_Chart_En">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="1" Name="Voltage_Chart_Ihh">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="2" Name="Voltage_Chart_Iprot">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="3" Name="Voltage_Chart_Ikz">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
-                                    <lvc:CartesianChart Grid.Row="4" Name="Voltage_Chart_Upuls">
-                                        <lvc:CartesianChart.Series>
-                                            <lvc:LineSeries Values="{Binding Values}" Title="Пример данных"/>
-                                        </lvc:CartesianChart.Series>
-                                    </lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="0" Name="Voltage_Chart_En"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="1" Name="Voltage_Chart_Ihh"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="2" Name="Voltage_Chart_Iprot"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="3" Name="Voltage_Chart_Ikz"></lvc:CartesianChart>
+                                    <lvc:CartesianChart Grid.Row="4" Name="Voltage_Chart_Upuls"></lvc:CartesianChart>
                                     <Grid Grid.Column="1" Grid.Row="0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition></ColumnDefinition>

@@ -121,7 +121,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold" Click="Add_Button_Click">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -206,7 +206,7 @@
                                                 <!-- Окружность -->
                                                 <Ellipse Width="40" Height="40" Fill="Transparent" Stroke="Black" Canvas.Left="5" Canvas.Top="15"/>
                                                 <!-- Кнопка внутри окружности -->
-                                                <Button Click="Start_Test" Tag="Section_2"  Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" >
+                                                <Button Click="Start_Test" Tag="Section_2" Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" >
                                                     <Button.Resources>
                                                         <Style TargetType="Border">
                                                             <Setter Property="CornerRadius" Value="50"/>

@@ -29,20 +29,36 @@ namespace power_supply_APP
         private bool[] isFirstState; // Массив для отслеживания состояния ячеек
         private int cellCount = 8; // Количество ячеек
         public List<double> Values { get; set; }
+        private Dictionary<SectionControl, SectionInDetail> sectionMappings = new Dictionary<SectionControl, SectionInDetail>();
+
         public TestPage()
         {
             InitializeComponent();
-           
-            // Инициализация данных
-            Values = new List<double> {3, 5, 7, 4, 6 };
-
-            // Установка контекста данных для привязки
-            DataContext = this;
+            InitializeSectionMappings();
         }
+        private void InitializeSectionMappings()
+        {
+            sectionMappings[Section_1] = Section_Detail_1;
+            sectionMappings[Section_2] = Section_Detail_2;
+            sectionMappings[Section_3] = Section_Detail_3;
+            sectionMappings[Section_4] = Section_Detail_4;
+            sectionMappings[Section_5] = Section_Detail_5;
+            sectionMappings[Section_6] = Section_Detail_6;
+            sectionMappings[Section_7] = Section_Detail_7;
+            sectionMappings[Section_8] = Section_Detail_8;
 
+            // Устанавливаем связь в каждом SectionInDetail
+            foreach (var pair in sectionMappings)
+            {
+                pair.Value.LinkSectionControl(pair.Key);
 
-
-
+                // Подписываемся на событие TestStateChanged для обновления UI
+                pair.Value.TestStateChanged += (sender, isStarted) =>
+                {
+                    UpdateInnerGrid(pair.Key, isStarted);
+                };
+            }
+        }
         private void Button_Cell_Click(object sender, RoutedEventArgs e)
         {
             // Скрыть все элементы SectionControl
@@ -148,52 +164,39 @@ namespace power_supply_APP
 
         private void Start_Test(object sender, RoutedEventArgs e)
         {
-            // Получаем кнопку, которая была нажата
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
-            // Находим соответствующий SectionControl по имени
-            var sectionControl = FindName(sectionName) as SectionControl;
-
-            if (sectionControl != null)
+            if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {
-                // Показываем InnerGrid1
-                var innerGrid1 = sectionControl.FindName("InnerGrid1") as Grid;
-                if (innerGrid1 != null)
-                {
-                    innerGrid1.Visibility = Visibility.Visible;
-                }
-                // Прячем InnerGrid2
-                var innerGrid2 = sectionControl.FindName("InnerGrid2") as Grid;
-                if (innerGrid2 != null)
-                {
-                    innerGrid2.Visibility = Visibility.Collapsed;
-                }
+                sectionDetail.StartCharts();
+                UpdateInnerGrid(FindName(sectionName) as SectionControl, true);
             }
-
         }
+
         private void Stop_Test(object sender, RoutedEventArgs e)
         {
-            // Получаем кнопку, которая была нажата
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
-            // Находим соответствующий SectionControl по имени
-            var sectionControl = FindName(sectionName) as SectionControl;
-
+            if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
+            {
+                sectionDetail.StopCharts();
+                UpdateInnerGrid(FindName(sectionName) as SectionControl, false);
+            }
+        }
+        // Метод для обновления состояния SectionControl
+        private void UpdateInnerGrid(SectionControl sectionControl, bool isStarted)
+        {
             if (sectionControl != null)
             {
-                // Показываем InnerGrid2
-                var innerStackPanel2 = sectionControl.FindName("InnerGrid2") as Grid;
-                if (innerStackPanel2 != null)
-                {
-                    innerStackPanel2.Visibility = Visibility.Visible;
-                }
-                // Прячем InnerGrid1
                 var innerGrid1 = sectionControl.FindName("InnerGrid1") as Grid;
-                if (innerGrid1 != null)
+                var innerGrid2 = sectionControl.FindName("InnerGrid2") as Grid;
+
+                if (innerGrid1 != null && innerGrid2 != null)
                 {
-                    innerGrid1.Visibility = Visibility.Collapsed;
+                    innerGrid1.Visibility = isStarted ? Visibility.Visible : Visibility.Collapsed;
+                    innerGrid2.Visibility = isStarted ? Visibility.Collapsed : Visibility.Visible;
                 }
             }
         }

@@ -1076,7 +1076,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <TabControl x:Name="personalModes"  Width="1300" Margin="10,0,10,25">
+                    <TabControl x:Name="personalModes"  Width="1250" Margin="10,0,10,25">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="500*"></ColumnDefinition>
@@ -1120,12 +1120,12 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="WarmUpDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1"></TextBox>
-                                                    <Grid Grid.Row="1" Grid.Column="1">
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="16">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5,5,5,5" x:Name="WarmUpDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1"></TextBox>
+                                                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="111,2,0,0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1134,8 +1134,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Margin="0,-5,0,0" >+</Button>
-                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-5">-</Button>
+                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="WarmUpDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1150,11 +1150,11 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="EnergyDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5" x:Name="EnergyDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1164,8 +1164,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="EnergyDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="EnergyDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="EnergyDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="EnergyDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1180,11 +1180,11 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IhhDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5" x:Name="IhhDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1194,8 +1194,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="IhhDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="IhhDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="IhhDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="IhhDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1210,11 +1210,11 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IkzDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5" x:Name="IkzDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1224,8 +1224,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="IkzDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="IkzDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="IkzDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="IkzDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1240,11 +1240,11 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="IprotectDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5" x:Name="IprotectDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1254,8 +1254,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="IprotectDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="IprotectDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="IprotectDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="IprotectDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1270,11 +1270,11 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition></RowDefinition>
-                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition Height="1*"></RowDefinition>
+                                                        <RowDefinition Height="2*"></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2">Продолжительность режима:</TextBlock>
-                                                    <TextBox x:Name="UPulsDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
+                                                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Продолжительность режима:</TextBlock>
+                                                    <TextBox Margin="5" x:Name="UPulsDuration" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" ></TextBox>
                                                     <Grid Grid.Row="1" Grid.Column="1">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition></ColumnDefinition>
@@ -1284,8 +1284,8 @@
                                                             <RowDefinition></RowDefinition>
                                                             <RowDefinition></RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <Button Tag="UPulsDuration" Click="OnChangeButtonClick" Margin="0,-3,0,0" >+</Button>
-                                                        <Button Tag="UPulsDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="0,0,0,-3">-</Button>
+                                                        <Button Tag="UPulsDuration" Click="OnChangeButtonClick" Margin="2" >+</Button>
+                                                        <Button Tag="UPulsDuration" Click="OnChangeButtonClick" Grid.Row="1" Margin="2">-</Button>
                                                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Минут</TextBlock>
                                                     </Grid>
                                                 </Grid>
@@ -1313,7 +1313,7 @@
                                                 <RowDefinition></RowDefinition>
 
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Margin="3" TextWrapping="Wrap" FontSize="11">Максимальное значение выходного тока БП</TextBlock>
+                                            <TextBlock Grid.Row="0" Margin="3" TextWrapping="Wrap" VerticalAlignment="Bottom">Максимальное значение выходного тока БП</TextBlock>
                                             <Grid Grid.Row="1">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1326,12 +1326,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxValueExitCurrent" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="MaxValueExitCurrent" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxValueExitCurrent" Margin="0,0,0,2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="MaxValueExitCurrent" Grid.Row="1" Margin="0,2,0,0" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="2" Margin="3" TextWrapping="Wrap" FontSize="11">Значение выходного напряжения БП</TextBlock>
+                                            <TextBlock Grid.Row="2" Margin="3" TextWrapping="Wrap" VerticalAlignment="Bottom">Значение выходного напряжения БП</TextBlock>
                                             <Grid Grid.Row="3">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1347,8 +1347,8 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="ValueExitEnergy" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="ValueExitEnergy" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="ValueExitEnergy" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="ValueExitEnergy" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">В ±</TextBlock>
                                                 <TextBox Grid.Column="3" x:Name="DeviationValueExitEnergy" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
@@ -1357,12 +1357,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="DeviationValueExitEnergy" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="DeviationValueExitEnergy" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="DeviationValueExitEnergy" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="DeviationValueExitEnergy" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">%</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="4" Margin="3" TextWrapping="Wrap" FontSize="11">Диапозон срабатывания защиты БП (Коэф)</TextBlock>
+                                            <TextBlock Grid.Row="4" Margin="3" TextWrapping="Wrap" VerticalAlignment="Bottom">Диапазон срабатывания защиты БП (Коэффициент)</TextBlock>
                                             <Grid Grid.Row="5">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="35*"></ColumnDefinition>
@@ -1379,8 +1379,8 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="ProtectionRangeCurrentMin" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="ProtectionRangeCurrentMin" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="ProtectionRangeCurrentMin" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="ProtectionRangeCurrentMin" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">От</TextBlock>
                                                 <TextBox Grid.Column="4" x:Name="ProtectionRangeCurrentMax" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
@@ -1389,12 +1389,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="ProtectionRangeCurrentMax" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="ProtectionRangeCurrentMax" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="ProtectionRangeCurrentMax" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="ProtectionRangeCurrentMax" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">До</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="6" Margin="3" TextWrapping="Wrap" FontSize="11">Диапозон нарастания значения для определения срабатывания защиты БП (А)</TextBlock>
+                                            <TextBlock Grid.Row="6" Margin="3" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="11">Диапазон нарастания значения для определения срабатывания защиты БП (А)</TextBlock>
                                             <Grid Grid.Row="7">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="35*"></ColumnDefinition>
@@ -1411,8 +1411,8 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="ProtectionRangeIncreasingValueMin" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="ProtectionRangeIncreasingValueMin" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="ProtectionRangeIncreasingValueMin" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="ProtectionRangeIncreasingValueMin" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">От</TextBlock>
                                                 <TextBox Grid.Column="4" x:Name="ProtectionRangeIncreasingValueMax" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
@@ -1421,12 +1421,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="ProtectionRangeIncreasingValueMax" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="ProtectionRangeIncreasingValueMax" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="ProtectionRangeIncreasingValueMax" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="ProtectionRangeIncreasingValueMax" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">До</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="8" Margin="3" TextWrapping="Wrap" FontSize="11">Значение ограничения тока на электронной нагрузке (коэф)</TextBlock>
+                                            <TextBlock Grid.Row="8" Margin="3,14,3,0" TextWrapping="Wrap" VerticalAlignment="Top">Значение ограничения тока на электронной нагрузке (коэффициент)</TextBlock>
                                             <Grid Grid.Row="9">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1439,17 +1439,17 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="CurrentLimit" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="CurrentLimit" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="CurrentLimit" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="CurrentLimit" Grid.Row="1" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
-                                            <CheckBox Grid.Row="10">
-                                                <TextBlock FontSize="11">
-                                                    Контролировать максимальное значение <LineBreak/>выходного тока  короткого замыкания
+                                            <CheckBox Grid.Row="10" VerticalAlignment="Bottom" IsChecked="True">
+                                                <TextBlock>
+                                                    Контролировать макс. значение <LineBreak/>выходного тока КЗ
                                                 </TextBlock>
                                             </CheckBox>
-                                            <TextBlock Grid.Row="11" Margin="3" TextWrapping="Wrap" FontSize="11">Максимальное значение выходного тока короткого замыкания</TextBlock>
+                                            <TextBlock Grid.Row="11" Margin="3" TextWrapping="Wrap" VerticalAlignment="Bottom">Максимальное значение выходного тока короткого замыкания</TextBlock>
                                             <Grid Grid.Row="12">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1462,8 +1462,8 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxOutputCZCurrent" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="MaxOutputCZCurrent" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxOutputCZCurrent" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="MaxOutputCZCurrent" Grid.Row="1" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
@@ -1475,27 +1475,27 @@
                                         </GroupBox.Header>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="140*"></ColumnDefinition>
+                                                <ColumnDefinition Width="120*"></ColumnDefinition>
                                                 <ColumnDefinition Width="35*"></ColumnDefinition>
-                                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                                                <ColumnDefinition Width="50*"></ColumnDefinition>
 
-                                                <ColumnDefinition Width="140*"></ColumnDefinition>
+                                                <ColumnDefinition Width="120*"></ColumnDefinition>
                                                 <ColumnDefinition Width="35*"></ColumnDefinition>
-                                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                                                <ColumnDefinition Width="50*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.ColumnSpan="6">Температура нагревательного модуля</TextBlock>
+                                            <TextBlock Grid.Row="0" Grid.ColumnSpan="6" VerticalAlignment="Bottom">Температура нагревательного модуля</TextBlock>
                                             <TextBox Grid.Row="1" Grid.Column="0" x:Name="TempWarkUpModule" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
                                             <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,0">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition></RowDefinition>
                                                     <RowDefinition></RowDefinition>
                                                 </Grid.RowDefinitions>
-                                                <Button Tag="TempWarkUpModule" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                <Button Tag="TempWarkUpModule" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                <Button Tag="TempWarkUpModule" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                <Button Tag="TempWarkUpModule" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                             </Grid>
                                             <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">°C ±</TextBlock>
                                             <TextBox Grid.Row="1" Grid.Column="3" x:Name="TempWarkUpModuleApprox" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
@@ -1504,8 +1504,8 @@
                                                     <RowDefinition></RowDefinition>
                                                     <RowDefinition></RowDefinition>
                                                 </Grid.RowDefinitions>
-                                                <Button Tag="TempWarkUpModuleApprox" Margin="0,0,0,0" Click="OnChangeButtonClick">+</Button>
-                                                <Button Tag="TempWarkUpModuleApprox" Margin="0,0,0,0" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                <Button Tag="TempWarkUpModuleApprox" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                <Button Tag="TempWarkUpModuleApprox" Margin="2" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
                                             </Grid>
                                             <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">°C</TextBlock>
                                         </Grid>
@@ -1527,17 +1527,11 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" TextWrapping="Wrap">Диапозон для режима измерения Ixx и Iкз</TextBlock>
-                                            <ComboBox Grid.Row="1" Margin="20, 5">
-                                                <TextBlock>0.005-1.2</TextBlock>
-                                                <TextBlock>0.025-6.0</TextBlock>
-                                            </ComboBox>
-                                            <TextBlock Grid.Row="2" TextWrapping="Wrap">Диапозон для режима измерения Iвx MAX</TextBlock>
-                                            <ComboBox Grid.Row="3" Margin="20, 5">
-                                                <TextBlock>0.005-1.2</TextBlock>
-                                                <TextBlock>0.025-6.0</TextBlock>
-                                            </ComboBox>
-                                            <TextBlock Grid.Row="4" TextWrapping="Wrap">Максимальное значение входного тока БП</TextBlock>
+                                            <TextBlock Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Bottom">Диапазон для режима измерения Ixx и Iкз</TextBlock>
+                                            <ComboBox Grid.Row="1" Margin="20, 5" x:Name="CurrentRangeComboBoxNL_SC"></ComboBox>
+                                            <TextBlock Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Bottom">Диапазон для режима измерения Iвx MAX</TextBlock>
+                                            <ComboBox Grid.Row="3" Margin="20, 5" x:Name="CurrentRangeComboBoxMax"></ComboBox>
+                                            <TextBlock Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Bottom">Максимальное значение входного тока БП</TextBlock>
                                             <Grid Grid.Row="5">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1550,12 +1544,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxInputCurrent" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="MaxInputCurrent" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxInputCurrent" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="MaxInputCurrent" Grid.Row="1" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="6" TextWrapping="Wrap">Максимальное значение входного тока холостого хода БП</TextBlock>
+                                            <TextBlock Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Bottom">Максимальное значение входного тока холостого хода БП</TextBlock>
                                             <Grid Grid.Row="7">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1568,12 +1562,12 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxInputHHCurrent" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="MaxInputHHCurrent" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxInputHHCurrent" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="MaxInputHHCurrent" Grid.Row="1" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
-                                            <TextBlock Grid.Row="8" TextWrapping="Wrap">Максимальное значение входного тока короткого замыкания БП (коэф)</TextBlock>
+                                            <TextBlock Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Bottom">Максимальное значение входного тока короткого замыкания БП (коэффициент)</TextBlock>
                                             <Grid Grid.Row="9">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
@@ -1586,43 +1580,47 @@
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxInputKZCurrent" Margin="0,0,0,15" Grid.RowSpan="2" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Tag="MaxInputKZCurrent" Grid.Row="1" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxInputKZCurrent" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Tag="MaxInputKZCurrent" Grid.Row="1" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">А</TextBlock>
                                             </Grid>
                                         </Grid>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="3" Margin="5,0,5,0" Grid.Row="0" Grid.RowSpan="2">
+                                    <GroupBox Grid.Column="3" Margin="5,0,5,0" Grid.Row="0">
                                         <GroupBox.Header>
                                             <TextBlock>Измеритель пульсации</TextBlock>
                                         </GroupBox.Header>
                                         <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="67*"/>
+                                                <ColumnDefinition Width="168*"/>
+                                            </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Center">Максимальное значение выходного напряжения пульсации</TextBlock>
-                                            <Grid Grid.Row="1">
+                                            <TextBlock Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Bottom"  Grid.ColumnSpan="2" >Максимальное значение выходного напряжения пульсации</TextBlock>
+                                            <Grid Grid.Row="1"  Grid.ColumnSpan="2">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="140*"></ColumnDefinition>
                                                     <ColumnDefinition Width="70*"></ColumnDefinition>
                                                     <ColumnDefinition Width="35*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <TextBox Grid.Column="0" x:Name="MaxOutputPulse" Margin="10, 35"></TextBox>
+                                                <TextBox Grid.Column="0" x:Name="MaxOutputPulse" Margin="5"></TextBox>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
                                                         <RowDefinition></RowDefinition>
                                                     </Grid.RowDefinitions>
-                                                    <Button Tag="MaxOutputPulse" Margin="5,15" Click="OnChangeButtonClick">+</Button>
-                                                    <Button Grid.Row="1" Tag="MaxOutputPulse" Margin="5,15" Click="OnChangeButtonClick">-</Button>
+                                                    <Button Tag="MaxOutputPulse" Margin="2" Click="OnChangeButtonClick">+</Button>
+                                                    <Button Grid.Row="1" Tag="MaxOutputPulse" Margin="2" Click="OnChangeButtonClick">-</Button>
                                                 </Grid>
                                                 <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">мВ</TextBlock>
                                             </Grid>
                                         </Grid>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="3" Margin="5,0,5,0" Grid.Row="2" Grid.RowSpan="2">
+                                    <GroupBox Grid.Column="3" Margin="5,0,5,0" Grid.Row="1">
                                         <GroupBox.Header>
                                             <TextBlock>Измеритель пульсации</TextBlock>
                                         </GroupBox.Header>
@@ -1631,24 +1629,20 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <CheckBox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Контролировать НЗ контакт</CheckBox>
-                                            <CheckBox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Контролировать НО контакт</CheckBox>
+                                            <CheckBox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False">Контролировать НЗ контакт</CheckBox>
+                                            <CheckBox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False">Контролировать НО контакт</CheckBox>
                                         </Grid>
                                     </GroupBox>
                                 </Grid>
                             </GroupBox>
                             <StackPanel Grid.Column="1">
                                 <TextBlock Margin="20, 0" FontSize="14">Тип БП</TextBlock>
-                                <ComboBox Margin="20, 0">
-                                    <TextBlock>Ааааа</TextBlock>
-                                    <TextBlock>Эээээ</TextBlock>
-                                    <TextBlock>А что должно быть здесь?</TextBlock>
-                                </ComboBox>
+                                <ComboBox x:Name="PowerSupplyComboBox" SelectionChanged="PowerSupplyComboBox_SelectionChanged" Margin="20, 5"></ComboBox>
                                 <TextBlock Margin="20, 0"  FontSize="14">Имя БП</TextBlock>
-                                <TextBox Margin="20, 0"></TextBox>
+                                <TextBox x:Name="PowerSupplyNameTextBox" Margin="20, 5"></TextBox>
                                 <TextBlock Margin="20, 0" FontSize="14">Код БП</TextBlock>
-                                <TextBox Margin="20, 0"></TextBox>
-                                <Button Margin="20, 0">Сохранить</Button>
+                                <TextBox x:Name="PowerSupplyCodeTextBox" Margin="20, 5"></TextBox>
+                                <Button Margin="20, 5" Click="SaveButton_Click">Сохранить</Button>
                             </StackPanel>
                         </Grid>
                     </TabControl>
