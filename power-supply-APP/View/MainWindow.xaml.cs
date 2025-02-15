@@ -25,7 +25,7 @@ namespace power_supply_APP
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new Authorization()); // Устанавливаем начальную страницу
+            MainFrame.Navigate(new TestPage()); // Устанавливаем начальную страницу
 
             DataContext = new MainViewModel();
             // Подписка на событие изменения темы

@@ -219,8 +219,31 @@ namespace power_supply_APP
 
                 if (powerSupply != null)
                 {
-                    powerSupply.Element("Name")?.SetValue(PowerSupplyNameTextBox.Text);
-                    powerSupply.Element("Code")?.SetValue(PowerSupplyCodeTextBox.Text);
+
+                    powerSupply.Element("NamePoweUnit")?.SetValue(PowerSupplyNameTextBox.Text);
+                    powerSupply.Element("CodePoweUnit")?.SetValue(PowerSupplyCodeTextBox.Text);
+                    powerSupply.Element("PIDTemperature")?.SetValue(PowerSupplyNameTextBox.Text);
+                    powerSupply.Element("CodePoweUnit")?.SetValue(PowerSupplyCodeTextBox.Text);
+                    powerSupply.Element("PIDTemperature")?.SetValue(TempWarkUpModule.Text);
+                    powerSupply.Element("PIDTemperatureLimit")?.SetValue(TempWarkUpModuleApprox.Text);
+                    powerSupply.Element("TimeCycle")?.SetValue(EnergyDuration.Text);
+                    powerSupply.Element("TimeWarming")?.SetValue(WarmUpDuration.Text);
+                    powerSupply.Element("TimeNoLoad")?.SetValue(IhhDuration.Text);
+                    powerSupply.Element("TimeShortCircuit")?.SetValue(IprotectDuration.Text);
+                    powerSupply.Element("TimeProtected")?.SetValue(IkzDuration.Text);
+                    powerSupply.Element("TimeRipple")?.SetValue(UPulsDuration.Text);
+                    powerSupply.Element("Voltage_PU_EL_Measure_Max")?.SetValue(ValueExitEnergy.Text);
+                    powerSupply.Element("Voltage_PU_EL_Measure_Limit")?.SetValue(DeviationValueExitEnergy.Text);
+                    powerSupply.Element("Current_PU_Protected_Min")?.SetValue(ProtectionRangeCurrentMin.Text);
+                    powerSupply.Element("Current_PU_Protected_Max")?.SetValue(ProtectionRangeCurrentMax.Text);
+                    powerSupply.Element("Current_PU_EL_Protected_Min")?.SetValue(ProtectionRangeIncreasingValueMin.Text);
+                    powerSupply.Element("Current_PU_EL_Protected_Max")?.SetValue(ProtectionRangeIncreasingValueMax.Text);
+                    powerSupply.Element("RippleVoltage")?.SetValue(MaxOutputPulse.Text);
+                    powerSupply.Element("Current_Multimetr_Max_PU")?.SetValue(MaxInputCurrent.Text);
+                    powerSupply.Element("Current_No_load_Multimetr_Max_PU")?.SetValue(MaxInputHHCurrent.Text);
+                    powerSupply.Element("Current_Short_Circuit_Multimetr_Max_PU")?.SetValue(MaxInputKZCurrent.Text);
+                    powerSupply.Element("Current_PU_EL_Measure_Max")?.SetValue(MaxValueExitCurrent.Text);
+                    powerSupply.Element("Current_EL_Protected")?.SetValue(CurrentLimit.Text);
 
                     xmlDoc.Save(filePath);
                 }

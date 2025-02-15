@@ -1693,7 +1693,7 @@
                                         <TextBlock>Функции администратора</TextBlock>
                                     </GroupBox.Header>
                                 </GroupBox>
-                                <Grid x:Name="AuthorizationAdmin" Visibility="Hidden">
+                                <Grid x:Name="AuthorizationAdmin" Visibility="Visible">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="1*"></RowDefinition>
                                         <RowDefinition Height="3*"></RowDefinition>
@@ -1705,7 +1705,7 @@
                                         <Button Click="Click_Admin" Width="200" Height="50" Content="Войти"></Button>
                                     </StackPanel>
                                 </Grid>
-                                <Grid x:Name="AdminSettings" Visibility="Visible">
+                                <Grid x:Name="AdminSettings" Visibility="Collapsed">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition></ColumnDefinition>
                                         <ColumnDefinition></ColumnDefinition>

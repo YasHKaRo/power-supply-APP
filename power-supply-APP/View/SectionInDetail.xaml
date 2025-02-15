@@ -86,7 +86,7 @@
                         <ColumnDefinition Width="60*"></ColumnDefinition>
                         <ColumnDefinition Width="30*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Margin="12">Добавить</Button>
+                    <Button Margin="15" Height="30">Добавить</Button>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
@@ -113,11 +113,11 @@
                         <ColumnDefinition Width="120*"></ColumnDefinition>
                         <ColumnDefinition Width="120*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="19" Width="80" Margin="0,10,0,0">Энергоцикл.</TextBlock>
-                    <TextBlock Grid.Row="2" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="19" Width="16" Margin="0,10,0,0">Iхх</TextBlock>
-                    <TextBlock Grid.Row="3" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18" Width="28" Margin="0,10,0,0">Iзащ</TextBlock>
-                    <TextBlock Grid.Row="4" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18" Width="16" Margin="0,10,0,0">Iкз</TextBlock>
-                    <TextBlock Grid.Row="5" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Height="19" Width="46" Margin="0,10,0,0">Uпульс</TextBlock>
+                    <TextBlock Grid.Row="1" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">Энергоциклирование</TextBlock>
+                    <TextBlock Grid.Row="2" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,10,0,0">Iхх</TextBlock>
+                    <TextBlock Grid.Row="3" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,10,0,0">Iзащ</TextBlock>
+                    <TextBlock Grid.Row="4" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,10,0,0">Iкз</TextBlock>
+                    <TextBlock Grid.Row="5" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,10,0,0">Uпульс</TextBlock>
 
                     <Border BorderBrush="Black" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5" BorderThickness="1"></Border>
                     <Border BorderBrush="Black" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" BorderThickness="1"></Border>
