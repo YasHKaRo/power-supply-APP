@@ -57,5 +57,33 @@ namespace power_supply_APP.View
                 }
             });
         }
+        public void UpdateIndicator(string testName, bool success)
+        {
+            Ellipse indicator = null;
+
+            switch (testName)
+            {
+                case "EnergyCycle":
+                    indicator = IndicatorEnergyReport;
+                    break;
+                case "Ihh":
+                    indicator = IndicatorIhhReport;
+                    break;
+                case "Iprotect":
+                    indicator = IndicatorIprotReport;
+                    break;
+                case "Ikz":
+                    indicator = IndicatorIkzReport;
+                    break;
+                case "Upulse":
+                    indicator = IndicatorUpulsReport;
+                    break;
+            }
+
+            if (indicator != null)
+            {
+                indicator.Fill = success ? Brushes.Green : Brushes.Red;
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Diagnostics;
+using System.Timers;
 
 namespace power_supply_APP.View
 {
@@ -28,13 +29,13 @@ namespace power_supply_APP.View
         private CancellationTokenSource cancellationTokenSource;
         private SectionControl linkedSection; // Ссылка на SectionControl
         public event EventHandler<bool> TestStateChanged; // true - старт, false - стоп
-
+        private List<string> activeTests = new List<string>();
 
         public SectionInDetail()
         {
             InitializeComponent();
             InitializeCharts();
-            
+
         }
         // Метод для привязки SectionControl
         public void LinkSectionControl(SectionControl section)
@@ -55,6 +56,12 @@ namespace power_supply_APP.View
             SetupChart(Voltage_Chart_Ikz, "Данные U_Ikz");
             SetupChart(Voltage_Chart_Upuls, "Данные U_Upuls");
         }
+        
+
+        public void SetSelectedTests(List<string> selectedTests)
+        {
+            activeTests = selectedTests;
+        }
 
         private void SetupChart(CartesianChart chart, string seriesTitle)
         {
@@ -70,29 +77,33 @@ namespace power_supply_APP.View
 
         private async Task StartSequentialChartUpdates(CancellationToken token)
         {
-            // Пары графиков, которые должны обновляться одновременно
-            (CartesianChart, CartesianChart)[] chartPairs =
-            {
-        (Current_Chart_En, Voltage_Chart_En),
-        (Current_Chart_Ihh, Voltage_Chart_Ihh),
-        (Current_Chart_Iprot, Voltage_Chart_Iprot),
-        (Current_Chart_Ikz, Voltage_Chart_Ikz),
-        (Current_Chart_Upuls, Voltage_Chart_Upuls)
-            };
+            ResetAllIndicators(); // Сбрасываем все индикаторы перед началом тестирования
 
-            foreach (var (currentChart, voltageChart) in chartPairs)
+            var chartPairs = new List<(CartesianChart, CartesianChart, string)>();
+
+            if (activeTests.Contains("EnergyCycle"))
+                chartPairs.Add((Current_Chart_En, Voltage_Chart_En, "EnergyCycle"));
+            if (activeTests.Contains("Ihh"))
+                chartPairs.Add((Current_Chart_Ihh, Voltage_Chart_Ihh, "Ihh"));
+            if (activeTests.Contains("Iprotect"))
+                chartPairs.Add((Current_Chart_Iprot, Voltage_Chart_Iprot, "Iprotect"));
+            if (activeTests.Contains("Ikz"))
+                chartPairs.Add((Current_Chart_Ikz, Voltage_Chart_Ikz, "Ikz"));
+            if (activeTests.Contains("Upulse"))
+                chartPairs.Add((Current_Chart_Upuls, Voltage_Chart_Upuls, "Upulse"));
+
+            foreach (var (currentChart, voltageChart, testName) in chartPairs)
             {
                 if (token.IsCancellationRequested)
                     return;
 
-                // Запускаем обновление сразу двух графиков
-                Task currentTask = UpdateChartForDuration(currentChart, token, 20000);
-                Task voltageTask = UpdateChartForDuration(voltageChart, token, 20000);
+                Task<bool> currentTask = UpdateChartForDuration(currentChart, token, 10000);
+                Task<bool> voltageTask = UpdateChartForDuration(voltageChart, token, 10000);
 
-                await Task.WhenAll(currentTask, voltageTask);
+                bool[] results = await Task.WhenAll(currentTask, voltageTask);
+                bool isSuccessful = results.All(result => result); // Успешно, если оба графика в норме
 
-                if (token.IsCancellationRequested)
-                    return;
+                UpdateIndicator(testName, isSuccessful); // Меняем цвет индикатора
             }
         }
         // Функция сброса данных графиков перед началом теста
@@ -156,36 +167,84 @@ namespace power_supply_APP.View
             });
         }
 
-        private async Task UpdateChartForDuration(CartesianChart chart, CancellationToken token, int durationMs)
+        private async Task<bool> UpdateChartForDuration(CartesianChart chart, CancellationToken token, int durationMs)
         {
             int elapsedTime = 0;
+            bool isSuccessful = true;
 
             while (elapsedTime < durationMs)
             {
                 if (token.IsCancellationRequested)
-                    return;
+                    return false;
 
                 double randomNumber = random.Next(0, 11);
-                await UpdateChartData(chart, randomNumber); // Вызываем функцию обновления графика
+                await UpdateChartData(chart, randomNumber);
 
-                await Task.Delay(5000, token);
-                elapsedTime += 5000;
+                if (!IsTestSuccessful(randomNumber))
+                {
+                    isSuccessful = false;
+                }
+
+                await Task.Delay(1000, token);
+                elapsedTime += 1000;
+            }
+
+            return isSuccessful;
+        }
+
+        // Функция проверки успешности теста
+        private bool IsTestSuccessful(double value)
+        {
+            return value >= 1 && value <= 10; // Успех, если значение в пределах [1,10]
+        }
+
+        // Функция обновления индикатора
+        private void UpdateIndicator(string testName, bool isSuccessful)
+        {
+            SolidColorBrush color = isSuccessful ? new SolidColorBrush(Colors.Green) : new SolidColorBrush(Colors.Red);
+
+            switch (testName)
+            {
+                case "EnergyCycle":
+                    GrayIndicatorEnergy.Fill = color;
+                    break;
+                case "Ihh":
+                    GrayIndicatorIhh.Fill = color;
+                    break;
+                case "Iprotect":
+                    GrayIndicatorIprot.Fill = color;
+                    break;
+                case "Ikz":
+                    GrayIndicatorIkz.Fill = color;
+                    break;
+                case "Upulse":
+                    GrayIndicatorUpuls.Fill = color;
+                    break;
             }
         }
-
-        public void StartCharts()
+        private void ResetAllIndicators()
         {
-            if (cancellationTokenSource != null)
-                return; // Уже запущены
-
-            ClearAllCharts();
-            cancellationTokenSource = new CancellationTokenSource();
-            CancellationToken token = cancellationTokenSource.Token;
-
-            _ = StartSequentialChartUpdates(token);
+            GrayIndicatorEnergy.Fill = new SolidColorBrush(Colors.Gray);
+            GrayIndicatorIhh.Fill = new SolidColorBrush(Colors.Gray);
+            GrayIndicatorIprot.Fill = new SolidColorBrush(Colors.Gray);
+            GrayIndicatorIkz.Fill = new SolidColorBrush(Colors.Gray);
+            GrayIndicatorUpuls.Fill = new SolidColorBrush(Colors.Gray);
         }
 
-        
+        public void StartCharts(List<string> tests)
+        {
+            ClearAllCharts();
+            activeTests = tests; // Присваиваем индивидуальный список тестов
+
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+            }
+            cancellationTokenSource = new CancellationTokenSource();
+            StartSequentialChartUpdates(cancellationTokenSource.Token);
+        }
+
+
 
         public void StopCharts()
         {
@@ -195,7 +254,7 @@ namespace power_supply_APP.View
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            StartCharts();
+            StartCharts(activeTests); // Теперь передаём актуальный список тестов
             TestStateChanged?.Invoke(this, true); // Оповещаем TestPage о старте
             ChangeInnerGridState(true);
         }
@@ -205,6 +264,11 @@ namespace power_supply_APP.View
             StopCharts();
             TestStateChanged?.Invoke(this, false); // Оповещаем TestPage о стопе
             ChangeInnerGridState(false);
+        }
+        public void SetDeviceInfo(string deviceName, string serialNumber)
+        {
+            DetailName.Text = deviceName;
+            DetailNumb.Text = serialNumber;
         }
         private void ChangeInnerGridState(bool isStarted)
         {

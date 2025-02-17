@@ -92,8 +92,15 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock FontSize="16" TextWrapping="Wrap">Прибор:</TextBlock>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="16" TextWrapping="Wrap" >Прибор:</TextBlock>
                         <TextBlock Grid.Row="1" FontSize="16" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                        <TextBlock FontSize="16" Grid.Column="1" TextWrapping="Wrap" x:Name="DetailName"></TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="16" TextWrapping="Wrap" x:Name="DetailNumb"></TextBlock>
+
                     </Grid>
                     <TextBlock Grid.Column="2" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center">Индикаторы</TextBlock>
                 </Grid>

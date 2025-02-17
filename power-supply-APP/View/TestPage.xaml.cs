@@ -30,6 +30,7 @@ namespace power_supply_APP
         private int cellCount = 8; // Количество ячеек
         public List<double> Values { get; set; }
         private Dictionary<SectionControl, SectionInDetail> sectionMappings = new Dictionary<SectionControl, SectionInDetail>();
+        private Dictionary<string, List<string>> sectionTests = new Dictionary<string, List<string>>();
 
         public TestPage()
         {
@@ -119,47 +120,36 @@ namespace power_supply_APP
             var button = sender as Button;
             int index = Convert.ToInt32(button.Tag); // Получаем индекс кнопки
 
-            TestingSettingsWindow settingsWindow = new TestingSettingsWindow();
+            TestingSettingsWindow settingsWindow = new TestingSettingsWindow(this)
+            {
+                SectionIndex = index // Передаём номер секции
+            };
             if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
             {
                 string inputText = settingsWindow.InputText; // Получаем текст из окна добавления
                 string serialText = settingsWindow.SerialText;
-                switch (index)
+
+
+                TextBlock deviceBlock = FindName($"DeviceBlock{index}") as TextBlock;
+                TextBlock serialBlock = FindName($"SerialBlock{index}") as TextBlock;
+
+                if (deviceBlock != null) deviceBlock.Text = inputText;
+                if (serialBlock != null) serialBlock.Text = serialText;
+
+                if (sectionMappings.TryGetValue(FindName($"Section_{index}") as SectionControl, out SectionInDetail sectionDetail))
                 {
-                    case 1:
-                        DeviceBlock1.Text = inputText;
-                        SerialBlock1.Text = serialText;
-                        break;
-                    case 2:
-                        DeviceBlock2.Text = inputText;
-                        SerialBlock2.Text = serialText;
-                        break;
-                    case 3:
-                        DeviceBlock3.Text = inputText;
-                        SerialBlock3.Text = serialText;
-                        break;
-                    case 4:
-                        DeviceBlock4.Text = inputText;
-                        SerialBlock4.Text = serialText;
-                        break;
-                    case 5:
-                        DeviceBlock5.Text = inputText;
-                        SerialBlock5.Text = serialText;
-                        break;
-                    case 6:
-                        DeviceBlock6.Text = inputText;
-                        SerialBlock6.Text = serialText;
-                        break;
-                    case 7:
-                        DeviceBlock7.Text = inputText;
-                        SerialBlock7.Text = serialText;
-                        break;
-                    case 8:
-                        DeviceBlock8.Text = inputText;
-                        SerialBlock8.Text = serialText;
-                        break;
+                    sectionDetail.SetDeviceInfo(inputText, serialText);
                 }
             }
+        }
+        public void UpdateSelectedTests(int sectionIndex, List<string> selectedTests)
+        {
+            string sectionKey = $"Section_{sectionIndex}";
+
+            if (sectionTests.ContainsKey(sectionKey))
+                sectionTests[sectionKey] = selectedTests;
+            else
+                sectionTests.Add(sectionKey, selectedTests);
         }
 
         private void Start_Test(object sender, RoutedEventArgs e)
@@ -169,7 +159,12 @@ namespace power_supply_APP
 
             if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {
-                sectionDetail.StartCharts();
+                // Получаем индивидуальные тесты для этой секции
+                if (sectionTests.TryGetValue(sectionName, out List<string> testsForThisSection))
+                {
+                    sectionDetail.StartCharts(testsForThisSection); // Передаём конкретные тесты
+                }
+
                 UpdateInnerGrid(FindName(sectionName) as SectionControl, true);
             }
         }
@@ -200,5 +195,6 @@ namespace power_supply_APP
                 }
             }
         }
+
     }
 }
