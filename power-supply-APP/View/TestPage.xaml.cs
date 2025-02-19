@@ -124,11 +124,11 @@ namespace power_supply_APP
             {
                 SectionIndex = index // Передаём номер секции
             };
+
             if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
             {
-                string inputText = settingsWindow.InputText; // Получаем текст из окна добавления
+                string inputText = settingsWindow.InputText;
                 string serialText = settingsWindow.SerialText;
-
 
                 TextBlock deviceBlock = FindName($"DeviceBlock{index}") as TextBlock;
                 TextBlock serialBlock = FindName($"SerialBlock{index}") as TextBlock;
@@ -140,8 +140,15 @@ namespace power_supply_APP
                 {
                     sectionDetail.SetDeviceInfo(inputText, serialText);
                 }
+
+                if (sectionTests.TryGetValue($"Section_{index}", out List<string> selectedTests))
+                {
+                    sectionDetail.SetTests(selectedTests);
+                    Console.WriteLine($"Переданы тесты в Section_{index}: {string.Join(", ", selectedTests)}");
+                }
             }
         }
+
         public void UpdateSelectedTests(int sectionIndex, List<string> selectedTests)
         {
             string sectionKey = $"Section_{sectionIndex}";
