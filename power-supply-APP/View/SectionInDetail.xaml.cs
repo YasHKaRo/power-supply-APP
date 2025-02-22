@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Diagnostics;
 using System.Timers;
+using System.Windows.Threading;
 
 namespace power_supply_APP.View
 {
@@ -31,11 +32,27 @@ namespace power_supply_APP.View
         public event EventHandler<bool> TestStateChanged; // true - старт, false - стоп
         private List<string> activeTests = new List<string>();
 
+        private DispatcherTimer timer;
+        private Stopwatch stopwatch;
+
+
         public SectionInDetail()
         {
             InitializeComponent();
             InitializeCharts();
 
+            stopwatch = new Stopwatch();
+            timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+            timer.Tick += Timer_Tick;
+
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan elapsed = stopwatch.Elapsed;
+            timeTextBlock.Text = $"{elapsed.Hours:D2}:{elapsed.Minutes:D2}:{elapsed.Seconds:D2}";
         }
         // Метод для привязки SectionControl
         public void LinkSectionControl(SectionControl section)
@@ -105,6 +122,7 @@ namespace power_supply_APP.View
 
                 UpdateIndicator(testName, isSuccessful); // Меняем цвет индикатора
             }
+            StopCharts();
         }
         // Функция сброса данных графиков перед началом теста
         private void ClearAllCharts()
@@ -206,29 +224,29 @@ namespace power_supply_APP.View
             switch (testName)
             {
                 case "EnergyCycle":
-                    GrayIndicatorEnergy.Fill = color;
+                    IndicatorEnergy.Fill = color;
                     break;
                 case "Ihh":
-                    GrayIndicatorIhh.Fill = color;
+                    IndicatorIhh.Fill = color;
                     break;
                 case "Iprotect":
-                    GrayIndicatorIprot.Fill = color;
+                    IndicatorIprot.Fill = color;
                     break;
                 case "Ikz":
-                    GrayIndicatorIkz.Fill = color;
+                    IndicatorIkz.Fill = color;
                     break;
                 case "Upulse":
-                    GrayIndicatorUpuls.Fill = color;
+                    IndicatorUpuls.Fill = color;
                     break;
             }
         }
         private void ResetAllIndicators()
         {
-            GrayIndicatorEnergy.Fill = new SolidColorBrush(Colors.Gray);
-            GrayIndicatorIhh.Fill = new SolidColorBrush(Colors.Gray);
-            GrayIndicatorIprot.Fill = new SolidColorBrush(Colors.Gray);
-            GrayIndicatorIkz.Fill = new SolidColorBrush(Colors.Gray);
-            GrayIndicatorUpuls.Fill = new SolidColorBrush(Colors.Gray);
+            IndicatorEnergy.Fill = new SolidColorBrush(Colors.Gray);
+            IndicatorIhh.Fill = new SolidColorBrush(Colors.Gray);
+            IndicatorIprot.Fill = new SolidColorBrush(Colors.Gray);
+            IndicatorIkz.Fill = new SolidColorBrush(Colors.Gray);
+            IndicatorUpuls.Fill = new SolidColorBrush(Colors.Gray);
         }
 
         public void StartCharts(List<string> tests)
@@ -242,6 +260,10 @@ namespace power_supply_APP.View
             }
             cancellationTokenSource = new CancellationTokenSource();
             StartSequentialChartUpdates(cancellationTokenSource.Token);
+
+            stopwatch.Reset();
+            stopwatch.Start();
+            timer.Start();
         }
 
 
@@ -250,6 +272,9 @@ namespace power_supply_APP.View
         {
             cancellationTokenSource?.Cancel();
             cancellationTokenSource = null;
+            ChangeInnerGridState(false);
+            stopwatch.Stop();
+            timer.Stop();
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
@@ -262,13 +287,23 @@ namespace power_supply_APP.View
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             StopCharts();
-            TestStateChanged?.Invoke(this, false); // Оповещаем TestPage о стопе
-            ChangeInnerGridState(false);
+            TestStateChanged?.Invoke(this, false); // Оповещаем TestPage о стопе 
         }
         public void SetDeviceInfo(string deviceName, string serialNumber)
         {
             DetailName.Text = deviceName;
             DetailNumb.Text = serialNumber;
+        }
+        public void SetTests(List<string> tests)
+        {
+            if (tests == null || tests.Count == 0)
+            {
+                MessageBox.Show("Нет доступных тестов для данной секции.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            activeTests = new List<string>(tests); // Копируем, чтобы избежать изменений исходных данных
+            Console.WriteLine($"Установлены тесты для SectionInDetail: {string.Join(", ", activeTests)}");
         }
         private void ChangeInnerGridState(bool isStarted)
         {
