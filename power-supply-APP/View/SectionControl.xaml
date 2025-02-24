@@ -134,35 +134,35 @@
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="1">
-                    <Ellipse Grid.Row="0" Name="IndicatorEnergyReport" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorEnergyReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="2">
-                    <Ellipse Grid.Row="0" Name="IndicatorIhhReport" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIhhReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="3">
-                    <Ellipse Grid.Row="0" Name="IndicatorIprotReport" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIprotReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="4">
-                    <Ellipse Grid.Row="0" Name="IndicatorIkzReport" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIkzReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="5">
-                    <Ellipse Grid.Row="0" Name="IndicatorUpulsReport" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorUpulsReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />

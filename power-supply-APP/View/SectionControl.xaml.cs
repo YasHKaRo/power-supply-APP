@@ -57,32 +57,65 @@ namespace power_supply_APP.View
                 }
             });
         }
-        public void UpdateIndicator(string testName, bool success)
+        public Brush IndicatorEnergyReport
         {
-            Ellipse indicator = null;
+            get { return (Brush)GetValue(IndicatorEnergyReportProperty); }
+            set { SetValue(IndicatorEnergyReportProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorEnergyReportProperty =
+            DependencyProperty.Register("IndicatorEnergyReport", typeof(Brush), typeof(SectionControl), new PropertyMetadata(Brushes.Gray));
 
+        public Brush IndicatorIhhReport
+        {
+            get { return (Brush)GetValue(IndicatorIhhReportProperty); }
+            set { SetValue(IndicatorIhhReportProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIhhReportProperty =
+            DependencyProperty.Register("IndicatorIhhReport", typeof(Brush), typeof(SectionControl), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorIprotReport
+        {
+            get { return (Brush)GetValue(IndicatorIprotReportProperty); }
+            set { SetValue(IndicatorIprotReportProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIprotReportProperty =
+            DependencyProperty.Register("IndicatorIprotReport", typeof(Brush), typeof(SectionControl), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorIkzReport
+        {
+            get { return (Brush)GetValue(IndicatorIkzReportProperty); }
+            set { SetValue(IndicatorIkzReportProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIkzReportProperty =
+            DependencyProperty.Register("IndicatorIkzReport", typeof(Brush), typeof(SectionControl), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorUpulsReport
+        {
+            get { return (Brush)GetValue(IndicatorUpulsReportProperty); }
+            set { SetValue(IndicatorUpulsReportProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorUpulsReportProperty =
+            DependencyProperty.Register("IndicatorUpulsReport", typeof(Brush), typeof(SectionControl), new PropertyMetadata(Brushes.Gray));
+
+        public void SetIndicatorColor(string testName, Brush color)
+        {
             switch (testName)
             {
                 case "EnergyCycle":
-                    indicator = IndicatorEnergyReport;
+                    SetValue(IndicatorEnergyReportProperty, color);
                     break;
                 case "Ihh":
-                    indicator = IndicatorIhhReport;
+                    SetValue(IndicatorIhhReportProperty, color);
                     break;
                 case "Iprotect":
-                    indicator = IndicatorIprotReport;
+                    SetValue(IndicatorIprotReportProperty, color);
                     break;
                 case "Ikz":
-                    indicator = IndicatorIkzReport;
+                    SetValue(IndicatorIkzReportProperty, color);
                     break;
                 case "Upulse":
-                    indicator = IndicatorUpulsReport;
+                    SetValue(IndicatorUpulsReportProperty, color);
                     break;
-            }
-
-            if (indicator != null)
-            {
-                indicator.Fill = success ? Brushes.Green : Brushes.Red;
             }
         }
     }
