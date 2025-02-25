@@ -957,35 +957,35 @@
 
 
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1037,35 +1037,35 @@
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
 
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1112,35 +1112,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1188,35 +1188,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1264,35 +1264,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1340,35 +1340,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1416,35 +1416,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1493,41 +1493,41 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
-                                                
+
                                             </Grid>
                                             
                                         </GroupBox>

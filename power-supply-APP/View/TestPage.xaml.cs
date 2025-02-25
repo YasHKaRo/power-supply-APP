@@ -47,6 +47,14 @@ namespace power_supply_APP
             sectionMappings[Section_6] = Section_Detail_6;
             sectionMappings[Section_7] = Section_Detail_7;
             sectionMappings[Section_8] = Section_Detail_8;
+            Section_Detail_1.LinkedSectionControl = Section_1;
+            Section_Detail_2.LinkedSectionControl = Section_2;
+            Section_Detail_3.LinkedSectionControl = Section_3;
+            Section_Detail_4.LinkedSectionControl = Section_4;
+            Section_Detail_5.LinkedSectionControl = Section_5;
+            Section_Detail_6.LinkedSectionControl = Section_6;
+            Section_Detail_7.LinkedSectionControl = Section_7;
+            Section_Detail_8.LinkedSectionControl = Section_8;
 
             // Устанавливаем связь в каждом SectionInDetail
             foreach (var pair in sectionMappings)

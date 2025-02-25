@@ -35,6 +35,8 @@ namespace power_supply_APP.View
         private DispatcherTimer timer;
         private Stopwatch stopwatch;
 
+        public SectionControl LinkedSectionControl { get; set; }
+
 
         public SectionInDetail()
         {
@@ -217,37 +219,7 @@ namespace power_supply_APP.View
         }
 
         // Функция обновления индикатора
-        private void UpdateIndicator(string testName, bool isSuccessful)
-        {
-            SolidColorBrush color = isSuccessful ? new SolidColorBrush(Colors.Green) : new SolidColorBrush(Colors.Red);
 
-            switch (testName)
-            {
-                case "EnergyCycle":
-                    IndicatorEnergy.Fill = color;
-                    break;
-                case "Ihh":
-                    IndicatorIhh.Fill = color;
-                    break;
-                case "Iprotect":
-                    IndicatorIprot.Fill = color;
-                    break;
-                case "Ikz":
-                    IndicatorIkz.Fill = color;
-                    break;
-                case "Upulse":
-                    IndicatorUpuls.Fill = color;
-                    break;
-            }
-        }
-        private void ResetAllIndicators()
-        {
-            IndicatorEnergy.Fill = new SolidColorBrush(Colors.Gray);
-            IndicatorIhh.Fill = new SolidColorBrush(Colors.Gray);
-            IndicatorIprot.Fill = new SolidColorBrush(Colors.Gray);
-            IndicatorIkz.Fill = new SolidColorBrush(Colors.Gray);
-            IndicatorUpuls.Fill = new SolidColorBrush(Colors.Gray);
-        }
 
         public void StartCharts(List<string> tests)
         {
@@ -266,7 +238,82 @@ namespace power_supply_APP.View
             timer.Start();
         }
 
+        public Brush IndicatorEnergy
+        {
+            get { return (Brush)GetValue(IndicatorEnergyProperty); }
+            set { SetValue(IndicatorEnergyProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorEnergyProperty =
+            DependencyProperty.Register("IndicatorEnergy", typeof(Brush), typeof(SectionInDetail), new PropertyMetadata(Brushes.Gray));
 
+        public Brush IndicatorIhh
+        {
+            get { return (Brush)GetValue(IndicatorIhhProperty); }
+            set { SetValue(IndicatorIhhProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIhhProperty =
+            DependencyProperty.Register("IndicatorIhh", typeof(Brush), typeof(SectionInDetail), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorIprot
+        {
+            get { return (Brush)GetValue(IndicatorIprotProperty); }
+            set { SetValue(IndicatorIprotProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIprotProperty =
+            DependencyProperty.Register("IndicatorIprot", typeof(Brush), typeof(SectionInDetail), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorIkz
+        {
+            get { return (Brush)GetValue(IndicatorIkzProperty); }
+            set { SetValue(IndicatorIkzProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorIkzProperty =
+            DependencyProperty.Register("IndicatorIkz", typeof(Brush), typeof(SectionInDetail), new PropertyMetadata(Brushes.Gray));
+
+        public Brush IndicatorUpuls
+        {
+            get { return (Brush)GetValue(IndicatorUpulsProperty); }
+            set { SetValue(IndicatorUpulsProperty, value); }
+        }
+        public static readonly DependencyProperty IndicatorUpulsProperty =
+            DependencyProperty.Register("IndicatorUpuls", typeof(Brush), typeof(SectionInDetail), new PropertyMetadata(Brushes.Gray));
+
+        public void UpdateIndicator(string testName, bool isSuccess)
+        {
+            Brush color = isSuccess ? Brushes.Green : Brushes.Red;
+
+            switch (testName)
+            {
+                case "EnergyCycle":
+                    SetValue(IndicatorEnergyProperty, color);
+                    LinkedSectionControl?.SetIndicatorColor("EnergyCycle", color);
+                    break;
+                case "Ihh":
+                    SetValue(IndicatorIhhProperty, color);
+                    LinkedSectionControl?.SetIndicatorColor("Ihh", color);
+                    break;
+                case "Iprotect":
+                    SetValue(IndicatorIprotProperty, color);
+                    LinkedSectionControl?.SetIndicatorColor("Iprotect", color);
+                    break;
+                case "Ikz":
+                    SetValue(IndicatorIkzProperty, color);
+                    LinkedSectionControl?.SetIndicatorColor("Ikz", color);
+                    break;
+                case "Upulse":
+                    SetValue(IndicatorUpulsProperty, color);
+                    LinkedSectionControl?.SetIndicatorColor("Upulse", color);
+                    break;
+            }
+        }
+        public void ResetAllIndicators()
+        {
+            SetValue(IndicatorEnergyProperty, Brushes.Gray);
+            SetValue(IndicatorIhhProperty, Brushes.Gray);
+            SetValue(IndicatorIprotProperty, Brushes.Gray);
+            SetValue(IndicatorIkzProperty, Brushes.Gray);
+            SetValue(IndicatorUpulsProperty, Brushes.Gray);
+        }
 
         public void StopCharts()
         {
@@ -319,6 +366,7 @@ namespace power_supply_APP.View
                 }
             }
         }
+
     }
 
 
