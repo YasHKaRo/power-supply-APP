@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Api\ModbusService.cs" />
+    <Compile Include="Api\Modules\test1.cs" />
     <Compile Include="Api\ROUTER.cs" />
     <Compile Include="Api\SerialPort.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
