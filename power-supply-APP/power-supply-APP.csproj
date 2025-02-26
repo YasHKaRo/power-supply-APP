@@ -69,7 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="Api\ModbusService.cs" />
     <Compile Include="Api\Modules\test1.cs" />
-    <Compile Include="Api\ROUTER.cs" />
+    <Compile Include="Api\Router.cs" />
     <Compile Include="Api\SerialPort.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\SectionControl.xaml.cs">
