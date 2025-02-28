@@ -33,8 +33,10 @@ namespace power_supply_APP
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Закрываем текущее окно настроек
-            NavigationService.GoBack();
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.NavigateToTestPage(); // Переход на уже существующий TestPage
+            }
         }
         public class RelayData
         {
@@ -99,19 +101,7 @@ namespace power_supply_APP
                 }
             }
         }
-        private void Click_Admin(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            string password = PasswordBox.Password;
-            if (button != null && password == "55555")
-            {
-                // Скрываем окно авторизации
-                AuthorizationAdmin.Visibility = Visibility.Collapsed;
 
-                // Показываем настройки администратора
-                AdminSettings.Visibility = Visibility.Visible;
-            }
-        }
         private void LoadPowerSupplyFiles()
         {
             string directoryPath = "C:\\Users\\ro517\\Рабочий стол\\ВКР\\power-supply-APP\\power-supply-APP\\PowerUnit"; // Укажите путь к папке с XML-файлами

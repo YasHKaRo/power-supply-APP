@@ -4,20 +4,20 @@
       xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="power_supply_APP.Authorization"
       Title="Authorization" av:DesignHeight="300" av:DesignWidth="400">
 
-    <Grid Margin="0,40,0,0"  Background="{DynamicResource PageBackgroundColor}">
+    <Grid Margin="0,80,0,0"  Background="{DynamicResource PageBackgroundColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
         
         <StackPanel Grid.Row="1">
             <TextBlock Text="Логин:" HorizontalAlignment="Center" Width="36"/>
-            <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Center" Width="200"/>
+            <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Center" Width="200">admin</TextBox>
             <TextBlock Text="Пароль:" HorizontalAlignment="Center" Width="44"/>
             <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Width="200"/>
-            <Button x:Name="button_authorization" Content="Авторизация" Click="LoginButton_Click"  HorizontalAlignment="Center" Width="100"/>
+            <Button x:Name="button_authorization" Content="Авторизация" Margin="0,10,0,0" Click="LoginButton_Click"  HorizontalAlignment="Center" Width="100"/>
             <TextBlock x:Name="MessageTextBlock" Foreground="Red" Margin="0,10,0,0" HorizontalAlignment="Center" Width="0"/>
         </StackPanel>
     </Grid>

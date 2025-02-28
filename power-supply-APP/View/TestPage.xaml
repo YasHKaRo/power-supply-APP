@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:power_supply_APP.View"
       mc:Ignorable="d" 
-      d:DesignHeight="750" d:DesignWidth="1300"
+      d:DesignHeight="780" d:DesignWidth="1300"
       Title="TestPage">
     <Page.Resources>
         <ResourceDictionary>
@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid Margin="0,30" Background="{DynamicResource PageBackgroundColor}">
+    <Grid Margin="0,40" Background="{DynamicResource PageBackgroundColor}">
         <TabControl x:Name="TestWindow" Width="1300" Height="700">
             <TabItem x:Name="MainTestWindow">
                 <TabItem.Header>

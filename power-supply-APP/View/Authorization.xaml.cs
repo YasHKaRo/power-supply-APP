@@ -34,7 +34,7 @@ namespace power_supply_APP
                 // Получаем доступ к главному окну
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
                 // Переходим на TestPage
-                mainWindow.MainFrame.Navigate(new TestPage());
+                mainWindow.MainFrame.Navigate(new SettingsPage());
 
             }
             else
