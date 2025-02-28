@@ -1,40 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modbus.Device;
 using System.IO.Ports;
+using EasyModbus;
 
 namespace power_supply_APP.Api
 {
-
     public interface IModbusService
     {
-        ushort[] ReadHoldingRegisters(byte slaveId, ushort startAddress, ushort numberOfPoints);
-        void WriteSingleRegister(byte slaveId, ushort registerAddress, ushort value);
+        int[] ReadHoldingRegisters(int slaveId, int startAddress, int numberOfPoints);
+        void WriteSingleRegister(int slaveId, int registerAddress, int value);
     }
 
     public class ModbusService : IModbusService
     {
-        private readonly IModbusSerialMaster _modbusMaster;
-        private readonly SerialPort _serialPort;
+        private readonly ModbusClient _modbusClient;
 
-        public ModbusService(string portName, int baudRate)
+        public ModbusService(string portName, int baudRate, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
         {
-            _serialPort = new SerialPort(portName, baudRate);
-            _serialPort.Open();
-            _modbusMaster = ModbusSerialMaster.CreateRtu(_serialPort);
+            _modbusClient = new ModbusClient(portName)
+            {
+                Baudrate = baudRate,
+                Parity = (byte)parity,//need to fix
+                StopBits = (byte)stopBits,//need to fix 
+                ConnectionTimeout = 2000 // Таймаут в мс (можно настроить)
+            };
+            _modbusClient.Connect();
         }
 
-        public ushort[] ReadHoldingRegisters(byte slaveId, ushort startAddress, ushort numberOfPoints)
+        public int[] ReadHoldingRegisters(int slaveId, int startAddress, int numberOfPoints)
         {
-            return _modbusMaster.ReadHoldingRegisters(slaveId, startAddress, numberOfPoints);
+            _modbusClient.UnitIdentifier = (byte)slaveId; // Устанавливаем идентификатор ведомого устройства
+            return _modbusClient.ReadHoldingRegisters(startAddress, numberOfPoints);
         }
 
-        public void WriteSingleRegister(byte slaveId, ushort registerAddress, ushort value)
+        public void WriteSingleRegister(int slaveId, int registerAddress, int value)
         {
-            _modbusMaster.WriteSingleRegister(slaveId, registerAddress, value);
+            _modbusClient.UnitIdentifier = (byte)slaveId;
+            _modbusClient.WriteSingleRegister(registerAddress, value);
+        }
+
+        public void Close()
+        {
+            _modbusClient.Disconnect();
         }
     }
 }
