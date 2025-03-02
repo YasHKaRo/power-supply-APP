@@ -22,11 +22,13 @@ namespace power_supply_APP
     {
 
         private TestPage _testPage; // Сохраняем ссылку на TestPage
+        public SettingsPage _settingsPage;
 
         public MainWindow()
         {
             InitializeComponent();
             _testPage = new TestPage(); // Создаём один экземпляр
+            _settingsPage = new SettingsPage(); // Создаём один экземпляр
             MainFrame.Navigate(_testPage); // Навигируем в него
         }
 

@@ -61,5 +61,17 @@ namespace power_supply_APP
 
             return tests;
         }
+        public void SetCheckBoxStates(bool isEnergyCycleChecked, bool isIhhChecked, bool isIprotectChecked,
+            bool isIkzChecked, bool isUPulseChecked, bool isWarmUpChecked, bool isCoolChecked)
+        {
+            Console.WriteLine($"EnergyCycle: {isEnergyCycleChecked}, WarmUp: {isWarmUpChecked}");
+            CheckBox_EnergyCycle.IsChecked = isEnergyCycleChecked;
+            CheckBox_Ihh.IsChecked = isIhhChecked;
+            CheckBox_Iprotect.IsChecked = isIprotectChecked;
+            CheckBox_Ikz.IsChecked = isIkzChecked;
+            CheckBox_UPulse.IsChecked = isUPulseChecked;
+            CheckBox_WarmUp.IsChecked = isWarmUpChecked;
+            CheckBox_Cool.IsChecked = isCoolChecked;
+        }
     }
 }

@@ -86,7 +86,7 @@
                         <ColumnDefinition Width="60*"></ColumnDefinition>
                         <ColumnDefinition Width="30*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Margin="15" Height="30">Добавить</Button>
+                    <Button Margin="15" Height="30" ToolTip="Добавить БП" x:Name="AddPowerUnit" Click="AddPowerUnit_Click" Tag="{Binding SectionIndex}">Добавить</Button>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>

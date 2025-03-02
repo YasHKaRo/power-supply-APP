@@ -57,15 +57,50 @@ namespace power_supply_APP
             Section_Detail_8.LinkedSectionControl = Section_8;
 
             // Устанавливаем связь в каждом SectionInDetail
+            int index = 1; // Начальный индекс секции
             foreach (var pair in sectionMappings)
             {
                 pair.Value.LinkSectionControl(pair.Key);
+                pair.Value.SectionIndex = index; // Назначаем индекс секции
 
-                // Подписываемся на событие TestStateChanged для обновления UI
+                // Устанавливаем Tag для кнопки "Добавить БП"
+                Button addButton = pair.Value.FindName("AddPowerUnit") as Button;
+                if (addButton != null)
+                {
+                    addButton.Tag = index;
+                    Console.WriteLine($"Установлен Tag {index} для кнопки в {pair.Value.Name}");
+                }
+                // Присваиваем индекс (Tag) кнопкам в SectionControl
+                var reportTXT = pair.Key.FindName("reportTXT") as Button;
+                var reportDOCX = pair.Key.FindName("reportDOCX") as Button;
+                var printReport = pair.Key.FindName("printReportDOCX") as Button;
+
+                if (reportTXT != null)
+                {
+                    reportTXT.Tag = index;
+                    reportTXT.Click += OpenReportTXT; // Подписываем на событие
+                }
+
+                if (reportDOCX != null)
+                {
+                    reportDOCX.Tag = index;
+                    reportDOCX.Click += OpenReportDOCX; // Подписываем на событие
+                }
+
+                if (printReport != null)
+                {
+                    printReport.Tag = index;
+                    printReport.Click += PrintReportDOCX; // Подписываем на событие
+                }
+
+
+                // Подписываемся на событие TestStateChanged
                 pair.Value.TestStateChanged += (sender, isStarted) =>
                 {
                     UpdateInnerGrid(pair.Key, isStarted);
                 };
+
+                index++;
             }
         }
         private void Button_Cell_Click(object sender, RoutedEventArgs e)
@@ -123,7 +158,7 @@ namespace power_supply_APP
                 }
             }
         }
-        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        public void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             int index = Convert.ToInt32(button.Tag); // Получаем индекс кнопки
@@ -132,7 +167,37 @@ namespace power_supply_APP
             {
                 SectionIndex = index // Передаём номер секции
             };
+            // Получаем ссылку на SettingsPage через MainWindow
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            var settingsPage = mainWindow?._settingsPage;
 
+            Console.WriteLine($"SettingsPage через Instance: {settingsPage}");
+
+            if (settingsPage != null)
+            {
+                settingsWindow.SetCheckBoxStates(
+                    settingsPage.IsEnergyCycleChecked,
+                    settingsPage.IsIhhChecked,
+                    settingsPage.IsIprotectChecked,
+                    settingsPage.IsIkzChecked,
+                    settingsPage.IsUPulseChecked,
+                    settingsPage.IsWarmUpChecked,
+                    settingsPage.IsCoolChecked
+                );
+            }
+            if (settingsPage != null)
+            {
+                // Передаём состояние CheckBox в TestingSettingsWindow
+                settingsWindow.SetCheckBoxStates(
+                    settingsPage.IsEnergyCycleChecked,
+                    settingsPage.IsIhhChecked,
+                    settingsPage.IsIprotectChecked,
+                    settingsPage.IsIkzChecked,
+                    settingsPage.IsUPulseChecked,
+                    settingsPage.IsWarmUpChecked,
+                    settingsPage.IsCoolChecked
+                );
+            }
             if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
             {
                 string inputText = settingsWindow.InputText;
@@ -147,6 +212,7 @@ namespace power_supply_APP
                 if (sectionMappings.TryGetValue(FindName($"Section_{index}") as SectionControl, out SectionInDetail sectionDetail))
                 {
                     sectionDetail.SetDeviceInfo(inputText, serialText);
+                    sectionDetail.SectionIndex = index; // Устанавливаем индекс секции для корректного вызова
                 }
 
                 if (sectionTests.TryGetValue($"Section_{index}", out List<string> selectedTests))
@@ -208,6 +274,29 @@ namespace power_supply_APP
                     innerGrid1.Visibility = isStarted ? Visibility.Visible : Visibility.Collapsed;
                     innerGrid2.Visibility = isStarted ? Visibility.Collapsed : Visibility.Visible;
                 }
+            }
+        }
+        private void OpenReportTXT(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет открыт TXT отчёт!", "Отчёт TXT");
+            }
+        }
+
+        private void OpenReportDOCX(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет открыт DOCX отчёт!", "Отчёт DOCX");
+            }
+        }
+
+        private void PrintReportDOCX(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет распечатан DOCX отчёт!", "Печать отчёта");
             }
         }
 

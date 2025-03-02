@@ -36,6 +36,7 @@ namespace power_supply_APP.View
         private Stopwatch stopwatch;
 
         public SectionControl LinkedSectionControl { get; set; }
+        public int SectionIndex { get; set; } // Добавляем свойство для хранения индекса секции
 
 
         public SectionInDetail()
@@ -365,6 +366,20 @@ namespace power_supply_APP.View
                     innerGrid2.Visibility = isStarted ? Visibility.Collapsed : Visibility.Visible;
                 }
             }
+        }
+        private void AddPowerUnit_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Всем ку!");
+            var button = sender as Button;
+            if (button?.Tag is int index)
+            {
+                // Вызываем метод Add_Button_Click из TestPage с передачей индекса
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                var testPage = mainWindow?.MainFrame.Content as TestPage;
+                Console.WriteLine("Отправляется что-то!");
+                testPage?.Add_Button_Click(button, e);
+            }
+            else { Console.WriteLine(button?.Tag); }
         }
 
     }

@@ -38,6 +38,13 @@ namespace power_supply_APP
                 mainWindow.NavigateToTestPage(); // Переход на уже существующий TestPage
             }
         }
+        public bool IsEnergyCycleChecked => EnergyCycleCheckBox.IsChecked ?? false;
+        public bool IsIhhChecked => IhhCheckBox.IsChecked ?? false;
+        public bool IsIprotectChecked => IprotectCheckBox.IsChecked ?? false;
+        public bool IsIkzChecked => IkzCheckBox.IsChecked ?? false;
+        public bool IsUPulseChecked => UPulseCheckBox.IsChecked ?? false;
+        public bool IsWarmUpChecked => WarmUp.IsChecked ?? false;
+        public bool IsCoolChecked => WarmDown.IsChecked ?? false;
         public class RelayData
         {
             public string RelayName { get; set; }

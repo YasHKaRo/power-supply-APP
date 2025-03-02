@@ -48,7 +48,7 @@
                                             <WrapPanel Width="1176" Height="400">
                                                 <GroupBox Margin="10, 0, 0, 0" Height="390">
                                                     <GroupBox.Header>
-                                                        <CheckBox Content="'Энергоциклирования'" FontSize="14" />
+                                                        <CheckBox Content="'Энергоциклирования'" x:Name="EnergyCycleCheckBox" FontSize="14" IsChecked="True" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -123,13 +123,13 @@
                                                         <Button Tag="TextBoxPause" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="7" Click="OnChangeButtonClick" Height="20" Width="20" >
 
                                                         </Button>
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iхх-->
                                                 <GroupBox Margin="20, 0, 0, 0">
                                                     <GroupBox.Header>
-                                                        <CheckBox Content="'Измерение Iхх'" FontSize="14" />
+                                                        <CheckBox Content="'Измерение Iхх'" x:Name="IhhCheckBox" FontSize="14" IsChecked="True" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -194,13 +194,13 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iзащ-->
                                                 <GroupBox Margin="20, 0, 0, 0">
                                                     <GroupBox.Header>
-                                                        <CheckBox Content="'Измерение Iзащ'" FontSize="14" />
+                                                        <CheckBox Content="'Измерение Iзащ'" FontSize="14" x:Name="IprotectCheckBox" IsChecked="True" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -265,13 +265,13 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iкз-->
                                                 <GroupBox Margin="20, 0, 0, 0">
                                                     <GroupBox.Header>
-                                                        <CheckBox Content="'Измерение Iкз'" FontSize="14" />
+                                                        <CheckBox Content="'Измерение Iкз'" x:Name="IkzCheckBox" FontSize="14" IsChecked="True" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -336,13 +336,13 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Uпульс-->
                                                 <GroupBox Margin="20, 0, 0, 0">
                                                     <GroupBox.Header>
-                                                        <CheckBox Content="'Измерение Uпульс'" FontSize="14" />
+                                                        <CheckBox Content="'Измерение Uпульс'" x:Name="UPulseCheckBox" FontSize="14" IsChecked="True" />
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -392,7 +392,7 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4">Контроль температуры</CheckBox>
+                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                             </WrapPanel>
@@ -413,7 +413,7 @@
                                                 <ColumnDefinition Width="91*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <Grid Grid.Column="0">
-                                                <CheckBox x:Name="WarmUp" FontSize="14">Прогрев</CheckBox>
+                                                <CheckBox x:Name="WarmUp" FontSize="14" IsChecked="True">Прогрев</CheckBox>
 
                                                 <GroupBox Margin="5,30,5,5" x:Name="WarmUpGroupBoxContents" IsEnabled="{Binding IsChecked, ElementName=WarmUp}">
                                                     <GroupBox.Header>
