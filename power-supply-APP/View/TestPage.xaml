@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:power_supply_APP.View"
       mc:Ignorable="d" 
-      d:DesignHeight="750" d:DesignWidth="1300"
+      d:DesignHeight="780" d:DesignWidth="1300"
       Title="TestPage">
     <Page.Resources>
         <ResourceDictionary>
@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid Margin="0,30" Background="{DynamicResource PageBackgroundColor}">
+    <Grid Margin="0,40" Background="{DynamicResource PageBackgroundColor}">
         <TabControl x:Name="TestWindow" Width="1300" Height="700">
             <TabItem x:Name="MainTestWindow">
                 <TabItem.Header>
@@ -121,7 +121,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold" Click="Add_Button_Click" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -133,8 +133,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock1"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock1"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock1"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock1"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <local:SectionControl Grid.Row="1" Grid.RowSpan="2" x:Name="Section_1"/>
@@ -206,7 +206,7 @@
                                                 <!-- Окружность -->
                                                 <Ellipse Width="40" Height="40" Fill="Transparent" Stroke="Black" Canvas.Left="5" Canvas.Top="15"/>
                                                 <!-- Кнопка внутри окружности -->
-                                                <Button Click="Start_Test" Tag="Section_2"  Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" >
+                                                <Button Click="Start_Test" Tag="Section_2" Content="" Width="40" Height="40" Canvas.Left="5" Canvas.Top="15" Background="LightGreen" >
                                                     <Button.Resources>
                                                         <Style TargetType="Border">
                                                             <Setter Property="CornerRadius" Value="50"/>
@@ -228,7 +228,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="2" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -238,10 +238,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock2"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock2"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock2"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="1" x:Name="DeviceBlock2"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -332,7 +332,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="3" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -342,10 +342,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock3"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock3"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock3"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock3"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <local:SectionControl Grid.Row="1" Grid.RowSpan="2" x:Name="Section_3"/>
@@ -436,7 +436,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="4" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -446,10 +446,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock4"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock4"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock4"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock4"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -541,7 +541,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="5" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -551,10 +551,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock5"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock5"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock5"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock5"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -646,7 +646,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="6" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -656,10 +656,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock6"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock6"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock6"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock6"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -750,7 +750,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="7" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -760,10 +760,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock7"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock7"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock7"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock7"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -855,7 +855,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="1" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="8" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -865,10 +865,10 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock FontSize="9" TextWrapping="Wrap">Прибор:</TextBlock>
-                                                    <TextBlock Grid.Row="1" FontSize="8" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock8"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock8"></TextBlock>
+                                                    <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
+                                                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock8"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock8"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -957,35 +957,35 @@
 
 
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_1" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_1, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1037,35 +1037,35 @@
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
 
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_2, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1112,35 +1112,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_3" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_3, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1188,35 +1188,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_4" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_4, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1264,35 +1264,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_5" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_5, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1340,35 +1340,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_6" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_6, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1416,35 +1416,35 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_7" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_7, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -1493,41 +1493,41 @@
                                                 <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Iкз</TextBlock>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="10">Uпульс</TextBlock>
                                                 <Grid Grid.Column="2" Grid.Row="0">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergy_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorEnergy}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="1">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhh_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIhh}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="2">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprot_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIprot}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="3">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkz_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorIkz}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
                                                 <Grid Grid.Column="3" Grid.Row="4">
-                                                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpuls_8" Fill="Gray" Width="20" Height="20" Margin="0" />
+                                                    <Ellipse Grid.Row="0" Fill="{Binding ElementName=Section_Detail_8, Path=IndicatorUpuls}" Width="20" Height="20" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                                                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                                                 </Grid>
-                                                
+
                                             </Grid>
                                             
                                         </GroupBox>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SeperateSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <NamePoweUnit>БП30Б-Д3-9</NamePoweUnit>
+  <CodePoweUnit>8990</CodePoweUnit>
+  <PIDTemperature>50</PIDTemperature>
+  <PIDTemperatureLimit>2</PIDTemperatureLimit>
+  <SuppleVoltageMin>90</SuppleVoltageMin>
+  <SuppleVoltageMax>264</SuppleVoltageMax>
+  <TimeWarming>10</TimeWarming>
+  <TimeCycle>1</TimeCycle>
+  <TimeNoLoad>1</TimeNoLoad>
+  <TimeShortCircuit>1</TimeShortCircuit>
+  <TimeProtected>1</TimeProtected>
+  <TimeRipple>1</TimeRipple>
+  <CurrentRange_Multimetr_NL_SC>0</CurrentRange_Multimetr_NL_SC>
+  <CurrentRange_Multimetr_Max>0</CurrentRange_Multimetr_Max>
+  <Current_Multimetr_Max_PU>0.7</Current_Multimetr_Max_PU>
+  <Voltage_Multimetr_Max_PU>0</Voltage_Multimetr_Max_PU>
+  <Current_No_load_Multimetr_Max_PU>0.03</Current_No_load_Multimetr_Max_PU>
+  <Current_Short_Circuit_Multimetr_Max_PU>0.1</Current_Short_Circuit_Multimetr_Max_PU>
+  <CurrentRange_EL_Set>1</CurrentRange_EL_Set>
+  <VolatgeRange_EL_Measure>0</VolatgeRange_EL_Measure>
+  <CurrentRange_EL_Measure>1</CurrentRange_EL_Measure>
+  <Current_PU_EL_Measure_Max>2.7</Current_PU_EL_Measure_Max>
+  <Voltage_PU_EL_Measure_Max>9</Voltage_PU_EL_Measure_Max>
+  <Voltage_PU_EL_Measure_Limit>1</Voltage_PU_EL_Measure_Limit>
+  <Current_PU_Protected_Min>1.1</Current_PU_Protected_Min>
+  <Current_PU_Protected_Max>1.4</Current_PU_Protected_Max>
+  <Current_PU_EL_Protected_Min>1</Current_PU_EL_Protected_Min>
+  <Current_PU_EL_Protected_Max>2</Current_PU_EL_Protected_Max>
+  <Voltage_EL_Protected>0</Voltage_EL_Protected>
+  <Current_EL_Protected>2.5</Current_EL_Protected>
+  <RippleVoltage>80</RippleVoltage>
+</SeperateSetting>

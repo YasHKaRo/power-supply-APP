@@ -40,13 +40,13 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" FontSize="14" VerticalAlignment="Center">Прогрев</CheckBox>
-            <CheckBox Grid.Row="1" FontSize="14" VerticalAlignment="Center">Энергоциклирование</CheckBox>
-            <CheckBox Grid.Row="2" FontSize="14" VerticalAlignment="Center">Ixx</CheckBox>
-            <CheckBox Grid.Row="3" FontSize="14" VerticalAlignment="Center">Iзащ</CheckBox>
-            <CheckBox Grid.Row="4" FontSize="14" VerticalAlignment="Center">Iкз</CheckBox>
-            <CheckBox Grid.Row="5" FontSize="14" VerticalAlignment="Center">Uпульс</CheckBox>
-            <CheckBox Grid.Row="6" FontSize="14" VerticalAlignment="Center">Охлаждение</CheckBox>
+                <CheckBox x:Name="CheckBox_WarmUp" Grid.Row="0" FontSize="14" VerticalAlignment="Center">Прогрев</CheckBox>
+                <CheckBox x:Name="CheckBox_EnergyCycle" Grid.Row="1" FontSize="14" VerticalAlignment="Center">Энергоциклирование</CheckBox>
+                <CheckBox x:Name="CheckBox_Ihh" Grid.Row="2" FontSize="14" VerticalAlignment="Center">Ixx</CheckBox>
+                <CheckBox x:Name="CheckBox_Iprotect" Grid.Row="3" FontSize="14" VerticalAlignment="Center">Iзащ</CheckBox>
+                <CheckBox x:Name="CheckBox_Ikz" Grid.Row="4" FontSize="14" VerticalAlignment="Center">Iкз</CheckBox>
+                <CheckBox x:Name="CheckBox_UPulse" Grid.Row="5" FontSize="14" VerticalAlignment="Center">Uпульс</CheckBox>
+                <CheckBox x:Name="CheckBox_Cool" Grid.Row="6" FontSize="14" VerticalAlignment="Center">Охлаждение</CheckBox>
         </Grid>
         </GroupBox>
         

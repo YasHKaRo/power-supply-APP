@@ -29,20 +29,80 @@ namespace power_supply_APP
         private bool[] isFirstState; // Массив для отслеживания состояния ячеек
         private int cellCount = 8; // Количество ячеек
         public List<double> Values { get; set; }
+        private Dictionary<SectionControl, SectionInDetail> sectionMappings = new Dictionary<SectionControl, SectionInDetail>();
+        private Dictionary<string, List<string>> sectionTests = new Dictionary<string, List<string>>();
+
         public TestPage()
         {
             InitializeComponent();
-           
-            // Инициализация данных
-            Values = new List<double> {3, 5, 7, 4, 6 };
-
-            // Установка контекста данных для привязки
-            DataContext = this;
+            InitializeSectionMappings();
         }
+        private void InitializeSectionMappings()
+        {
+            sectionMappings[Section_1] = Section_Detail_1;
+            sectionMappings[Section_2] = Section_Detail_2;
+            sectionMappings[Section_3] = Section_Detail_3;
+            sectionMappings[Section_4] = Section_Detail_4;
+            sectionMappings[Section_5] = Section_Detail_5;
+            sectionMappings[Section_6] = Section_Detail_6;
+            sectionMappings[Section_7] = Section_Detail_7;
+            sectionMappings[Section_8] = Section_Detail_8;
+            Section_Detail_1.LinkedSectionControl = Section_1;
+            Section_Detail_2.LinkedSectionControl = Section_2;
+            Section_Detail_3.LinkedSectionControl = Section_3;
+            Section_Detail_4.LinkedSectionControl = Section_4;
+            Section_Detail_5.LinkedSectionControl = Section_5;
+            Section_Detail_6.LinkedSectionControl = Section_6;
+            Section_Detail_7.LinkedSectionControl = Section_7;
+            Section_Detail_8.LinkedSectionControl = Section_8;
+
+            // Устанавливаем связь в каждом SectionInDetail
+            int index = 1; // Начальный индекс секции
+            foreach (var pair in sectionMappings)
+            {
+                pair.Value.LinkSectionControl(pair.Key);
+                pair.Value.SectionIndex = index; // Назначаем индекс секции
+
+                // Устанавливаем Tag для кнопки "Добавить БП"
+                Button addButton = pair.Value.FindName("AddPowerUnit") as Button;
+                if (addButton != null)
+                {
+                    addButton.Tag = index;
+                    Console.WriteLine($"Установлен Tag {index} для кнопки в {pair.Value.Name}");
+                }
+                // Присваиваем индекс (Tag) кнопкам в SectionControl
+                var reportTXT = pair.Key.FindName("reportTXT") as Button;
+                var reportDOCX = pair.Key.FindName("reportDOCX") as Button;
+                var printReport = pair.Key.FindName("printReportDOCX") as Button;
+
+                if (reportTXT != null)
+                {
+                    reportTXT.Tag = index;
+                    reportTXT.Click += OpenReportTXT; // Подписываем на событие
+                }
+
+                if (reportDOCX != null)
+                {
+                    reportDOCX.Tag = index;
+                    reportDOCX.Click += OpenReportDOCX; // Подписываем на событие
+                }
+
+                if (printReport != null)
+                {
+                    printReport.Tag = index;
+                    printReport.Click += PrintReportDOCX; // Подписываем на событие
+                }
 
 
+                // Подписываемся на событие TestStateChanged
+                pair.Value.TestStateChanged += (sender, isStarted) =>
+                {
+                    UpdateInnerGrid(pair.Key, isStarted);
+                };
 
-
+                index++;
+            }
+        }
         private void Button_Cell_Click(object sender, RoutedEventArgs e)
         {
             // Скрыть все элементы SectionControl
@@ -98,104 +158,147 @@ namespace power_supply_APP
                 }
             }
         }
-        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        public void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             int index = Convert.ToInt32(button.Tag); // Получаем индекс кнопки
 
-            TestingSettingsWindow settingsWindow = new TestingSettingsWindow();
+            TestingSettingsWindow settingsWindow = new TestingSettingsWindow(this)
+            {
+                SectionIndex = index // Передаём номер секции
+            };
+            // Получаем ссылку на SettingsPage через MainWindow
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            var settingsPage = mainWindow?._settingsPage;
+
+            Console.WriteLine($"SettingsPage через Instance: {settingsPage}");
+
+            if (settingsPage != null)
+            {
+                settingsWindow.SetCheckBoxStates(
+                    settingsPage.IsEnergyCycleChecked,
+                    settingsPage.IsIhhChecked,
+                    settingsPage.IsIprotectChecked,
+                    settingsPage.IsIkzChecked,
+                    settingsPage.IsUPulseChecked,
+                    settingsPage.IsWarmUpChecked,
+                    settingsPage.IsCoolChecked
+                );
+            }
+            if (settingsPage != null)
+            {
+                // Передаём состояние CheckBox в TestingSettingsWindow
+                settingsWindow.SetCheckBoxStates(
+                    settingsPage.IsEnergyCycleChecked,
+                    settingsPage.IsIhhChecked,
+                    settingsPage.IsIprotectChecked,
+                    settingsPage.IsIkzChecked,
+                    settingsPage.IsUPulseChecked,
+                    settingsPage.IsWarmUpChecked,
+                    settingsPage.IsCoolChecked
+                );
+            }
             if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
             {
-                string inputText = settingsWindow.InputText; // Получаем текст из окна добавления
+                string inputText = settingsWindow.InputText;
                 string serialText = settingsWindow.SerialText;
-                switch (index)
+
+                TextBlock deviceBlock = FindName($"DeviceBlock{index}") as TextBlock;
+                TextBlock serialBlock = FindName($"SerialBlock{index}") as TextBlock;
+
+                if (deviceBlock != null) deviceBlock.Text = inputText;
+                if (serialBlock != null) serialBlock.Text = serialText;
+
+                if (sectionMappings.TryGetValue(FindName($"Section_{index}") as SectionControl, out SectionInDetail sectionDetail))
                 {
-                    case 1:
-                        DeviceBlock1.Text = inputText;
-                        SerialBlock1.Text = serialText;
-                        break;
-                    case 2:
-                        DeviceBlock2.Text = inputText;
-                        SerialBlock2.Text = serialText;
-                        break;
-                    case 3:
-                        DeviceBlock3.Text = inputText;
-                        SerialBlock3.Text = serialText;
-                        break;
-                    case 4:
-                        DeviceBlock4.Text = inputText;
-                        SerialBlock4.Text = serialText;
-                        break;
-                    case 5:
-                        DeviceBlock5.Text = inputText;
-                        SerialBlock5.Text = serialText;
-                        break;
-                    case 6:
-                        DeviceBlock6.Text = inputText;
-                        SerialBlock6.Text = serialText;
-                        break;
-                    case 7:
-                        DeviceBlock7.Text = inputText;
-                        SerialBlock7.Text = serialText;
-                        break;
-                    case 8:
-                        DeviceBlock8.Text = inputText;
-                        SerialBlock8.Text = serialText;
-                        break;
+                    sectionDetail.SetDeviceInfo(inputText, serialText);
+                    sectionDetail.SectionIndex = index; // Устанавливаем индекс секции для корректного вызова
+                }
+
+                if (sectionTests.TryGetValue($"Section_{index}", out List<string> selectedTests))
+                {
+                    sectionDetail.SetTests(selectedTests);
+                    Console.WriteLine($"Переданы тесты в Section_{index}: {string.Join(", ", selectedTests)}");
                 }
             }
+        }
+
+        public void UpdateSelectedTests(int sectionIndex, List<string> selectedTests)
+        {
+            string sectionKey = $"Section_{sectionIndex}";
+
+            if (sectionTests.ContainsKey(sectionKey))
+                sectionTests[sectionKey] = selectedTests;
+            else
+                sectionTests.Add(sectionKey, selectedTests);
         }
 
         private void Start_Test(object sender, RoutedEventArgs e)
         {
-            // Получаем кнопку, которая была нажата
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
-            // Находим соответствующий SectionControl по имени
-            var sectionControl = FindName(sectionName) as SectionControl;
-
-            if (sectionControl != null)
+            if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {
-                // Показываем InnerGrid1
-                var innerGrid1 = sectionControl.FindName("InnerGrid1") as Grid;
-                if (innerGrid1 != null)
+                // Получаем индивидуальные тесты для этой секции
+                if (sectionTests.TryGetValue(sectionName, out List<string> testsForThisSection))
                 {
-                    innerGrid1.Visibility = Visibility.Visible;
+                    sectionDetail.StartCharts(testsForThisSection); // Передаём конкретные тесты
                 }
-                // Прячем InnerGrid2
-                var innerGrid2 = sectionControl.FindName("InnerGrid2") as Grid;
-                if (innerGrid2 != null)
-                {
-                    innerGrid2.Visibility = Visibility.Collapsed;
-                }
-            }
 
+                UpdateInnerGrid(FindName(sectionName) as SectionControl, true);
+            }
         }
+
         private void Stop_Test(object sender, RoutedEventArgs e)
         {
-            // Получаем кнопку, которая была нажата
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
-            // Находим соответствующий SectionControl по имени
-            var sectionControl = FindName(sectionName) as SectionControl;
-
+            if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
+            {
+                sectionDetail.StopCharts();
+                UpdateInnerGrid(FindName(sectionName) as SectionControl, false);
+            }
+        }
+        // Метод для обновления состояния SectionControl
+        private void UpdateInnerGrid(SectionControl sectionControl, bool isStarted)
+        {
             if (sectionControl != null)
             {
-                // Показываем InnerGrid2
-                var innerStackPanel2 = sectionControl.FindName("InnerGrid2") as Grid;
-                if (innerStackPanel2 != null)
-                {
-                    innerStackPanel2.Visibility = Visibility.Visible;
-                }
-                // Прячем InnerGrid1
                 var innerGrid1 = sectionControl.FindName("InnerGrid1") as Grid;
-                if (innerGrid1 != null)
+                var innerGrid2 = sectionControl.FindName("InnerGrid2") as Grid;
+
+                if (innerGrid1 != null && innerGrid2 != null)
                 {
-                    innerGrid1.Visibility = Visibility.Collapsed;
+                    innerGrid1.Visibility = isStarted ? Visibility.Visible : Visibility.Collapsed;
+                    innerGrid2.Visibility = isStarted ? Visibility.Collapsed : Visibility.Visible;
                 }
             }
         }
+        private void OpenReportTXT(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет открыт TXT отчёт!", "Отчёт TXT");
+            }
+        }
+
+        private void OpenReportDOCX(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет открыт DOCX отчёт!", "Отчёт DOCX");
+            }
+        }
+
+        private void PrintReportDOCX(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int index)
+            {
+                MessageBox.Show($"Для Ячейки {index} будет распечатан DOCX отчёт!", "Печать отчёта");
+            }
+        }
+
     }
 }

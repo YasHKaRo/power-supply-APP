@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using IOPath = System.IO.Path;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using power_supply_APP.Model;
 
 namespace power_supply_APP
 {
@@ -22,16 +26,54 @@ namespace power_supply_APP
     /// </summary>
     public partial class SettingsPage : Page
     {
+        private ConfigManager configManager = new ConfigManager(); // Загружаем конфиг
         public SettingsPage()
         {
             InitializeComponent();
             LoadData();
+            LoadPowerSupplyFiles();
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Закрываем текущее окно настроек
-            NavigationService.GoBack();
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.NavigateToTestPage(); // Переход на уже существующий TestPage
+            }
         }
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text;
+            string newPassword = NewPasswordBox.Password;
+            string confirmPassword = ConfirmPasswordBox.Password;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
+            {
+                ResultTextBlock.Text = "Все поля должны быть заполнены!";
+                return;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ResultTextBlock.Text = "Пароли не совпадают!";
+                return;
+            }
+
+            if (configManager.ChangePassword(login, newPassword))
+            {
+                ResultTextBlock.Text = "Пароль успешно изменён!";
+            }
+            else
+            {
+                ResultTextBlock.Text = "Пользователь не найден!";
+            }
+        }
+        public bool IsEnergyCycleChecked => EnergyCycleCheckBox.IsChecked ?? false;
+        public bool IsIhhChecked => IhhCheckBox.IsChecked ?? false;
+        public bool IsIprotectChecked => IprotectCheckBox.IsChecked ?? false;
+        public bool IsIkzChecked => IkzCheckBox.IsChecked ?? false;
+        public bool IsUPulseChecked => UPulseCheckBox.IsChecked ?? false;
+        public bool IsWarmUpChecked => WarmUp.IsChecked ?? false;
+        public bool IsCoolChecked => WarmDown.IsChecked ?? false;
         public class RelayData
         {
             public string RelayName { get; set; }
@@ -95,17 +137,142 @@ namespace power_supply_APP
                 }
             }
         }
-        private void Click_Admin(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            string password = PasswordBox.Password;
-            if (button != null && password == "55555")
-            {
-                // Скрываем окно авторизации
-                AuthorizationAdmin.Visibility = Visibility.Collapsed;
 
-                // Показываем настройки администратора
-                AdminSettings.Visibility = Visibility.Visible;
+        private void LoadPowerSupplyFiles()
+        {
+            string directoryPath = "C:\\Users\\ro517\\Рабочий стол\\ВКР\\power-supply-APP\\power-supply-APP\\PowerUnit"; // Укажите путь к папке с XML-файлами
+
+            if (Directory.Exists(directoryPath))
+            {
+                var files = Directory.GetFiles(directoryPath, "*.xml");
+                foreach (var file in files)
+                {
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Content = IOPath.GetFileNameWithoutExtension(file),
+                        Tag = file // Храним полный путь
+                    };
+                    PowerSupplyComboBox.Items.Add(item);
+                }
+            }
+        }
+        private void PowerSupplyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PowerSupplyComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string filePath = selectedItem.Tag.ToString();
+                LoadPowerSupplyData(filePath);
+            }
+        }
+
+        private void LoadPowerSupplyData(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                XDocument xmlDoc = XDocument.Load(filePath);
+                var powerSupply = xmlDoc.Root;
+
+                if (powerSupply != null)
+                {
+                    PowerSupplyNameTextBox.Text = powerSupply.Element("NamePoweUnit")?.Value;
+                    PowerSupplyCodeTextBox.Text = powerSupply.Element("CodePoweUnit")?.Value;
+                    TempWarkUpModule.Text = powerSupply.Element("PIDTemperature")?.Value;
+                    TempWarkUpModuleApprox.Text = powerSupply.Element("PIDTemperatureLimit")?.Value;
+                    EnergyDuration.Text = powerSupply.Element("TimeCycle")?.Value;
+                    WarmUpDuration.Text = powerSupply.Element("TimeWarming")?.Value;
+                    IhhDuration.Text = powerSupply.Element("TimeNoLoad")?.Value;
+                    IprotectDuration.Text = powerSupply.Element("TimeShortCircuit")?.Value;
+                    IkzDuration.Text = powerSupply.Element("TimeProtected")?.Value;
+                    UPulsDuration.Text = powerSupply.Element("TimeRipple")?.Value;
+                    ValueExitEnergy.Text = powerSupply.Element("Voltage_PU_EL_Measure_Max")?.Value;
+                    DeviationValueExitEnergy.Text = powerSupply.Element("Voltage_PU_EL_Measure_Limit")?.Value;
+                    ProtectionRangeCurrentMin.Text = powerSupply.Element("Current_PU_Protected_Min")?.Value;
+                    ProtectionRangeCurrentMax.Text = powerSupply.Element("Current_PU_Protected_Max")?.Value;
+                    ProtectionRangeIncreasingValueMin.Text = powerSupply.Element("Current_PU_EL_Protected_Min")?.Value;
+                    ProtectionRangeIncreasingValueMax.Text = powerSupply.Element("Current_PU_EL_Protected_Max")?.Value;
+                    MaxOutputPulse.Text = powerSupply.Element("RippleVoltage")?.Value;
+                    MaxInputCurrent.Text = powerSupply.Element("Current_Multimetr_Max_PU")?.Value;
+                    MaxInputHHCurrent.Text = powerSupply.Element("Current_No_load_Multimetr_Max_PU")?.Value;
+                    MaxInputKZCurrent.Text = powerSupply.Element("Current_Short_Circuit_Multimetr_Max_PU")?.Value;
+                    MaxValueExitCurrent.Text = powerSupply.Element("Current_PU_EL_Measure_Max")?.Value;
+                    CurrentLimit.Text = powerSupply.Element("Current_EL_Protected")?.Value;
+                    int rangeNL_SC = int.Parse(powerSupply.Element("CurrentRange_Multimetr_NL_SC")?.Value ?? "0");
+                    int rangeMax = int.Parse(powerSupply.Element("CurrentRange_Multimetr_Max")?.Value ?? "0");
+
+
+                    // Заполняем ComboBox в зависимости от значений
+                    UpdateComboBox(CurrentRangeComboBoxNL_SC, rangeNL_SC);
+                    UpdateComboBox(CurrentRangeComboBoxMax, rangeMax);
+                }
+            }
+        }
+       
+
+        // Метод для обновления ComboBox в зависимости от параметра
+        private void UpdateComboBox(ComboBox comboBox, int rangeValue)
+        {
+            comboBox.Items.Clear();
+
+            if (rangeValue == 0)
+            {
+                comboBox.Items.Add("0.005-1.2");
+                comboBox.Items.Add("0.025-6.0");
+            }
+            else
+            {
+                comboBox.Items.Add("0.001-0.5");
+                comboBox.Items.Add("0.01-3.0");
+            }
+
+            // Выбираем первый элемент по умолчанию
+            comboBox.SelectedIndex = 0;
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PowerSupplyComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string filePath = selectedItem.Tag.ToString();
+                SavePowerSupplyData(filePath);
+            }
+        }
+
+        private void SavePowerSupplyData(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                XDocument xmlDoc = XDocument.Load(filePath);
+                var powerSupply = xmlDoc.Root;
+
+                if (powerSupply != null)
+                {
+
+                    powerSupply.Element("NamePoweUnit")?.SetValue(PowerSupplyNameTextBox.Text);
+                    powerSupply.Element("CodePoweUnit")?.SetValue(PowerSupplyCodeTextBox.Text);
+                    powerSupply.Element("PIDTemperature")?.SetValue(PowerSupplyNameTextBox.Text);
+                    powerSupply.Element("CodePoweUnit")?.SetValue(PowerSupplyCodeTextBox.Text);
+                    powerSupply.Element("PIDTemperature")?.SetValue(TempWarkUpModule.Text);
+                    powerSupply.Element("PIDTemperatureLimit")?.SetValue(TempWarkUpModuleApprox.Text);
+                    powerSupply.Element("TimeCycle")?.SetValue(EnergyDuration.Text);
+                    powerSupply.Element("TimeWarming")?.SetValue(WarmUpDuration.Text);
+                    powerSupply.Element("TimeNoLoad")?.SetValue(IhhDuration.Text);
+                    powerSupply.Element("TimeShortCircuit")?.SetValue(IprotectDuration.Text);
+                    powerSupply.Element("TimeProtected")?.SetValue(IkzDuration.Text);
+                    powerSupply.Element("TimeRipple")?.SetValue(UPulsDuration.Text);
+                    powerSupply.Element("Voltage_PU_EL_Measure_Max")?.SetValue(ValueExitEnergy.Text);
+                    powerSupply.Element("Voltage_PU_EL_Measure_Limit")?.SetValue(DeviationValueExitEnergy.Text);
+                    powerSupply.Element("Current_PU_Protected_Min")?.SetValue(ProtectionRangeCurrentMin.Text);
+                    powerSupply.Element("Current_PU_Protected_Max")?.SetValue(ProtectionRangeCurrentMax.Text);
+                    powerSupply.Element("Current_PU_EL_Protected_Min")?.SetValue(ProtectionRangeIncreasingValueMin.Text);
+                    powerSupply.Element("Current_PU_EL_Protected_Max")?.SetValue(ProtectionRangeIncreasingValueMax.Text);
+                    powerSupply.Element("RippleVoltage")?.SetValue(MaxOutputPulse.Text);
+                    powerSupply.Element("Current_Multimetr_Max_PU")?.SetValue(MaxInputCurrent.Text);
+                    powerSupply.Element("Current_No_load_Multimetr_Max_PU")?.SetValue(MaxInputHHCurrent.Text);
+                    powerSupply.Element("Current_Short_Circuit_Multimetr_Max_PU")?.SetValue(MaxInputKZCurrent.Text);
+                    powerSupply.Element("Current_PU_EL_Measure_Max")?.SetValue(MaxValueExitCurrent.Text);
+                    powerSupply.Element("Current_EL_Protected")?.SetValue(CurrentLimit.Text);
+
+                    xmlDoc.Save(filePath);
+                }
             }
         }
     }

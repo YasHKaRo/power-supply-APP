@@ -28,8 +28,8 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" FontSize="10">Измерение:</TextBlock>
-                        <TextBlock Grid.Column="1" FontSize="10">Время:</TextBlock>
+                        <TextBlock Grid.Column="0" FontSize="11">Измерение:</TextBlock>
+                        <TextBlock Grid.Column="1" FontSize="11">Время:</TextBlock>
                         <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="TimerTextFirst" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
                         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" FontSize="12">Выполнено циклов:</TextBlock>
                         <Grid Grid.Column="0" Grid.Row="3">
@@ -91,11 +91,11 @@
                                 <ColumnDefinition Width="60*"></ColumnDefinition>
                                 <ColumnDefinition Width="20*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="10">Выход</TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="10">___</TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" FontSize="10">___</TextBlock>
-                            <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="10">В</TextBlock>
-                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" FontSize="10">А</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="11">Выход</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" x:Name="U_out" FontSize="11">___</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" x:Name="I_out" FontSize="11">___</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="11">В</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"  FontSize="11">А</TextBlock>
                         </Grid>
                         <Grid Grid.Column="0" Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -127,42 +127,42 @@
 
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="1" Grid.Row="0">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorWarmUpReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Name="IndicatorWarmUpReport" Fill="Gray" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="1">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorEnergyReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorEnergyReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="2">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorIhhReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIhhReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="3">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorIprotReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIprotReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="4">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorIkzReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorIkzReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="20" Height="20" Margin="0" />
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="5">
-                    <Ellipse Grid.Row="0" Name="GrayIndicatorUpulsReport_2" Fill="Gray" Width="20" Height="20" Margin="0" />
+                    <Ellipse Grid.Row="0" Fill="{Binding IndicatorUpulsReport, RelativeSource={RelativeSource AncestorType=UserControl}}" Width="20" Height="20" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="5" Height="5" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="10" Height="10" Margin="0" />
                     <Ellipse Stroke="Black" StrokeThickness="1" Width="15" Height="15" Margin="0" />
@@ -180,9 +180,9 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Margin="2">Отчёт</Button>
-                    <Button Grid.Column="1" Margin="2">Отчёт 2</Button>
-                    <Button Grid.Column="2" Margin="2">Печать</Button>
+                    <Button Grid.Column="0" Margin="2" ToolTip="Формат .TXT" x:Name="reportTXT" Tag="{Binding SectionIndex}">Отчёт</Button>
+                    <Button Grid.Column="1" Margin="2" ToolTip="Формат .DOCX" x:Name="reportDOCX" Tag="{Binding SectionIndex}">Отчёт 2</Button>
+                    <Button Grid.Column="2" Margin="2" ToolTip="Распечатать .DOCX отчёт" x:Name="printReportDOCX" Tag="{Binding SectionIndex}">Печать</Button>
                 </Grid>
                 <Button Grid.Column="1" Grid.Row="6" Margin="2">ОК</Button>
                 <Grid Grid.Row="7" Grid.ColumnSpan="2">
@@ -198,9 +198,9 @@
                             <ColumnDefinition Width="30*"></ColumnDefinition>
                             <ColumnDefinition Width="10*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Margin="2"></TextBox>
+                        <TextBox Grid.Column="0" Margin="2" TextChanged="TextBox_TextChanged" Foreground="Navy" ToolTip="Текущая температура" FontFamily="GOST type A" FontSize="20" FontWeight="Bold">0.0</TextBox>
                         <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">°C</TextBlock>
-                        <TextBox Grid.Column="2" Margin="2"></TextBox>
+                        <TextBox Grid.Column="2" Margin="2" Foreground="#FF008040" ToolTip="Установленная температура" FontFamily="GOST type A" FontSize="20" FontWeight="Bold">0.0</TextBox>
                         <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">°C</TextBlock>
                     </Grid>
                 </Grid>

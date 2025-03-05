@@ -21,16 +21,20 @@ namespace power_supply_APP
     public partial class MainWindow : Window
     {
 
+        private TestPage _testPage; // Сохраняем ссылку на TestPage
+        public SettingsPage _settingsPage;
+
         public MainWindow()
         {
             InitializeComponent();
+            _testPage = new TestPage(); // Создаём один экземпляр
+            _settingsPage = new SettingsPage(); // Создаём один экземпляр
+            MainFrame.Navigate(_testPage); // Навигируем в него
+        }
 
-            MainFrame.Navigate(new Authorization()); // Устанавливаем начальную страницу
-
-            DataContext = new MainViewModel();
-            // Подписка на событие изменения темы
-
-
+        public void NavigateToTestPage()
+        {
+            MainFrame.Navigate(_testPage); // Возвращаемся в сохранённый экземпляр
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -50,7 +54,7 @@ namespace power_supply_APP
         {
             if (!(MainFrame.Content is SettingsPage))
             {
-                MainFrame.Navigate(new SettingsPage());
+                MainFrame.Navigate(new Authorization());
             }
             else
             {
