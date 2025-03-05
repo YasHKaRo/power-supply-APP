@@ -361,7 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/power-supply-APP/Model/
-/power-supply-APP/Files/Other
-/power-supply-APP/Api/ModbusService.cs
-/power-supply-APP/Api/ModbusService.cs
+/power-supply-APP/Model/ConfigManager.cs
