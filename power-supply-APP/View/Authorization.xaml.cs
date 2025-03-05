@@ -1,4 +1,5 @@
-﻿using System;
+﻿using power_supply_APP.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,22 +25,28 @@ namespace power_supply_APP
         {
             InitializeComponent();
         }
+        private ConfigManager configManager = new ConfigManager(); // Загружаем конфиг
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            if (username == "admin" && password == "55555")
+            // Проверяем наличие пользователя и правильность пароля через ConfigManager
+            if (configManager.Users.TryGetValue(username, out string storedPassword) && storedPassword == password)
             {
                 // Получаем доступ к главному окну
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-                // Переходим на SettingPage
-                mainWindow.MainFrame.Navigate(mainWindow?._settingsPage);
 
+                if (mainWindow != null)
+                {
+                    // Переходим на SettingsPage
+                    mainWindow.MainFrame.Navigate(mainWindow._settingsPage);
+                }
             }
             else
             {
-                MessageTextBlock.Text = "Это была фатальная ошибка";
+                MessageTextBlock.Text = "Это была фатальная ошибка.";
             }
         }
     }

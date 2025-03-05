@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using power_supply_APP.Model;
 
 namespace power_supply_APP
 {
@@ -25,6 +26,7 @@ namespace power_supply_APP
     /// </summary>
     public partial class SettingsPage : Page
     {
+        private ConfigManager configManager = new ConfigManager(); // Загружаем конфиг
         public SettingsPage()
         {
             InitializeComponent();
@@ -36,6 +38,33 @@ namespace power_supply_APP
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
                 mainWindow.NavigateToTestPage(); // Переход на уже существующий TestPage
+            }
+        }
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text;
+            string newPassword = NewPasswordBox.Password;
+            string confirmPassword = ConfirmPasswordBox.Password;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
+            {
+                ResultTextBlock.Text = "Все поля должны быть заполнены!";
+                return;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ResultTextBlock.Text = "Пароли не совпадают!";
+                return;
+            }
+
+            if (configManager.ChangePassword(login, newPassword))
+            {
+                ResultTextBlock.Text = "Пароль успешно изменён!";
+            }
+            else
+            {
+                ResultTextBlock.Text = "Пользователь не найден!";
             }
         }
         public bool IsEnergyCycleChecked => EnergyCycleCheckBox.IsChecked ?? false;

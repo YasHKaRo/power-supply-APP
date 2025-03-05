@@ -1718,14 +1718,19 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
+
                                             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Логин</TextBlock>
+                                            <TextBox x:Name="LoginTextBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"/>
+
                                             <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Новый пароль</TextBlock>
+                                            <PasswordBox x:Name="NewPasswordBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"/>
+
                                             <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Повторите пароль</TextBlock>
-                                            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></TextBox>
-                                            <PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></PasswordBox>
-                                            <PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"></PasswordBox>
-                                            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="40, 10">Принять</Button>
-                                            <TextBlock Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Результат:</TextBlock>
+                                            <PasswordBox x:Name="ConfirmPasswordBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="30" Width="120"/>
+
+                                            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="40, 10" Click="ChangePassword_Click">Принять</Button>
+
+                                            <TextBlock x:Name="ResultTextBlock" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Результат:</TextBlock>
                                         </Grid>
 
                                     </GroupBox>
