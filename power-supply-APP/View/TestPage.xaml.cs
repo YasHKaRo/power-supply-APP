@@ -15,7 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
+using power_supply_APP.Api.Modules;
+using LiveCharts.Wpf.Charts.Base;
+using power_supply_APP.Api;
 
 namespace power_supply_APP
 {
@@ -238,12 +240,36 @@ namespace power_supply_APP
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
+            // Создаём объект теста
+            var test = new TestHeat
+            {
+                parametr = 123.45f // можешь передать параметры здесь
+            };
+
+            // Создаём порт (можно вынести в сервис и инжектить)
+            var portService = new SerialPortService("COM3", 9600);
+            portService.Open();
+
+            try
+            {
+                test.StartTest(); // Запускаем тест
+                portService.WriteData("Начат тест TestHeat"); // Шлём сигнал железу
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при запуске теста: " + ex.Message);
+            }
+            finally
+            {
+                portService.Close();
+            }
+
+            // Обновление интерфейса
             if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {
-                // Получаем индивидуальные тесты для этой секции
                 if (sectionTests.TryGetValue(sectionName, out List<string> testsForThisSection))
                 {
-                    sectionDetail.StartCharts(testsForThisSection); // Передаём конкретные тесты
+                    sectionDetail.StartCharts(testsForThisSection);
                 }
 
                 UpdateInnerGrid(FindName(sectionName) as SectionControl, true);
