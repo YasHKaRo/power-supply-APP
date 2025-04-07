@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using power_supply_APP.Model;
 
 namespace power_supply_APP
 {
@@ -25,6 +26,7 @@ namespace power_supply_APP
     /// </summary>
     public partial class SettingsPage : Page
     {
+        private ConfigManager configManager = new ConfigManager(); // Загружаем конфиг
         public SettingsPage()
         {
             InitializeComponent();
@@ -33,9 +35,45 @@ namespace power_supply_APP
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Закрываем текущее окно настроек
-            NavigationService.GoBack();
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.NavigateToTestPage(); // Переход на уже существующий TestPage
+            }
         }
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text;
+            string newPassword = NewPasswordBox.Password;
+            string confirmPassword = ConfirmPasswordBox.Password;
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
+            {
+                ResultTextBlock.Text = "Все поля должны быть заполнены!";
+                return;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ResultTextBlock.Text = "Пароли не совпадают!";
+                return;
+            }
+
+            if (configManager.ChangePassword(login, newPassword))
+            {
+                ResultTextBlock.Text = "Пароль успешно изменён!";
+            }
+            else
+            {
+                ResultTextBlock.Text = "Пользователь не найден!";
+            }
+        }
+        public bool IsEnergyCycleChecked => EnergyCycleCheckBox.IsChecked ?? false;
+        public bool IsIhhChecked => IhhCheckBox.IsChecked ?? false;
+        public bool IsIprotectChecked => IprotectCheckBox.IsChecked ?? false;
+        public bool IsIkzChecked => IkzCheckBox.IsChecked ?? false;
+        public bool IsUPulseChecked => UPulseCheckBox.IsChecked ?? false;
+        public bool IsWarmUpChecked => WarmUp.IsChecked ?? false;
+        public bool IsCoolChecked => WarmDown.IsChecked ?? false;
         public class RelayData
         {
             public string RelayName { get; set; }
@@ -99,19 +137,7 @@ namespace power_supply_APP
                 }
             }
         }
-        private void Click_Admin(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            string password = PasswordBox.Password;
-            if (button != null && password == "55555")
-            {
-                // Скрываем окно авторизации
-                AuthorizationAdmin.Visibility = Visibility.Collapsed;
 
-                // Показываем настройки администратора
-                AdminSettings.Visibility = Visibility.Visible;
-            }
-        }
         private void LoadPowerSupplyFiles()
         {
             string directoryPath = "C:\\Users\\ro517\\Рабочий стол\\ВКР\\power-supply-APP\\power-supply-APP\\PowerUnit"; // Укажите путь к папке с XML-файлами

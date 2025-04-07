@@ -1,46 +1,46 @@
-﻿using System;
-using System.IO.Ports;
-using EasyModbus;
+﻿using system;
+using system.io.ports;
+using easymodbus;
 
-namespace power_supply_APP.Api
+namespace power_supply_app.api
 {
-    public interface IModbusService
+    public interface imodbusservice
     {
-        int[] ReadHoldingRegisters(int slaveId, int startAddress, int numberOfPoints);
-        void WriteSingleRegister(int slaveId, int registerAddress, int value);
+        int[] readholdingregisters(int slaveid, int startaddress, int numberofpoints);
+        void writesingleregister(int slaveid, int registeraddress, int value);
     }
 
-    public class ModbusService : IModbusService
+    public class modbusservice : imodbusservice
     {
-        private readonly ModbusClient _modbusClient;
+        private readonly modbusclient _modbusclient;
 
-        public ModbusService(string portName, int baudRate, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
+        public modbusservice(string portname, int baudrate, parity parity = parity.none, int databits = 8, stopbits stopbits = stopbits.one)
         {
-            _modbusClient = new ModbusClient(portName)
+            _modbusclient = new modbusclient(portname)
             {
-                Baudrate = baudRate,
-                Parity = (byte)parity,//need to fix
-                StopBits = (byte)stopBits,//need to fix 
-                ConnectionTimeout = 2000 // Таймаут в мс (можно настроить)
+                baudrate = baudrate,
+                parity = (byte)parity,//need to fix
+                stopbits = (byte)stopbits,//need to fix 
+                connectiontimeout = 2000 // таймаут в мс (можно настроить)
             };
-            _modbusClient.Connect();
+            _modbusclient.connect();
         }
 
-        public int[] ReadHoldingRegisters(int slaveId, int startAddress, int numberOfPoints)
+        public int[] readholdingregisters(int slaveid, int startaddress, int numberofpoints)
         {
-            _modbusClient.UnitIdentifier = (byte)slaveId; // Устанавливаем идентификатор ведомого устройства
-            return _modbusClient.ReadHoldingRegisters(startAddress, numberOfPoints);
+            _modbusclient.unitidentifier = (byte)slaveid; // устанавливаем идентификатор ведомого устройства
+            return _modbusclient.readholdingregisters(startaddress, numberofpoints);
         }
 
-        public void WriteSingleRegister(int slaveId, int registerAddress, int value)
+        public void writesingleregister(int slaveid, int registeraddress, int value)
         {
-            _modbusClient.UnitIdentifier = (byte)slaveId;
-            _modbusClient.WriteSingleRegister(registerAddress, value);
+            _modbusclient.unitidentifier = (byte)slaveid;
+            _modbusclient.writesingleregister(registeraddress, value);
         }
 
-        public void Close()
+        public void close()
         {
-            _modbusClient.Disconnect();
+            _modbusclient.disconnect();
         }
     }
 }

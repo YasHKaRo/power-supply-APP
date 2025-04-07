@@ -118,5 +118,10 @@ namespace power_supply_APP.View
                     break;
             }
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

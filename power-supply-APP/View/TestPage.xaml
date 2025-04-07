@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:power_supply_APP.View"
       mc:Ignorable="d" 
-      d:DesignHeight="750" d:DesignWidth="1300"
+      d:DesignHeight="780" d:DesignWidth="1300"
       Title="TestPage">
     <Page.Resources>
         <ResourceDictionary>
@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid Margin="0,30" Background="{DynamicResource PageBackgroundColor}">
+    <Grid Margin="0,40" Background="{DynamicResource PageBackgroundColor}">
         <TabControl x:Name="TestWindow" Width="1300" Height="700">
             <TabItem x:Name="MainTestWindow">
                 <TabItem.Header>
@@ -121,7 +121,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold" Click="Add_Button_Click">+</Button>
+                                                <Button Margin="10" Tag="1" FontSize="12" FontWeight="Bold" Click="Add_Button_Click" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -133,8 +133,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock1"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock1"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock1"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock1"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <local:SectionControl Grid.Row="1" Grid.RowSpan="2" x:Name="Section_1"/>
@@ -228,7 +228,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="2" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="2" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -240,8 +240,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock2"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock2"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock2"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="1" x:Name="DeviceBlock2"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -332,7 +332,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="3" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="3" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -344,8 +344,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock3"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock3"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock3"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock3"></TextBlock>
                                                 </Grid>
                                             </Grid>
                                             <local:SectionControl Grid.Row="1" Grid.RowSpan="2" x:Name="Section_3"/>
@@ -436,7 +436,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="4" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="4" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -448,8 +448,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock4"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock4"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock4"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock4"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -541,7 +541,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="5" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="5" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -553,8 +553,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock5"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock5"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock5"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock5"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -646,7 +646,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="6" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="6" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -658,8 +658,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock6"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock6"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock6"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock6"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -750,7 +750,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="7" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="7" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -762,8 +762,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock7"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock7"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock7"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock7"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
@@ -855,7 +855,7 @@
                                                     <ColumnDefinition Width="20*"></ColumnDefinition>
                                                     <ColumnDefinition Width="80*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <Button Margin="10" Click="Add_Button_Click" Tag="8" FontSize="12" FontWeight="Bold">+</Button>
+                                                <Button Margin="10" Click="Add_Button_Click" Tag="8" FontSize="12" FontWeight="Bold" ToolTip="Добавить БП">+</Button>
                                                 <Grid Grid.Column="1">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition></RowDefinition>
@@ -867,8 +867,8 @@
                                                     </Grid.ColumnDefinitions>
                                                     <TextBlock FontSize="11" TextWrapping="Wrap">Прибор:</TextBlock>
                                                     <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap">Заводской номер:</TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="9" x:Name="SerialBlock8"></TextBlock>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="9" x:Name="DeviceBlock8"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="1" FontSize="11" x:Name="SerialBlock8"></TextBlock>
+                                                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="11" x:Name="DeviceBlock8"></TextBlock>
                                                 </Grid>
                                             </Grid>
 
