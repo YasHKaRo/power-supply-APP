@@ -1,7 +1,6 @@
 ﻿using power_supply_APP.View;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,8 +15,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Xml.Linq;
-
+using power_supply_APP.Api.Modules;
+using LiveCharts.Wpf.Charts.Base;
+using power_supply_APP.Api;
 
 namespace power_supply_APP
 {
@@ -177,6 +177,18 @@ namespace power_supply_APP
 
             if (settingsPage != null)
             {
+                settingsWindow.SetCheckBoxStates(
+                    settingsPage.IsEnergyCycleChecked,
+                    settingsPage.IsIhhChecked,
+                    settingsPage.IsIprotectChecked,
+                    settingsPage.IsIkzChecked,
+                    settingsPage.IsUPulseChecked,
+                    settingsPage.IsWarmUpChecked,
+                    settingsPage.IsCoolChecked
+                );
+            }
+            if (settingsPage != null)
+            {
                 // Передаём состояние CheckBox в TestingSettingsWindow
                 settingsWindow.SetCheckBoxStates(
                     settingsPage.IsEnergyCycleChecked,
@@ -188,11 +200,8 @@ namespace power_supply_APP
                     settingsPage.IsCoolChecked
                 );
             }
-            if (settingsWindow.ShowDialog() == true) // Проверяем, закрыто ли окно успешно
+            if (settingsWindow.ShowDialog() == true) // Проверяем, было ли окно закрыто успешно
             {
-                // Читаем XML и получаем длительности испытаний
-                TestDurations durations = CheckPowerSupplyFiles(settingsWindow.InputText);
-
                 string inputText = settingsWindow.InputText;
                 string serialText = settingsWindow.SerialText;
 
@@ -206,17 +215,6 @@ namespace power_supply_APP
                 {
                     sectionDetail.SetDeviceInfo(inputText, serialText);
                     sectionDetail.SectionIndex = index; // Устанавливаем индекс секции для корректного вызова
-
-                    // Передаем длительности испытаний, если они найдены
-                    if (durations != null)
-                    {
-                        sectionDetail.SetTestDurations(durations);
-                        Console.WriteLine("Длительности тестов успешно переданы.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Длительности тестов не найдены в XML.");
-                    }
                 }
 
                 if (sectionTests.TryGetValue($"Section_{index}", out List<string> selectedTests))
@@ -225,57 +223,6 @@ namespace power_supply_APP
                     Console.WriteLine($"Переданы тесты в Section_{index}: {string.Join(", ", selectedTests)}");
                 }
             }
-        }
-        public class TestDurations
-        {
-            public int TimeWarming { get; set; }         // Прогрев (в минутах)
-            public int TimeCycle { get; set; }           // Энергоциклирование
-            public int TimeNoLoad { get; set; }          // Холостой ход
-            public int TimeShortCircuit { get; set; }    // Короткое замыкание
-            public int TimeProtected { get; set; }       // Защита
-            public int TimeRipple { get; set; }          // Пульсации напряжения
-        }
-        public TestDurations CheckPowerSupplyFiles(string blockName)
-        {
-            string folderPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(
-            AppDomain.CurrentDomain.BaseDirectory, @"..\..\PowerUnit"));
-
-            if (!Directory.Exists(folderPath))
-            {
-                Console.WriteLine("Папка с XML-файлами не найдена: " + folderPath);
-                return null;
-            }
-
-            string[] xmlFiles = Directory.GetFiles(folderPath, "*.xml");
-
-            foreach (string file in xmlFiles)
-            {
-                try
-                {
-                    XDocument doc = XDocument.Load(file);
-                    var nameElement = doc.Descendants("NamePoweUnit").FirstOrDefault();
-                    if (nameElement != null &&
-                        string.Equals(nameElement.Value.Trim(), blockName.Trim(), StringComparison.OrdinalIgnoreCase))
-                    {
-                        TestDurations durations = new TestDurations
-                        {
-                            TimeWarming = int.Parse(doc.Descendants("TimeWarming").FirstOrDefault()?.Value ?? "0"),
-                            TimeCycle = int.Parse(doc.Descendants("TimeCycle").FirstOrDefault()?.Value ?? "0"),
-                            TimeNoLoad = int.Parse(doc.Descendants("TimeNoLoad").FirstOrDefault()?.Value ?? "0"),
-                            TimeShortCircuit = int.Parse(doc.Descendants("TimeShortCircuit").FirstOrDefault()?.Value ?? "0"),
-                            TimeProtected = int.Parse(doc.Descendants("TimeProtected").FirstOrDefault()?.Value ?? "0"),
-                            TimeRipple = int.Parse(doc.Descendants("TimeRipple").FirstOrDefault()?.Value ?? "0")
-                        };
-                        Console.WriteLine($"Я нашёл! Оно находится в файле {System.IO.Path.GetFileName(file)}");
-                        return durations; // Возвращаем объект с длительностями испытаний
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка при обработке файла {System.IO.Path.GetFileName(file)}: {ex.Message}");
-                }
-            }
-            return null;
         }
 
         public void UpdateSelectedTests(int sectionIndex, List<string> selectedTests)
@@ -293,12 +240,36 @@ namespace power_supply_APP
             Button clickedButton = sender as Button;
             string sectionName = clickedButton.Tag.ToString();
 
+            // Создаём объект теста
+            var test = new TestHeat
+            {
+                parametr = 123.45f // можешь передать параметры здесь
+            };
+
+            // Создаём порт (можно вынести в сервис и инжектить)
+            var portService = new SerialPortService("COM3", 9600);
+            portService.Open();
+
+            try
+            {
+                test.StartTest(); // Запускаем тест
+                portService.WriteData("Начат тест TestHeat"); // Шлём сигнал железу
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при запуске теста: " + ex.Message);
+            }
+            finally
+            {
+                portService.Close();
+            }
+
+            // Обновление интерфейса
             if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {
-                // Получаем индивидуальные тесты для этой секции
                 if (sectionTests.TryGetValue(sectionName, out List<string> testsForThisSection))
                 {
-                    sectionDetail.StartCharts(testsForThisSection); // Передаём конкретные тесты
+                    sectionDetail.StartCharts(testsForThisSection);
                 }
 
                 UpdateInnerGrid(FindName(sectionName) as SectionControl, true);
