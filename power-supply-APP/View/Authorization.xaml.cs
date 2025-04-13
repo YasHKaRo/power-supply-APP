@@ -1,4 +1,5 @@
 ﻿using power_supply_APP.Model;
+using power_supply_APP.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,28 +26,38 @@ namespace power_supply_APP
         {
             InitializeComponent();
         }
+
         private ConfigManager configManager = new ConfigManager(); // Загружаем конфиг
+
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Проверяем наличие пользователя и правильность пароля через ConfigManager
-            if (configManager.Users.TryGetValue(username, out string storedPassword) && storedPassword == password)
+            // Проверяем введённые данные и устанавливаем роль
+            if (configManager.Users.TryGetValue("admin", out string adminPassword) && adminPassword == password)
             {
-                // Получаем доступ к главному окну
-                MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-
-                if (mainWindow != null)
-                {
-                    // Переходим на SettingsPage
-                    mainWindow.MainFrame.Navigate(mainWindow._settingsPage);
-                }
+                // Администратор
+                AuthManager.CurrentUserRole = UserRole.Admin;
+            }
+            else if (configManager.Users.TryGetValue("user", out string userPassword) && userPassword == password)
+            {
+                // Обычный пользователь
+                AuthManager.CurrentUserRole = UserRole.User;
             }
             else
             {
-                MessageTextBlock.Text = "Это была фатальная ошибка.";
+                MessageTextBlock.Text = "Неверное имя пользователя или пароль.";
+                return;
+            }
+
+            // Получаем доступ к главному окну
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                // Переходим на SettingsPage (используем уже созданный экземпляр)
+                mainWindow.MainFrame.Navigate(mainWindow._settingsPage);
             }
         }
     }

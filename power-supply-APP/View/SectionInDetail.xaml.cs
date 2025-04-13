@@ -18,6 +18,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Timers;
 using System.Windows.Threading;
+using static power_supply_APP.TestPage;
 
 namespace power_supply_APP.View
 {
@@ -31,6 +32,7 @@ namespace power_supply_APP.View
         private SectionControl linkedSection; // Ссылка на SectionControl
         public event EventHandler<bool> TestStateChanged; // true - старт, false - стоп
         private List<string> activeTests = new List<string>();
+        private TestDurations _testDurations;
 
         private DispatcherTimer timer;
         private Stopwatch stopwatch;
@@ -94,36 +96,44 @@ namespace power_supply_APP.View
             }
         };
         }
-
+        public void SetTestDurations(TestDurations durations)
+        {
+            _testDurations = durations;
+            // Можно отобразить информацию или сохранить для дальнейшего использования в испытаниях.
+            Console.WriteLine($"Получены длительности: Прогрев - {_testDurations.TimeWarming} мин, " +
+                              $"Энергоциклирование - {_testDurations.TimeCycle} мин, и т.д.");
+        }
         private async Task StartSequentialChartUpdates(CancellationToken token)
         {
-            ResetAllIndicators(); // Сбрасываем все индикаторы перед началом тестирования
+            ResetAllIndicators(); // Сбрасываем индикаторы
 
-            var chartPairs = new List<(CartesianChart, CartesianChart, string)>();
+            var chartPairs = new List<(CartesianChart, CartesianChart, string, int)>();
 
-            if (activeTests.Contains("EnergyCycle"))
-                chartPairs.Add((Current_Chart_En, Voltage_Chart_En, "EnergyCycle"));
-            if (activeTests.Contains("Ihh"))
-                chartPairs.Add((Current_Chart_Ihh, Voltage_Chart_Ihh, "Ihh"));
-            if (activeTests.Contains("Iprotect"))
-                chartPairs.Add((Current_Chart_Iprot, Voltage_Chart_Iprot, "Iprotect"));
-            if (activeTests.Contains("Ikz"))
-                chartPairs.Add((Current_Chart_Ikz, Voltage_Chart_Ikz, "Ikz"));
-            if (activeTests.Contains("Upulse"))
-                chartPairs.Add((Current_Chart_Upuls, Voltage_Chart_Upuls, "Upulse"));
+            // Пример: если для "EnergyCycle" длительность хранится в _testDurations.TimeCycle (в минутах),
+            // преобразуем в миллисекунды: minutes * 60000.
+            if (activeTests.Contains("EnergyCycle") && _testDurations != null)
+                chartPairs.Add((Current_Chart_En, Voltage_Chart_En, "EnergyCycle", _testDurations.TimeCycle * 60000));
+            if (activeTests.Contains("Ihh") && _testDurations != null)
+                chartPairs.Add((Current_Chart_Ihh, Voltage_Chart_Ihh, "Ihh", _testDurations.TimeNoLoad * 60000));
+            if (activeTests.Contains("Iprotect") && _testDurations != null)
+                chartPairs.Add((Current_Chart_Iprot, Voltage_Chart_Iprot, "Iprotect", _testDurations.TimeProtected * 60000));
+            if (activeTests.Contains("Ikz") && _testDurations != null)
+                chartPairs.Add((Current_Chart_Ikz, Voltage_Chart_Ikz, "Ikz", _testDurations.TimeShortCircuit * 60000));
+            if (activeTests.Contains("Upulse") && _testDurations != null)
+                chartPairs.Add((Current_Chart_Upuls, Voltage_Chart_Upuls, "Upulse", _testDurations.TimeRipple * 60000));
 
-            foreach (var (currentChart, voltageChart, testName) in chartPairs)
+            foreach (var (currentChart, voltageChart, testName, durationMs) in chartPairs)
             {
                 if (token.IsCancellationRequested)
                     return;
 
-                Task<bool> currentTask = UpdateChartForDuration(currentChart, token, 10000);
-                Task<bool> voltageTask = UpdateChartForDuration(voltageChart, token, 10000);
+                Task<bool> currentTask = UpdateChartForDuration(currentChart, token, durationMs);
+                Task<bool> voltageTask = UpdateChartForDuration(voltageChart, token, durationMs);
 
                 bool[] results = await Task.WhenAll(currentTask, voltageTask);
-                bool isSuccessful = results.All(result => result); // Успешно, если оба графика в норме
+                bool isSuccessful = results.All(result => result);
 
-                UpdateIndicator(testName, isSuccessful); // Меняем цвет индикатора
+                UpdateIndicator(testName, isSuccessful);
             }
             StopCharts();
         }

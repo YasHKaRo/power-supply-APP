@@ -75,6 +75,7 @@
     <Compile Include="Api\Router.cs" />
     <Compile Include="Api\SerialPort.cs" />
     <Compile Include="Model\ConfigManager.cs" />
+    <Compile Include="ViewModel\AuthManager.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\SectionControl.xaml.cs">
       <DependentUpon>SectionControl.xaml</DependentUpon>

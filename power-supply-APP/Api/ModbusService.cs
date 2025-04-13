@@ -16,10 +16,10 @@ namespace power_supply_app.api
 
         public modbusservice(string portname, int baudrate, parity parity = parity.none, int databits = 8, stopbits stopbits = stopbits.one)
         {
-            _modbusclient = new modbusclient(portname)
-            {
+           _modbusclient = new modbusclient(portname)
+           {
                 baudrate = baudrate,
-                parity = (byte)parity,//need to fix
+               parity = (byte)parity,//need to fix
                 stopbits = (byte)stopbits,//need to fix 
                 connectiontimeout = 2000 // таймаут в мс (можно настроить)
             };

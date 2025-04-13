@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using power_supply_APP.Model;
+using power_supply_APP.ViewModel;
 
 namespace power_supply_APP
 {
@@ -32,6 +33,24 @@ namespace power_supply_APP
             InitializeComponent();
             LoadData();
             LoadPowerSupplyFiles();
+            Loaded += SettingsPage_Loaded;
+        }
+        private void SettingsPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AuthManager.CurrentUserRole != UserRole.Admin)
+            {
+                AdminSettingsPanel.Visibility = Visibility.Collapsed;
+                personalSettings.Visibility = Visibility.Collapsed;
+                modes.Visibility = Visibility.Collapsed;
+                Network.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AdminSettingsPanel.Visibility = Visibility.Visible;
+                personalSettings.Visibility = Visibility.Visible;
+                modes.Visibility = Visibility.Visible;
+                Network.Visibility = Visibility.Visible;
+            }
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
