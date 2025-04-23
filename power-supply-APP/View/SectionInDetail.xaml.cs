@@ -32,7 +32,7 @@ namespace power_supply_APP.View
         private SectionControl linkedSection; // Ссылка на SectionControl
         public event EventHandler<bool> TestStateChanged; // true - старт, false - стоп
         private List<string> activeTests = new List<string>();
-        private TestDurations _testDurations;
+        //private TestDurations _testDurations;
 
         private DispatcherTimer timer;
         private Stopwatch stopwatch;
@@ -96,15 +96,16 @@ namespace power_supply_APP.View
             }
         };
         }
-        public void SetTestDurations(TestDurations durations)
+        /*public void SetTestDurations(TestDurations durations)
         {
             _testDurations = durations;
             // Можно отобразить информацию или сохранить для дальнейшего использования в испытаниях.
             Console.WriteLine($"Получены длительности: Прогрев - {_testDurations.TimeWarming} мин, " +
                               $"Энергоциклирование - {_testDurations.TimeCycle} мин, и т.д.");
         }
+        */
         private async Task StartSequentialChartUpdates(CancellationToken token)
-        {
+        {/*
             ResetAllIndicators(); // Сбрасываем индикаторы
 
             var chartPairs = new List<(CartesianChart, CartesianChart, string, int)>();
@@ -135,8 +136,9 @@ namespace power_supply_APP.View
 
                 UpdateIndicator(testName, isSuccessful);
             }
-            StopCharts();
+            StopCharts();*/
         }
+        
         // Функция сброса данных графиков перед началом теста
         private void ClearAllCharts()
         {
@@ -231,9 +233,9 @@ namespace power_supply_APP.View
 
         // Функция обновления индикатора
 
-
+        
         public void StartCharts(List<string> tests)
-        {
+        {/*
             ClearAllCharts();
             activeTests = tests; // Присваиваем индивидуальный список тестов
 
@@ -246,9 +248,9 @@ namespace power_supply_APP.View
 
             stopwatch.Reset();
             stopwatch.Start();
-            timer.Start();
+            timer.Start();*/
         }
-
+        
         public Brush IndicatorEnergy
         {
             get { return (Brush)GetValue(IndicatorEnergyProperty); }
@@ -337,9 +339,12 @@ namespace power_supply_APP.View
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+
+            /*
             StartCharts(activeTests); // Теперь передаём актуальный список тестов
             TestStateChanged?.Invoke(this, true); // Оповещаем TestPage о старте
             ChangeInnerGridState(true);
+            */
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,33 @@
+{
+  "Reports": {
+    "TxtPath": "..\\..\\Files\\Reports\\reportTxt",
+    "DocPath": "..\\..\\Files\\Reports\\reportDocx",
+    "Type": "Full",
+    "CreateDoc": true,
+    "PrintDocAutomatically": true
+  },
+  "Norms": {
+    "WarmUp": 5.0,
+    "Energy": 2.0,
+    "Ihh": 1.0,
+    "Ikz": 1.0,
+    "IProtect": 1.0,
+    "UPuls": 1.0
+  },
+  "StopMode": "StopAll",
+  "PercentRefusal": 5.0,
+  "PIDMode": true,
+  "VoltageSettings": {
+    "MinVolt": 90.0,
+    "MinVoltApprox": 0.1,
+    "MaxVolt": 265.0,
+    "MaxVoltApprox": 0.1
+  },
+  "Measurement": {
+    "Range": null,
+    "Frequency": null,
+    "Filter": "LF+HF"
+  },
+  "CorrectionFactor": 1.0,
+  "DisableMode": "OnlyOne"
+}

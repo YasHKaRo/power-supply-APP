@@ -11,7 +11,13 @@
 
 
     <StackPanel Margin="0,30, 0, 0">
-        <Button Content="Х" Click="BackButton_Click" Width="20" Margin="10" Background="Red" HorizontalAlignment="Right"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Х" Click="BackButton_Click" Width="20" Margin="10" Background="Red" HorizontalAlignment="Right"/>
+            <Button Content="Сохранить" Click="SaveSettingsButton_Click" Width="100" Margin="10, 5, 0, 5"  HorizontalAlignment="Left"/>
+        </Grid>
         <TabControl x:Name="settings" Height="700">
             <TabItem x:Name="generalSettingsOfCells">
                 <TabItem.Header>
@@ -71,7 +77,7 @@
                                                         <!--Поле ввода информации для min напряжении элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность цикла при min напряжении:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxMinEn" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0"></TextBox>
+                                                        <TextBox x:Name="TextBoxMinEn" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0"></TextBox>
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -82,7 +88,7 @@
                                                         <!--Поле ввода информации для max напряжении элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность цикла при max напряжении:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxMaxEn" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}"  Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxMaxEn" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -97,7 +103,7 @@
                                                         <!--Поле ввода информации для одинарного включения элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность для одинарного включения:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxSingleEn" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxSingleEn" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -112,7 +118,7 @@
                                                         <!--Поле ввода информации для паузы между включениями элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxPauseEn" Grid.Column="0" Grid.Row="7"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=2}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxPauseEn" Grid.Column="0" Grid.Row="7"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="7" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -123,7 +129,7 @@
                                                         <Button Tag="TextBoxPause" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="+" Grid.Column="3" Grid.Row="7" Click="OnChangeButtonClick" Height="20" Width="20" >
 
                                                         </Button>
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
+                                                        <CheckBox x:Name="TempControlEn" Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iхх-->
@@ -152,7 +158,7 @@
                                                         <!--Поле ввода информации для одинарного включения элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxSingleHH" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxSingleHH" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -167,7 +173,7 @@
                                                         <!--Поле ввода информации для паузы между включениями элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxPauseHH" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=2}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxPauseHH" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -182,7 +188,7 @@
                                                         <!--Поле ввода информации для воздействия режима ХХ элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима ХХ:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxImpactsHH" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=20}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxImpactsHH" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -194,7 +200,7 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
+                                                        <CheckBox x:Name="TempControlHH" Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iзащ-->
@@ -223,7 +229,7 @@
                                                         <!--Поле ввода информации для одинарного включения элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxSingleProtect" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxSingleProtect" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -238,7 +244,7 @@
                                                         <!--Поле ввода информации для паузы между включениями элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxPauseProtect" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=2}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxPauseProtect" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -253,7 +259,7 @@
                                                         <!--Поле ввода информации для воздействия режима ПОРОГ элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима ПОРОГ:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxImpactsProtect" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=20}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxImpactsProtect" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -265,7 +271,7 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
+                                                        <CheckBox x:Name="TempControlProtect" Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Iкз-->
@@ -294,7 +300,7 @@
                                                         <!--Поле ввода информации для одинарного включения элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxSingleKZ" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxSingleKZ" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -309,7 +315,7 @@
                                                         <!--Поле ввода информации для паузы между включениями элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxPauseKZ" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=2}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxPauseKZ" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -324,7 +330,7 @@
                                                         <!--Поле ввода информации для воздействия режима КЗ элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность воздействия режима КЗ:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxImpactsKZ" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=20}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxImpactsKZ" Grid.Column="0" Grid.Row="5"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -336,7 +342,7 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
+                                                        <CheckBox x:Name="TempControlKZ" Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                                 <!--Настройка режима Uпульс-->
@@ -365,7 +371,7 @@
                                                         <!--Поле ввода информации для одинарного включения элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность одинарного включения:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxSingleVolt" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=0.5}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxSinglePulse" Grid.Column="0" Grid.Row="1"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Минут</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -380,7 +386,7 @@
                                                         <!--Поле ввода информации для паузы между включениями элемента-->
                                                         <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" TextWrapping="Wrap">Продолжительность паузы между включениями:</TextBlock>
                                                         <!-- Поле ввода для значения -->
-                                                        <TextBox x:Name="TextBoxPauseVolt" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=2}" Margin="0,0,5,0" />
+                                                        <TextBox x:Name="TextBoxPausePulse" Grid.Column="0" Grid.Row="3"  Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
                                                         <!-- Поле СИ-->
                                                         <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">Секунд</TextBlock>
                                                         <!-- Кнопка уменьшения значения -->
@@ -392,7 +398,7 @@
 
                                                         </Button>
 
-                                                        <CheckBox Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
+                                                        <CheckBox x:Name="TempControlPulse" Grid.Row="8" Grid.ColumnSpan="4" IsChecked="True">Контроль температуры</CheckBox>
                                                     </Grid>
                                                 </GroupBox>
                                             </WrapPanel>
@@ -421,7 +427,6 @@
                                                     </GroupBox.Header>
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
-
                                                             <ColumnDefinition Width="394*"/>
                                                             <ColumnDefinition Width="394*"></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
@@ -439,8 +444,8 @@
                                                                 <ColumnDefinition></ColumnDefinition>
                                                                 <ColumnDefinition></ColumnDefinition>
                                                             </Grid.ColumnDefinitions>
-                                                            <RadioButton Grid.Column ="0" IsChecked="True" Content="Min" HorizontalAlignment="Right" FontSize="14" Margin="0,0,5,0" VerticalAlignment="Center"/>
-                                                            <RadioButton Grid.Column ="1" Content="Max" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0" />
+                                                            <RadioButton x:Name="RadioButtonWarmUpMin" Grid.Column ="0" IsChecked="True" Content="Min" HorizontalAlignment="Right" FontSize="14" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                                            <RadioButton x:Name="RadioButtonWarmUpMax" Grid.Column ="1" Content="Max" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0" />
                                                         </Grid>
                                                         <Grid Grid.Column="0" Grid.Row="1">
                                                             <Grid.ColumnDefinitions>
@@ -449,7 +454,7 @@
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Height="18">Одинарное включение (мин.)</TextBlock>
                                                             <Border BorderBrush="Gray" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
-                                                            <TextBox Grid.Column="1" Margin="5,5,5,5">0,5</TextBox>
+                                                            <TextBox x:Name="TextBoxWarmUpSingle" Grid.Column="1" Margin="5,5,5,5">0,5</TextBox>
                                                         </Grid>
                                                         <Grid Grid.Column="1" Grid.Row="1">
                                                             <Grid.ColumnDefinitions>
@@ -458,7 +463,7 @@
                                                             </Grid.ColumnDefinitions>
                                                             <TextBlock Grid.Column="0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Height="18" Width="200">Паузы между включением (с.)</TextBlock>
                                                             <Border BorderBrush="Gray" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" BorderThickness="1"></Border>
-                                                            <TextBox Grid.Column="1" Margin="5,5,5,5">2</TextBox>
+                                                            <TextBox x:Name="TextBoxWarmUpPause" Grid.Column="1" Margin="5,5,5,5">2</TextBox>
                                                         </Grid>
                                                     </Grid>
                                                 </GroupBox>
@@ -483,7 +488,7 @@
                                                         <Border BorderBrush="Gray" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" BorderThickness="1"></Border>
                                                         <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" 
                                                             Height="18" Width="160">Продолжительность (мин.)</TextBlock>
-                                                        <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,5">0,5</TextBox>
+                                                        <TextBox x:Name="TextBoxWarmDownDuration" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5">0,5</TextBox>
                                                     </Grid>
                                                 </GroupBox>
                                             </Grid>
@@ -647,7 +652,7 @@
                                         <GroupBox.Header>
                                             <TextBlock >ПИД-Регулятор</TextBlock>
                                         </GroupBox.Header>
-                                        <CheckBox FontSize="14">Режим "ПИД-регулирование"</CheckBox>
+                                        <CheckBox x:Name="PIDMode" FontSize="14">Режим "ПИД-регулирование"</CheckBox>
                                     </GroupBox>
                                 </Grid>
                                 <GroupBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">Измеритель пульсаций</GroupBox>
@@ -669,19 +674,18 @@
                                         <RowDefinition Height="80*"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <TextBlock Margin="40, 20, 0 0" FontSize="14">Диапозон измерений</TextBlock>
-                                    <ComboBox Grid.Column="0" Grid.Row="1" Margin="40, 10">
+                                    <ComboBox x:Name="MeasurementRange" Grid.Column="0" Grid.Row="1" Margin="40, 10">
                                         <TextBlock>АВТО</TextBlock>
                                         <TextBlock>300мВ</TextBlock>
                                         <TextBlock>3000мВ</TextBlock>
                                     </ComboBox>
                                     <TextBlock Grid.Row="2" Grid.Column="0" Margin="40,20,0,0" FontSize="14">Полоса частот</TextBlock>
-                                    <ComboBox Grid.Row="3" Grid.Column="0" Margin="40, 10">
+                                    <ComboBox x:Name="Frequency" Grid.Row="3" Grid.Column="0" Margin="40, 10">
                                         <TextBlock>100МГц</TextBlock>
                                         <TextBlock>20МГц</TextBlock>
-
                                     </ComboBox>
                                     <TextBlock Grid.Row="4" Grid.Column="0" Margin="40,20,0,0" FontSize="14">Фильтр</TextBlock>
-                                    <ComboBox Grid.Row="5" Grid.Column="0" Margin="40, 10">
+                                    <ComboBox x:Name="Filter" Grid.Row="5" Grid.Column="0" Margin="40, 10">
                                         <TextBlock>Без фильтра</TextBlock>
                                         <TextBlock>HF</TextBlock>
                                         <TextBlock>LF</TextBlock>
@@ -711,8 +715,8 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <RadioButton Margin="10, 5, 0, 0">Отключать питание БП в одной секции</RadioButton>
-                                            <RadioButton Grid.Row="1" Margin="10, 5, 0, 0">Отключать питание БП во всех секциях</RadioButton>
+                                            <RadioButton x:Name="DisableOnlyOne" GroupName="DisableModeGroup" IsChecked="True" Margin="10, 5, 0, 0">Отключать питание БП в одной секции</RadioButton>
+                                            <RadioButton x:Name="DisableAll" GroupName="DisableModeGroup" Grid.Row="1" Margin="10, 5, 0, 0">Отключать питание БП во всех секциях</RadioButton>
                                         </Grid>
 
                                     </GroupBox>
@@ -766,16 +770,22 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <TextBox Grid.Row="0" Margin="10"></TextBox>
+                                            <TextBox x:Name="reportsTxtPath" Grid.Row="0" Margin="10"></TextBox>
                                             <Button Grid.Row="0" Grid.Column="1" Margin="10">...</Button>
                                             <GroupBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Margin="10">
                                                 <GroupBox.Header>
                                                     <TextBlock>Тип отчёта</TextBlock>
                                                 </GroupBox.Header>
-                                                <RadioButton Grid.Row="1" Margin="5" HorizontalAlignment="Center">Полный отчёт</RadioButton>
-
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <RadioButton x:Name="FullReportRadio" Grid.Row="0" Margin="5" HorizontalAlignment="Center">Полный отчёт</RadioButton>
+                                                    <RadioButton x:Name="FailuresReportRadio" Grid.Row="1" Margin="5" HorizontalAlignment="Center">Отчёт только с отказами</RadioButton>
+                                                </Grid>
                                             </GroupBox>
-                                            <RadioButton Grid.Row="2" Margin="5" HorizontalAlignment="Center">Отчёт только с отказами</RadioButton>
+                                          
                                         </Grid>
 
                                     </GroupBox>
@@ -793,16 +803,22 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <TextBox Grid.Row="0" Margin="10"></TextBox>
+                                            <TextBox x:Name="reportsDocPath" Grid.Row="0" Margin="10"></TextBox>
                                             <Button Grid.Row="0" Grid.Column="1" Margin="10">...</Button>
                                             <GroupBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Margin="10">
                                                 <GroupBox.Header>
                                                     <TextBlock>Настройки отчёта</TextBlock>
                                                 </GroupBox.Header>
-                                                <CheckBox Grid.Row="1" Margin="5" HorizontalAlignment="Center">Создавать отчёт</CheckBox>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <CheckBox x:Name="CreateReportDoc" Grid.Row="0" Margin="5" HorizontalAlignment="Center">Создавать отчёт</CheckBox>
+                                                    <CheckBox x:Name="PrintReportDoc" Grid.Row="2" Margin="5" HorizontalAlignment="Center">Печатать отчёт автоматически</CheckBox>
+                                                </Grid>
                                             </GroupBox>
-                                            <CheckBox Grid.Row="2" Margin="5" HorizontalAlignment="Center">Печатать отчёт автоматически</CheckBox>
-                                        </Grid>
+                                              </Grid>
                                     </GroupBox>
                                 </Grid>
 
@@ -836,7 +852,7 @@
                                                     <ColumnDefinition Width="65*"></ColumnDefinition>
 
                                                 </Grid.ColumnDefinitions>
-                                                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14" >
+                                                <GroupBox x:Name="NormWarming" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14" >
                                                     <GroupBox.Header>
                                                         <CheckBox>"Прогрев"</CheckBox>
                                                     </GroupBox.Header>
@@ -858,7 +874,7 @@
                                                     <ColumnDefinition Width="65*"></ColumnDefinition>
 
                                                 </Grid.ColumnDefinitions>
-                                                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14" >
+                                                <GroupBox x:Name="NormEnergy" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14" >
                                                     <GroupBox.Header>
                                                         <CheckBox>"Энергоциклирование"</CheckBox>
                                                     </GroupBox.Header>
@@ -880,7 +896,7 @@
                                                     <ColumnDefinition Width="65*"></ColumnDefinition>
 
                                                 </Grid.ColumnDefinitions>
-                                                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
+                                                <GroupBox x:Name="NormHH" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
                                                     <GroupBox.Header>
                                                         <CheckBox>"Измерение Iхх"</CheckBox>
                                                     </GroupBox.Header>
@@ -902,7 +918,7 @@
                                                     <ColumnDefinition Width="65*"></ColumnDefinition>
 
                                                 </Grid.ColumnDefinitions>
-                                                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
+                                                <GroupBox x:Name="NormKZ" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
                                                     <GroupBox.Header>
                                                         <CheckBox>"Измерение Iкз"</CheckBox>
                                                     </GroupBox.Header>
@@ -924,7 +940,7 @@
                                                     <ColumnDefinition Width="65*"></ColumnDefinition>
 
                                                 </Grid.ColumnDefinitions>
-                                                <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
+                                                <GroupBox x:Name="NormProtect" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="14">
                                                     <GroupBox.Header>
                                                         <CheckBox>"Измерение Iзащиты"</CheckBox>
                                                     </GroupBox.Header>
@@ -982,9 +998,9 @@
                                                         <RowDefinition/>
                                                         <RowDefinition/>
                                                     </Grid.RowDefinitions>
-                                                    <RadioButton Grid.Row="0" FontSize="14">Прекратить текущее, выполнять следующее</RadioButton>
-                                                    <RadioButton IsChecked="True" Grid.Row="1" FontSize="14">Прекратить все режимы</RadioButton>
-                                                    <RadioButton Grid.Row="2" FontSize="14">Прекратить все по окончанию текущего</RadioButton>
+                                                    <RadioButton x:Name="StopCurrentStartNext" Grid.Row="0" FontSize="14">Прекратить текущее, выполнять следующее</RadioButton>
+                                                    <RadioButton x:Name="StopAll" IsChecked="True" Grid.Row="1" FontSize="14">Прекратить все режимы</RadioButton>
+                                                    <RadioButton x:Name="StopAfterCurrent" Grid.Row="2" FontSize="14">Прекратить все по окончанию текущего</RadioButton>
                                                 </Grid>
                                             </GroupBox>
                                             <GroupBox Grid.Row="1" Margin="5,5,5,5" Grid.ColumnSpan="2">
@@ -1021,6 +1037,7 @@
 
                             </Grid>
                         </TabItem>
+                        
                     </TabControl>
                 </TabItem.Content>
             </TabItem>
@@ -1633,7 +1650,7 @@
                                     </GroupBox>
                                     <GroupBox Grid.Column="3" Margin="5,0,5,0" Grid.Row="1">
                                         <GroupBox.Header>
-                                            <TextBlock>Измеритель пульсации</TextBlock>
+                                            <TextBlock>Контроль реле</TextBlock>
                                         </GroupBox.Header>
                                         <Grid>
                                             <Grid.RowDefinitions>
@@ -1653,7 +1670,7 @@
                                 <TextBox x:Name="PowerSupplyNameTextBox" Margin="20, 5"></TextBox>
                                 <TextBlock Margin="20, 0" FontSize="14">Код БП</TextBlock>
                                 <TextBox x:Name="PowerSupplyCodeTextBox" Margin="20, 5"></TextBox>
-                                <Button Margin="20, 5" Click="SaveButton_Click">Сохранить</Button>
+                                <Button Margin="20, 5" Click="SavePowerButton_Click">Сохранить</Button>
                             </StackPanel>
                         </Grid>
                     </TabControl>

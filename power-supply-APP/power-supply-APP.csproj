@@ -159,6 +159,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Files\Other\modes_conf.json" />
+    <None Include="Files\Other\reports_conf.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,7 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\Images\" />
-    <Folder Include="Files\Other\" />
+    <Folder Include="Files\Reports\reportDocx\" />
+    <Folder Include="Files\Reports\reportTxt\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,79 @@
+{
+  "EnergyCycle": {
+    "Enabled": true,
+    "Min": 1.5,
+    "Max": 0.5,
+    "Single": 0.0,
+    "Pause": 2.0,
+    "TempControl": true,
+    "VoltageMode": null,
+    "Duration": 0.0,
+    "Impacts": 0
+  },
+  "Ihh": {
+    "Enabled": true,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.5,
+    "Pause": 2.0,
+    "TempControl": true,
+    "VoltageMode": null,
+    "Duration": 0.0,
+    "Impacts": 20
+  },
+  "Iprotect": {
+    "Enabled": true,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.5,
+    "Pause": 2.0,
+    "TempControl": true,
+    "VoltageMode": null,
+    "Duration": 0.0,
+    "Impacts": 20
+  },
+  "Ikz": {
+    "Enabled": true,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.5,
+    "Pause": 2.0,
+    "TempControl": true,
+    "VoltageMode": null,
+    "Duration": 0.0,
+    "Impacts": 20
+  },
+  "UPulse": {
+    "Enabled": true,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.5,
+    "Pause": 2.0,
+    "TempControl": true,
+    "VoltageMode": null,
+    "Duration": 0.0,
+    "Impacts": 0
+  },
+  "WarmUp": {
+    "Enabled": true,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.5,
+    "Pause": 2.0,
+    "TempControl": false,
+    "VoltageMode": "Min",
+    "Duration": 0.0,
+    "Impacts": 0
+  },
+  "WarmDown": {
+    "Enabled": false,
+    "Min": 0.0,
+    "Max": 0.0,
+    "Single": 0.0,
+    "Pause": 0.0,
+    "TempControl": false,
+    "VoltageMode": null,
+    "Duration": 0.5,
+    "Impacts": 0
+  }
+}
