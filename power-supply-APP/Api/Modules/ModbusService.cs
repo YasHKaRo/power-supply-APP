@@ -4,17 +4,17 @@ using EasyModbus;
 
 namespace power_supply_APP.Api.Modules
 {
-    public interface imodbusservice
+    public interface Imodbusservice
     {
         int[] readholdingregisters(int slaveid, int startaddress, int numberofpoints);
-        void writesingleregister(int slaveid, int registeraddress, int value);
+        void WriteSingleRegister(int slaveid, int registeraddress, int value);
     }
 
-    public class modbusservice : imodbusservice
+    public class ModbusService : Imodbusservice
     {
         private readonly ModbusClient _modbusclient;
 
-        public modbusservice(string portname, int baudrate, Parity parity = Parity.None, int databits = 8, StopBits stopbits = StopBits.None)
+        public ModbusService(string portname, int baudrate, Parity parity = Parity.None, int databits = 8, StopBits stopbits = StopBits.None)
         {
            _modbusclient = new ModbusClient(portname)
            {
@@ -33,7 +33,7 @@ namespace power_supply_APP.Api.Modules
             return _modbusclient.ReadHoldingRegisters(startaddress, numberofpoints);
         }
 
-        public void writesingleregister(int slaveid, int registeraddress, int value)
+        public void WriteSingleRegister(int slaveid, int registeraddress, int value)
         {
             _modbusclient.UnitIdentifier = (byte)slaveid;
             _modbusclient.WriteSingleRegister(registeraddress, value);
@@ -44,4 +44,6 @@ namespace power_supply_APP.Api.Modules
             _modbusclient.Disconnect();
         }
     }
+   
+
 }

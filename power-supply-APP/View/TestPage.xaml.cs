@@ -241,10 +241,18 @@ namespace power_supply_APP
             string sectionName = clickedButton.Tag.ToString();
 
             // Создаём объект теста
-            var test = new TestHeat
+            var testParameters = new TestParameters
             {
-                parametr = 123.45f // можешь передать параметры здесь
+                Temperature = 75.0f,
+                Voltage = 12.0f,
+                DurationSeconds = 3600,
+                CurrentLimit = 5.0f,
+                TestName = "Тест нагрева"
             };
+
+            var test = new TestHeat(testParameters);
+            test.Run();
+
 
             // Создаём порт (можно вынести в сервис и инжектить)
             var portService = new SerialPortService("COM3", 9600);
@@ -252,7 +260,7 @@ namespace power_supply_APP
 
             try
             {
-                test.StartTest(); // Запускаем тест
+                test.Run(); // Запускаем тест
                 portService.WriteData("Начат тест TestHeat"); // Шлём сигнал железу
             }
             catch (Exception ex)
