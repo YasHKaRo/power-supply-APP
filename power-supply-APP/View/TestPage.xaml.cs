@@ -238,9 +238,10 @@ namespace power_supply_APP
         private void Start_Test(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
+            if (clickedButton == null) return;
+
             string sectionName = clickedButton.Tag.ToString();
 
-            // Создаём объект теста
             var testParameters = new TestParameters
             {
                 Temperature = 75.0f,
@@ -250,28 +251,17 @@ namespace power_supply_APP
                 TestName = "Тест нагрева"
             };
 
-            var test = new TestHeat(testParameters);
-            test.Run();
+            var testExecutor = new TestExecutorService();
+            bool result = testExecutor.ExecuteTest(sectionName, testParameters);
 
-
-            // Создаём порт (можно вынести в сервис и инжектить)
-            var portService = new SerialPortService("COM3", 9600);
-            portService.Open();
-
-            try
+            if (result)
             {
-                test.Run(); // Запускаем тест
-                portService.WriteData("Начат тест TestHeat"); // Шлём сигнал железу
+                MessageBox.Show("Тест успешно запущен!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ошибка при запуске теста: " + ex.Message);
+                MessageBox.Show("Ошибка при запуске теста. См. лог файл.");
             }
-            finally
-            {
-                portService.Close();
-            }
-
             // Обновление интерфейса
             if (sectionMappings.TryGetValue(FindName(sectionName) as SectionControl, out SectionInDetail sectionDetail))
             {

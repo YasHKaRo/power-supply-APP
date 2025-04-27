@@ -39,7 +39,7 @@ namespace power_supply_APP.Api.Modules
             _modbusclient.WriteSingleRegister(registeraddress, value);
         }
 
-        public void close()
+        public void Close()
         {
             _modbusclient.Disconnect();
         }
