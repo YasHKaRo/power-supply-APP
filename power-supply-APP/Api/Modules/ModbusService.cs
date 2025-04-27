@@ -2,7 +2,7 @@
 using System.IO.Ports;
 using EasyModbus;
 
-namespace power_supply_app.api
+namespace power_supply_APP.Api.Modules
 {
     public interface imodbusservice
     {
