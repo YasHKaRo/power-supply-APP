@@ -103,6 +103,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Api\Modules\ModbusService.cs" />
+    <Compile Include="Api\Modules\TestCurrent.cs" />
+    <Compile Include="Api\Modules\TestVoltage.cs" />
     <Compile Include="Api\Modules\TestResult.cs" />
     <Compile Include="Api\Modules\TestHeat.cs" />
     <Compile Include="Api\Modules\TestParameters.cs" />
